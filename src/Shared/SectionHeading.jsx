@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SectionHeading = () => {
+const SectionHeading = ({heading, paragraph}) => {
     return (
-        <div className='flex justify-center items-center flex-col gap-3 mb-12'>
-            <h1 className='font-bold text-5xl mb-4'>Top-Rated Resources and Tutors</h1>
-            <p className='text-lg px-72 text-center'>Explore the best-rated study materials and connect with highly recommended tutors, handpicked by our community to ensure quality and success in your learning journey.</p>
+        <div className='text-center gap-3 mb-12 mx-auto'>
+            <h1 className='font-extrabold text-4xl mb-2'>{heading}</h1>
+            <p className='text-base max-w-2xl mx-auto text-center'>{paragraph}</p>
         </div>
     );
 };

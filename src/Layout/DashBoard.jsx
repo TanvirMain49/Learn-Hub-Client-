@@ -19,10 +19,10 @@ const DashBoard = () => {
   }
 
   return (
-    <div className="flex smooch-sans">
-      <div className="w-80 p-3 min-h-screen bg-black text-white ">
+    <div className="flex">
+      <div className="fixed top-0 left-0 w-64 p-3 h-screen bg-black text-white smooch-sans">
         {/* profile */}
-        <div className="flex items-center justify-between border-b-2 border-white/30 pb-4">
+        <div className="flex sticky items-center justify-between border-b-2 border-white/30 pb-4">
           <p className="text-2xl text-white font-bold">LearnHub</p>
           <div className="w-10 border-2 border-white rounded-full">
             {user && (
@@ -35,22 +35,23 @@ const DashBoard = () => {
           </div>
         </div>
         {/*Navbar*/}
-        <div>
+        <div className="">
           <p className="mb-4 mt-2 text-xl font-bold text-right">You are Student</p>
           {/* student navbar */}
           <ul className="flex flex-col menu menu-horizontal text-white font-semibold uppercase space-y-6">
-            <NavLink className="flex items-center gap-2 text-2xl">
-              <FaBookBookmark className="text-lg"></FaBookBookmark>View booked session
+            <NavLink to="bookedSession"
+             className="flex items-center gap-2 text-2xl">
+              <FaBookBookmark className="text-lg"></FaBookBookmark> booked session
             </NavLink>
             <NavLink className="flex items-center gap-2 text-2xl">
               <MdNoteAlt className="text-lg"></MdNoteAlt> Create note
             </NavLink>
             <NavLink className="flex items-center gap-2 text-2xl">
-              <FaNoteSticky className="text-lg"></FaNoteSticky> Manage personal notes
+              <FaNoteSticky className="text-lg"></FaNoteSticky> Manage notes
             </NavLink>
             <NavLink className="flex items-center gap-2 text-2xl">
                 <IoBookSharp className="text-lg"></IoBookSharp>
-              View all study materials
+              all study materials
             </NavLink>
 
             <div className="border-b-2 border-white/40"></div>
@@ -71,7 +72,10 @@ const DashBoard = () => {
           </ul>
         </div>
       </div>
+      <div className="flex-1 py-10 ml-72">
       <Outlet></Outlet>
+      </div>
+      
     </div>
   );
 };
