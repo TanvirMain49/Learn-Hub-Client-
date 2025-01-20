@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Shared/Footer';
 import Navbar from '../Shared/Navbar';
+import Subscribe from '../Shared/Subscribe';
 
 const MainLayOut = () => {
     return (
@@ -10,6 +11,7 @@ const MainLayOut = () => {
             <Navbar></Navbar>
             </div>
             <Outlet></Outlet>
+            <Subscribe></Subscribe>
             <Footer></Footer>
         </div>
     );

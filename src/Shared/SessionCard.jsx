@@ -1,6 +1,7 @@
 import React from "react";
 import "./boxShadow.css"
 import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SessionCard = () => {
   return (
@@ -23,8 +24,9 @@ const SessionCard = () => {
             </p>
         </div>
         <div className="flex justify-between items-center my-4">
-        <button className="flex items-center btn font-bold text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300">Read more<FaArrowRight></FaArrowRight>
-        </button>
+        <Link to={`cardDetails`} 
+         className="flex items-center btn font-bold text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300">Read more<FaArrowRight></FaArrowRight>
+        </Link>
         </div>
       </div>
     </div>
