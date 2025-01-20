@@ -43,7 +43,7 @@ const DashBoard = () => {
              className="flex items-center gap-2 text-2xl">
               <FaBookBookmark className="text-lg"></FaBookBookmark> booked session
             </NavLink>
-            <NavLink className="flex items-center gap-2 text-2xl">
+            <NavLink to ="Notes" className="flex items-center gap-2 text-2xl">
               <MdNoteAlt className="text-lg"></MdNoteAlt> Create note
             </NavLink>
             <NavLink className="flex items-center gap-2 text-2xl">
