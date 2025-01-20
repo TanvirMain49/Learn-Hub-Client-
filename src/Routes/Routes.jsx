@@ -1,3 +1,4 @@
+import DashBoard from "../Layout/DashBoard";
 import MainLayOut from "../Layout/MainlayOut";
 import Login from "../Page/Auth/Login";
 import Signin from "../Page/Auth/Signup";
@@ -28,5 +29,12 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path:"dashboard",
+      element:<DashBoard></DashBoard>,
+      children:[
+        
+      ]
+    }
   ]);
 export default router;

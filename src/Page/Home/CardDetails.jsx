@@ -3,6 +3,7 @@ import { FaBookmark, FaClock, FaList, FaStar } from "react-icons/fa";
 import { FcRating } from "react-icons/fc";
 import SecondaryNav from "../../Shared/SecondaryNav";
 import { FaCircleDot, FaComputer } from "react-icons/fa6";
+import StudentReview from "./StudentReview";
 
 const CardDetails = () => {
   return (
@@ -24,14 +25,14 @@ const CardDetails = () => {
               Introduction to User Experience Design
             </h1>
             {/* Session little information */}
-            <div className="flex items-center gap-4 my-10 font-semibold">
+            <div className="flex items-center gap-4 my-8 font-semibold">
               <h1 className="flex items-center gap-1 whitespace-nowrap">
                 <FaBookmark></FaBookmark>
                 1/02/25 - 27/02/25
               </h1>
               <h1 className="flex items-center gap-1 whitespace-nowrap">
                 <FaClock></FaClock>
-                1/03/25 - 27/03/25
+                7.30pm - 10.00pm
               </h1>
               <h1 className="flex items-center gap-1 whitespace-nowrap">
                 <FaStar></FaStar>
@@ -39,10 +40,10 @@ const CardDetails = () => {
               </h1>
             </div>
             {/* purchase section */}
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4">
               <h2 className="font-extrabold text-5xl">$80</h2>
               <button className="btn font-bold border-2 border-black text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300">
-                Get Started
+                Book Now
               </button>
             </div>
           </div>
@@ -100,7 +101,7 @@ const CardDetails = () => {
 
 
       {/* Session Instructors */}
-      <div className="my-24 flex justify-center gap-10 items-center">
+      <div className="my-24 flex justify-center gap-10">
         <img src="	https://html.merku.love/collab/assets/images/mentor/mentor_details_image_1.jpg" alt="" className="h-[440px] boxSecondary" />
 
         <div className="ml-[7%]">
@@ -116,18 +117,13 @@ const CardDetails = () => {
             </div>
           {/* description */}
           <p className="text-lg max-w-xl">
-            Scelerisque viverra mauris in aliquam. Mauris pharetra et ultrices
-            neque ornare aenean. Diam quis enim lobortis scelerisque fermentum
-            dui faucibus in. Venenatis lectus magna fringilla urna porttitor
-            rhoncus dolor. Sem fringilla ut morbi tincidunt augue interdum velit
-            euismod in. Blandit volutpat maecenas volutpat blandit aliquam etiam
-            erat velit
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat optio adipisci veniam explicabo ab itaque expedita nam, nisi ad dolore odio, blanditiis provident accusantium quam enim tenetur, assumenda iusto sit harum! Ducimus iure delectus, accusamus quo tempora non, sequi adipisci fugiat consequatur odio doloremque nisi ut, voluptas facilis iste praesentium maxime qui eos. Numquam vitae laudantium cum. Velit corrupti excepturi accusamus repudiandae natus officia vitae dolor, explicabo nulla nam dignissimos sit dicta quaerat aspernatur eaque fugiat? Ab cum saepe blanditiis quod culpa veniam illum aut, architecto voluptatibus quidem
           </p>
         </div>
       </div>
 
       {/* student Review */}
-      
+      <StudentReview></StudentReview>
 
     </div>
   );
