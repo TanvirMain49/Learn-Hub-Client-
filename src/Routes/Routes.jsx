@@ -9,6 +9,7 @@ import Home from "../Page/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
 import AddSession from "../Page/Dashboard/Tutor/AddSession";
 import AllSession from "../Page/Home/AllSession";
+import PersonalSession from "../Page/Dashboard/Tutor/PersonalSession";
 
 const router = createBrowserRouter([
     {
@@ -51,9 +52,15 @@ const router = createBrowserRouter([
           path:'Notes',
           element:<Notes></Notes>
         },
+
+        // !Tutor
         {
           path:'addSession',
           element:<AddSession></AddSession>
+        },
+        {
+          path:'personalSession',
+          element:<PersonalSession></PersonalSession>
         },
       ]
     }

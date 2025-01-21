@@ -76,7 +76,7 @@ const DashBoard = () => {
                   <IoAddCircle className="text-xl"></IoAddCircle> add session
                 </NavLink>
                 <NavLink
-                  to="Notes"
+                  to="personalSession"
                   className="flex items-center gap-2 text-2xl"
                 >
                   <MdAlignHorizontalLeft className="text-lg"></MdAlignHorizontalLeft> all sessions
