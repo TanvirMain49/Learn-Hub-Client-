@@ -34,9 +34,11 @@ const AddSession = () => {
       if (sessionImageRes.data.success) {
         const sessionInfo = {
           title: data.title,
+          description: data.description,
           classStart: data.classStart,
           classEnd: data.classEnd,
           status: "pending",
+          price: "0",
           imageUrl: sessionImageRes.data.data.url,  // Session image URL
           tutorImageUrl: data.tutorImage, 
           registerStart: resStart.toISOString().split("T")[0],  // Format the date
@@ -162,7 +164,6 @@ const AddSession = () => {
           </label>
           <textarea
             {...register("description")}
-            id="description"
             cols="20"
             rows="5"
             placeholder="Session Description...."

@@ -8,6 +8,7 @@ import CardDetails from "../Page/Home/CardDetails";
 import Home from "../Page/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
 import AddSession from "../Page/Dashboard/Tutor/AddSession";
+import AllSession from "../Page/Home/AllSession";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             element: <Home></Home>
         },
         {
+            path:'allSession',
+            element: <AllSession></AllSession>
+        },
+        {
             path:'login',
             element: <Login></Login>
         },
@@ -27,8 +32,9 @@ const router = createBrowserRouter([
             element: <Signin></Signin>
         },
         {
-            path:'cardDetails',
-            element: <CardDetails></CardDetails>
+            path:'cardDetails/:id',
+            element: <CardDetails></CardDetails>,
+            loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         }
       ]
     },
