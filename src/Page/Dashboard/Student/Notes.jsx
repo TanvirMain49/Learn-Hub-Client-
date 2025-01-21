@@ -17,7 +17,7 @@ const Notes = () => {
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="card-body border border-black max-w-4xl mx-auto p-12 boxFixed rounded-lg"
+          className="card-body border border-black max-w-3xl mx-auto p-12 boxFixed rounded-lg"
         >
           <div className="form-control">
             <input

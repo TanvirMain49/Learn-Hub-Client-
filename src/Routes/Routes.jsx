@@ -7,6 +7,7 @@ import Notes from "../Page/Dashboard/Student/Notes";
 import CardDetails from "../Page/Home/CardDetails";
 import Home from "../Page/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
+import AddSession from "../Page/Tutor/AddSession";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
       path:"dashboard",
       element:<DashBoard></DashBoard>,
       children:[
+        // !student
         {
           path:'bookedSession',
           element:<BookedSession></BookedSession>
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
         {
           path:'Notes',
           element:<Notes></Notes>
+        },
+        {
+          path:'addSession',
+          element:<AddSession></AddSession>
         },
       ]
     }
