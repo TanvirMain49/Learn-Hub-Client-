@@ -4,7 +4,7 @@ import useAuth from "../Hooks/useAuth";
 import { MdAlignHorizontalLeft, MdHome, MdNoteAlt } from "react-icons/md";
 import { FaBookBookmark, FaNoteSticky } from "react-icons/fa6";
 import { IoAddCircle, IoAddCircleOutline, IoBookSharp, IoLogOut } from "react-icons/io5";
-import { FaBookOpen, FaCaretDown } from "react-icons/fa";
+import { FaBookOpen } from "react-icons/fa";
 
 const DashBoard = () => {
   const { user, signOutUser } = useAuth();
@@ -36,7 +36,7 @@ const DashBoard = () => {
         {/*Navbar*/}
         <div className="">
           <p className="mb-4 mt-2 text-xl font-bold text-right">
-            You are Student
+            You are {isRole}
           </p>
           {/* navbar */}
           <ul className="flex flex-col menu menu-horizontal text-white font-semibold uppercase space-y-6">

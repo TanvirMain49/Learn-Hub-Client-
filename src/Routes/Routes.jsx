@@ -7,7 +7,7 @@ import Notes from "../Page/Dashboard/Student/Notes";
 import CardDetails from "../Page/Home/CardDetails";
 import Home from "../Page/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
-import AddSession from "../Page/Tutor/AddSession";
+import AddSession from "../Page/Dashboard/Tutor/AddSession";
 
 const router = createBrowserRouter([
     {
