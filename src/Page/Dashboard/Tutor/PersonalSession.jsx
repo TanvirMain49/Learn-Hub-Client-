@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 
 const PersonalSession = () => {
   const { user } = useAuth();
-  console.log(user.email);
   const axiosSecure = useAxiosSecure();
   const { data: items = [] } = useQuery({
     queryKey: ["session", user?.email],
@@ -14,7 +13,6 @@ const PersonalSession = () => {
       return res.data;
     },
   });
-  console.log(items);
 
   return (
     <div>

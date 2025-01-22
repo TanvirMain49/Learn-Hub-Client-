@@ -6,9 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
-const imgApiKey = `https://api.imgbb.com/1/upload?key=${
-  import.meta.env.VITE_Imge_Key
-}`;
+const imgApiKey = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Imge_Key}`;
 
 const AddSession = () => {
   const { user } = useAuth();
@@ -23,7 +21,7 @@ const AddSession = () => {
   } = useForm();
   const onSubmit = async (data) => {
     // Prepare form data for both session and tutor images
-    const sessionImageFile = { image: data.image[0] };  // Session image
+    const sessionImageFile = { image: data.image[0] }; 
     try {
       // Upload session image
       const sessionImageRes = await axiosPublic.post(imgApiKey, sessionImageFile, {

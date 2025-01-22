@@ -10,6 +10,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AddSession from "../Page/Dashboard/Tutor/AddSession";
 import AllSession from "../Page/Home/AllSession";
 import PersonalSession from "../Page/Dashboard/Tutor/PersonalSession";
+import Materials from "../Page/Dashboard/Tutor/Materials";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
         {
           path:'personalSession',
           element:<PersonalSession></PersonalSession>
+        },
+        {
+          path:'materials',
+          element:<Materials></Materials>
         },
       ]
     }

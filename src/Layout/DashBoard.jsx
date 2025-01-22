@@ -81,7 +81,9 @@ const DashBoard = () => {
                 >
                   <MdAlignHorizontalLeft className="text-lg"></MdAlignHorizontalLeft> all sessions
                 </NavLink>
-                <NavLink className="flex items-center gap-2 text-2xl">
+                <NavLink
+                to="materials"
+                className="flex items-center gap-2 text-2xl">
                   <IoAddCircleOutline className="text-xl"></IoAddCircleOutline> add materials
                 </NavLink>
                 <NavLink className="flex items-center gap-2 text-2xl">
