@@ -2,7 +2,7 @@ import Modal from "./Modal";
 
 const MaterialCard = ({ item }) => {
   return (
-    <div className="card w-96 bg-white border hover:border hover:border-gray-950 transition-all duration-300 ease-out mb-8">
+    <div className="card w-96 bg-white border hover:border hover:border-gray-950 box transition-all duration-300 ease-out mb-8">
       <figure className="rounded-t-xl w-full h-78">
         <img
           src={item.imageUrl}
@@ -10,7 +10,9 @@ const MaterialCard = ({ item }) => {
         />
       </figure>
       <div className="p-6">
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold">{item.title}</h1>
+          <div className="flex justify-between items-center mb-2">
           {item.status == "pending" && (
             <h2 className="border border-black px-1 rounded font-semibold text-white bg-yellow-500 smooch-sans">
               {item.status}
@@ -27,15 +29,13 @@ const MaterialCard = ({ item }) => {
             </h2>
           )}
         </div>
-        <div>
-          <h1 className="text-2xl font-bold">{item.title}</h1>
         </div>
-        <div className="flex justify-between items-center my-4">
+        <div className="flex justify-center items-center mt-7 mb-4">
           <button
             onClick={() => document.getElementById("my_modal_3").showModal()}
             className="flex items-center btn font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
           >
-            Update Material
+            Add Material
           </button>
         </div>
       </div>

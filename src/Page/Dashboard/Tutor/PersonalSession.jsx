@@ -16,11 +16,9 @@ const PersonalSession = () => {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center">Add a New Session</h1>
-      <p className="text-base text-center font-normal mt-3 mb-8 max-w-4xl mx-auto">
-        Plan and schedule study sessions with ease. Add essential details, set
-        timings, and ensure a well-structured learning experience for all
-        participants.
+      <h1 className="text-5xl font-bold text-center">Manage Your Sessions with Ease</h1>
+      <p className="text-base text-center font-normal mt-3 mb-8 max-w-3xl mx-auto">
+      Develop strong and meaningful relationships with your students. Create a supportive environment where they feel comfortable asking questions and expressing themselves.
       </p>
 
       <div className="overflow-x-auto px-16 ">

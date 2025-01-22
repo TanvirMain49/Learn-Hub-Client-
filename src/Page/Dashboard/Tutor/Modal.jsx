@@ -2,12 +2,15 @@ import React from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const imgApi = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Imge_Key}`;
 
 const Modal = ({ item }) => {
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
+    const {user} = useAuth();
 
      const {
         register,
@@ -16,23 +19,58 @@ const Modal = ({ item }) => {
         formState: { errors },
       } = useForm();
       const onSubmit = async (data) => {
-        console.log(data);
-        const imageUrl = {image: data.image[0]};
-        console.log(imageUrl);
-        const imgRes = await axiosPublic.post(imgApi, imageUrl, {
-            headers:{
-                "content-type": "multipart/form-data"
-            },
-        })
-        console.log(imgRes.data);
-        if(imgRes.data.success){
-            const material = {
-                doc : data.doc,
-                image: imgRes.data?.data?.display_url
-            }
-            const res = await axiosSecure.post('/materials', material)
-            console.log(res.data);
-            document.getElementById("my_modal_3").close()
+        try {
+          const imageUrl = {image: data.image[0]};
+          const imgRes = await axiosPublic.post(imgApi, imageUrl, {
+              headers:{
+                  "content-type": "multipart/form-data"
+              },
+          })
+          console.log(imgRes.data);
+          if(imgRes.data.success){
+              const material = {
+                  sessionId: item._id,
+                  email: user?.email,
+                  doc : data.doc,
+                  image: imgRes.data?.data?.display_url
+              }
+              const res = await axiosSecure.post(`/materials?email=${user?.email}&id=${item._id}`, material)
+              if(res.data.insertedId > 0){
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: "top-end",
+                  showConfirmButton: false,
+                  timer: 3000,
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                  }
+                });
+                Toast.fire({
+                  icon: "success",
+                  title: `${item.title} is added`
+                });
+                reset();
+                document.getElementById("my_modal_3").close()
+              }
+          }
+        } catch (error) {
+          reset();
+          document.getElementById("my_modal_3").close()
+          if (error.response?.status === 400) {
+            Swal.fire({
+              icon: "error",
+              title: "Duplicate Entry",
+              text: "This material already exists in the database.",
+            });
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "An unexpected error occurred. Please try again.",
+            });
+          }
         }
 
       }

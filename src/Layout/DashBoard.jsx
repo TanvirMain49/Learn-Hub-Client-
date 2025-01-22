@@ -84,9 +84,11 @@ const DashBoard = () => {
                 <NavLink
                 to="materials"
                 className="flex items-center gap-2 text-2xl">
-                  <IoAddCircleOutline className="text-xl"></IoAddCircleOutline> add materials
+                  <IoAddCircleOutline className="text-xl"></IoAddCircleOutline> Update materials
                 </NavLink>
-                <NavLink className="flex items-center gap-2 text-2xl">
+                <NavLink 
+                to="allMaterials"
+                className="flex items-center gap-2 text-2xl">
                   <IoBookSharp className="text-lg"></IoBookSharp>
                   all materials
                 </NavLink>
@@ -113,7 +115,7 @@ const DashBoard = () => {
           </ul>
         </div>
       </div>
-      <div className="flex-1 py-10 ml-72">
+      <div className="flex-1 py-10 pl-72 min-h-screen bg-gray-100">
         <Outlet></Outlet>
       </div>
     </div>

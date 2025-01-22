@@ -11,6 +11,7 @@ import AddSession from "../Page/Dashboard/Tutor/AddSession";
 import AllSession from "../Page/Home/AllSession";
 import PersonalSession from "../Page/Dashboard/Tutor/PersonalSession";
 import Materials from "../Page/Dashboard/Tutor/Materials";
+import AllMaterials from "../Page/Dashboard/Tutor/AllMaterials";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         {
           path:'materials',
           element:<Materials></Materials>
+        },
+        {
+          path:'allMaterials',
+          element:<AllMaterials></AllMaterials>
         },
       ]
     }

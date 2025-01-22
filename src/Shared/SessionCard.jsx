@@ -1,7 +1,7 @@
 import React from "react";
-import "./boxShadow.css"
-import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "./boxShadow.css";
 
 const SessionCard = ({item}) => {
   return (
