@@ -12,6 +12,8 @@ import AllSession from "../Page/Home/AllSession";
 import PersonalSession from "../Page/Dashboard/Tutor/PersonalSession";
 import Materials from "../Page/Dashboard/Tutor/Materials";
 import AllMaterials from "../Page/Dashboard/Tutor/AllMaterials";
+import AddMaterial from "../Page/Dashboard/Tutor/AddMaterial";
+import UpdateMaterial from "../Page/Dashboard/Tutor/UpdateMaterial";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +65,16 @@ const router = createBrowserRouter([
         {
           path:'personalSession',
           element:<PersonalSession></PersonalSession>
+        },
+        {
+          path:'addMaterial/:id',
+          element:<AddMaterial></AddMaterial>,
+          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
+        },
+        {
+          path:'updateMaterial/:id',
+          element:<UpdateMaterial></UpdateMaterial>,
+          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
           path:'materials',

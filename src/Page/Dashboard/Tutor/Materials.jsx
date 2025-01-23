@@ -2,7 +2,6 @@ import React from "react";
 import usePersonalSession from "../../../Hooks/usePersonalSession";
 import MaterialCard from "./MaterialCard";
 
-
 const Materials = () => {
     const {items} = usePersonalSession();
   return (

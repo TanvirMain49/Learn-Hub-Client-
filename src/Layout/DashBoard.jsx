@@ -18,7 +18,7 @@ const DashBoard = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex roboto">
       <div className="fixed top-0 left-0 w-64 p-3 h-screen bg-black text-white smooch-sans">
         {/* profile */}
         <div className="flex sticky items-center justify-between border-b-2 border-white/30 pb-4">
