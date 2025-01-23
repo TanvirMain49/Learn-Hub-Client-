@@ -16,9 +16,13 @@ const PersonalSession = () => {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center">Manage Your Sessions with Ease</h1>
+      <h1 className="text-5xl font-bold text-center">
+        Manage Your Sessions with Ease
+      </h1>
       <p className="text-base text-center font-normal mt-3 mb-8 max-w-3xl mx-auto">
-      Develop strong and meaningful relationships with your students. Create a supportive environment where they feel comfortable asking questions and expressing themselves.
+        Develop strong and meaningful relationships with your students. Create a
+        supportive environment where they feel comfortable asking questions and
+        expressing themselves.
       </p>
 
       <div className="overflow-x-auto px-16 ">
@@ -38,7 +42,7 @@ const PersonalSession = () => {
           <tbody className="text-center text-xl bg-gray-100">
             {items.map((item, idx) => (
               <tr>
-                <th>1</th>
+                <th>{idx+1}</th>
                 <td>
                   <div className="flex justify-center items-center gap-3">
                     <div className="avatar">
@@ -50,8 +54,11 @@ const PersonalSession = () => {
                 </td>
                 <td className="font-semibold">{item.title}</td>
                 <td className="font-semibold">{item.tutorName}</td>
-                <td className="font-semibold"><p>{item.registerStart} - {item.registerEnd} </p>
-                     </td>
+                <td className="font-semibold">
+                  <p>
+                    {item.registerStart} - {item.registerEnd}{" "}
+                  </p>
+                </td>
                 <td>
                   {item.price === "0" ? (
                     <h2 className="text-xl">$Free</h2>
@@ -59,7 +66,21 @@ const PersonalSession = () => {
                     <h2 className="text-4xl font-bold">${item.price}</h2>
                   )}
                 </td>
-                <td><p className="border border-black px-1 rounded font-semibold text-white bg-yellow-500 smooch-sans">{item.status}</p></td>
+                <td>
+                    {item.status === "success" && (
+                      <h2 className="border border-black px-1 rounded font-semibold text-white bg-green-500 smooch-sans">
+                        {item.status}
+                      </h2>
+                    )} {item.status === "pending" && (
+                      <h2 className="border border-black px-1 rounded font-semibold text-white bg-yellow-500 smooch-sans">
+                        {item.status}
+                      </h2>
+                    )} {item.status === "rejected" && (
+                      <h2 className="border border-black px-1 rounded font-semibold text-white bg-red-500 smooch-sans">
+                        {item.status}
+                      </h2>
+                    )} 
+                </td>
               </tr>
             ))}
           </tbody>

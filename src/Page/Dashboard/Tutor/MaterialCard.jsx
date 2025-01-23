@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const MaterialCard = ({ item }) => {
   return (
-    <div className="card w-96 bg-white border hover:border hover:border-gray-950 box transition-all duration-300 ease-out mb-8">
+    <div className="card w-80 bg-white border hover:border hover:border-gray-950 box transition-all duration-300 ease-out mb-8">
         <img
           src={item.imageUrl}
-          className="w-full h-74 object-cover rounded-t-lg"
+          className="w-full h-54 object-cover rounded-t-lg"
         />
       <div className="p-6">
         <div className="flex justify-between flex-grow">
@@ -30,7 +30,7 @@ const MaterialCard = ({ item }) => {
         </div>
         <div className="flex justify-center items-center mt-7 mb-4 flex-grow">
           <Link
-            to={`/dashboard/allMaterial/${item._id}`}
+            to={`/dashboard/addMaterial/${item._id}`}
             className="flex items-center btn font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
           >
             Add Material

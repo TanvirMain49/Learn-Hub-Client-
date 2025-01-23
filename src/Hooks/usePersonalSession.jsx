@@ -5,7 +5,7 @@ import useAxiosSecure from './useAxiosSecure';
 const usePersonalSession = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const { data: items = [] } = useQuery({
+    const { data: items = [], refetch } = useQuery({
       queryKey: ["session", user?.email],
       queryFn: async () => {
         const res = await axiosSecure.get(`/personalSession/${user?.email}`);
@@ -13,7 +13,7 @@ const usePersonalSession = () => {
       },
     });
 
-    return {items};
+    return {items, refetch};
 };
 
 export default usePersonalSession;

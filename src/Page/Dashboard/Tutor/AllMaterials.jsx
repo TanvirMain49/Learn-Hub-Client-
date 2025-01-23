@@ -1,9 +1,54 @@
 import React from "react";
 import usePersonalSession from "../../../Hooks/usePersonalSession";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const AllMaterials = () => {
-  const { items } = usePersonalSession();
+  const { items, refetch } = usePersonalSession();
+  const axiosSecure = useAxiosSecure();
+
+
+  const handleDelete = (id) =>{
+    console.log(id);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success ml-6 text-white",
+        cancelButton: "btn btn-danger "
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true
+    }).then(async(result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/materials/${id}`);
+        if(res.data.deletedCount > 0){
+          swalWithBootstrapButtons.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
+        refetch();
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          text: "Your session is safe :)",
+          icon: "error"
+        });
+      }
+    });
+  }
   return (
     <>
       <h1 className="text-5xl font-bold text-center">Manage All Materials</h1>
@@ -15,14 +60,12 @@ const AllMaterials = () => {
       <div className="grid grid-cols-3 gap-6">
         {items.map((item) => (
           <div className="card w-96 bg-white border border-gray-950 transition-all duration-300 ease-out mb-8 box grow flex flex-col">
-            <figure className="rounded-t-xl w-full h-78">
               <img
                 src={item.imageUrl}
-                className="w-full h-full object-cover rounded-t-lg"
+                className="w-full h-56 object-cover rounded-t-lg"
               />
-            </figure>
             <div className="p-6 flex flex-col flex-grow">
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between ">
                 <h1 className="text-2xl font-bold">{item.title}</h1>
                 <div className="flex justify-between items-center mb-2">
                   {item.status == "pending" && (
@@ -50,6 +93,7 @@ const AllMaterials = () => {
                   Update Material
                 </Link>
                 <button
+                onClick={()=>handleDelete(item._id)}
                   className="flex items-center btn font-bold text-base border border-red-700 text-red-700 hover:bg-red-600 hover:text-white transition-all ease-in-out duration-300"
                 >
                   Delete material
