@@ -113,7 +113,7 @@ const CardDetails = () => {
         <img
           src={card.tutorImageUrl}
           alt=""
-          className="h-[440px] boxSecondary border-2 border-gray-300 object-cover"
+          className="h-[440px] boxFixed border-2 border-gray-300 object-cover"
         />
 
         <div className="ml-[7%]">

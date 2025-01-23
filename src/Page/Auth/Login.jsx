@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
   const {logIn} = useAuth();
+  const navigate = useNavigate()
 
   const { register, handleSubmit } = useForm()
   const onSubmit = (data) => {
@@ -13,6 +14,7 @@ const Login = () => {
     logIn(data.email, data.password)
     .then(res=>{
       console.log(res.user);
+      navigate('/')
       
     })
     .catch(error=>{

@@ -102,7 +102,7 @@ const DashBoard = () => {
             <NavLink to="/" className="flex items-center gap-2 text-2xl">
               <MdHome className="text-xl"></MdHome> Home
             </NavLink>
-            <NavLink className="flex items-center gap-2 text-2xl">
+            <NavLink to='/allSession' className="flex items-center gap-2 text-2xl">
               <FaBookOpen className="text-lg"></FaBookOpen> All Session
             </NavLink>
             <button

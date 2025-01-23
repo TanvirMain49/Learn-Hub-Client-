@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import DasHeading from "../../../Shared/DashBoardHeading";
 
 const imgApiKey = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Imge_Key}`;
 
@@ -74,12 +75,7 @@ const AddSession = () => {
   };
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center">Add a New Session</h1>
-      <p className="text-base text-center font-normal mt-3 mb-8 max-w-4xl mx-auto">
-        Plan and schedule study sessions with ease. Add essential details, set
-        timings, and ensure a well-structured learning experience for all
-        participants.
-      </p>
+      <DasHeading Heading="Add a session" subHeading="Let's Get Started"></DasHeading>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="card-body border border-black max-w-4xl mx-auto p-12 boxFixed rounded-lg grid grid-cols-2 gap-3"

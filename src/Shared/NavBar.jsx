@@ -62,7 +62,7 @@ const Navbar = () => {
         {/* Larger screen */}
         <div className={`navbar-end hidden lg:flex`}>
           <ul className="menu menu-horizontal px-1 space-x-3 mr-3 text-black font-bold">
-              <NavLink className='text-3xl p-3'>Home</NavLink>
+              <NavLink to='/' className='text-3xl p-3'>Home</NavLink>
               <NavLink to="allSession" className='text-3xl p-3'>All Session</NavLink>
               <NavLink to='/dashboard/bookedSession' className='text-3xl p-3'>Dashboard</NavLink>
           </ul>

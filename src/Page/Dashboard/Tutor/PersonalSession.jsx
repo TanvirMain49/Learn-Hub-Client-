@@ -2,6 +2,7 @@ import React from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import DasHeading from "../../../Shared/DashBoardHeading";
 
 const PersonalSession = () => {
   const { user } = useAuth();
@@ -15,16 +16,8 @@ const PersonalSession = () => {
   });
 
   return (
-    <div>
-      <h1 className="text-5xl font-bold text-center">
-        Manage Your Sessions with Ease
-      </h1>
-      <p className="text-base text-center font-normal mt-3 mb-8 max-w-3xl mx-auto">
-        Develop strong and meaningful relationships with your students. Create a
-        supportive environment where they feel comfortable asking questions and
-        expressing themselves.
-      </p>
-
+    <>
+      <DasHeading Heading=" Manage Your Sessions" subHeading="Organize Your Session"></DasHeading>
       <div className="overflow-x-auto px-16 ">
         <table className="table smooch-sans">
           {/* head */}
@@ -87,7 +80,7 @@ const PersonalSession = () => {
           {/* foot */}
         </table>
       </div>
-    </div>
+    </>
   );
 };
 

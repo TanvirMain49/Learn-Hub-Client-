@@ -3,7 +3,7 @@ import React from "react";
 const Subscribe = () => {
   return (
     <div className="w-8/12 mx-auto">
-      <div className="bg-gray-200 text-black py-16 px-8 boxSecondary mt-40 mb-24">
+      <div className="bg-blue-600 text-white py-16 px-8 boxFixed mt-40 mb-24">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4">
             Subscribe Now Forget 20% Discount Every Session

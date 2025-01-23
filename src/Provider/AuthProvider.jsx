@@ -11,6 +11,8 @@ import {
   } from "firebase/auth";
   import React, { createContext, useEffect, useState } from "react";
   import { app } from "../FireBase/Firebase.init";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 //   import useAxiosPublic from "../Hooks/useAxiosPublic";
 //   import axios from "axios";
   
@@ -23,6 +25,7 @@ import {
     const [forgetEmail, setForgetEmail] = useState(null);
     const [watchList, setWatchList] = useState(null);
     const [dark, setDark] = useState(false);
+    const axiosPublic = useAxiosPublic();
     // const axiosPublic = useAxiosPublic()
   
     // function to create user
@@ -52,17 +55,18 @@ import {
           setUser(currentUser);
           console.log("AuthProvider: ", currentUser);
           const userInfo = { email: currentUser.email }
-        //   axiosPublic.post('jwt', userInfo)
-        //   .then(res=>{
-        //     if(res.data.token){
-        //       localStorage.setItem('access-token', res.data.token);
-        //       setLoader(false);
-        //     }
-        //   })
+          
+          axiosPublic.post('/jwt', userInfo)
+          .then(res=>{
+            if(res.data?.token){
+              localStorage.setItem('access-token', res.data.token);
+              setLoader(false);
+            }
+          })
           
         } else {
           setUser(currentUser);
-        //   localStorage.removeItem('access-token');
+          localStorage.removeItem('access-token');
           setLoader(false);
         }
        
