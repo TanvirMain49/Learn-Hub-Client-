@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import Booked from "../../../../public/Booked.json";
 
 const BookedSession = () => {
-  const { bookedSessions, refetch } = useBooked();
+  const { bookedSessions } = useBooked();
   return (
     <>
       <DasHeading Heading="View Your Booked Study Session"></DasHeading>

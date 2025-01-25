@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
+
 const useMaterial = () => {
     const {user} = useAuth();
     const {data: material} = useQuery({
@@ -10,7 +11,7 @@ const useMaterial = () => {
             return req.data; 
         }
     })
-    return {materials}
+    return {material}
 };
 
 export default useMaterial;

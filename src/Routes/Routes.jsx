@@ -5,7 +5,6 @@ import Login from "../Page/Auth/Login";
 import Signin from "../Page/Auth/Signup";
 import BookedSession from "../Page/Dashboard/Student/BookedSession";
 import MangeNote from "../Page/Dashboard/Student/MangeNote";
-import NoteDetails from "../Page/Dashboard/Student/NoteDetails";
 import Notes from "../Page/Dashboard/Student/Notes";
 import StudyMaterial from "../Page/Dashboard/Student/StudyMaterial";
 import AddMaterial from "../Page/Dashboard/Tutor/AddMaterial";
@@ -67,11 +66,6 @@ const router = createBrowserRouter([
         {
           path:'mangeNotes',
           element:<MangeNote></MangeNote>
-        },
-        {
-          path:'mangeNotes/:id',
-          element:<NoteDetails></NoteDetails>,
-          loader: ({params})=> fetch(`http://localhost:5000/note/${params.id}`)
         },
         {
           path:'studyMaterial',
