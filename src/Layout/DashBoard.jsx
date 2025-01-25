@@ -69,8 +69,9 @@ const DashBoard = () => {
                 className="flex items-center gap-2 text-2xl">
                   <FaNoteSticky className="text-lg"></FaNoteSticky> Manage notes
                 </NavLink>
-                <NavLink className="flex items-center gap-2 text-2xl">
-                  <IoBookSharp className="text-lg"></IoBookSharp>
+                <NavLink to='studyMaterial' 
+                 className="flex items-center gap-2 text-2xl">
+                  <IoBookSharp  className="text-lg"></IoBookSharp>
                   all study materials
                 </NavLink>
               </>

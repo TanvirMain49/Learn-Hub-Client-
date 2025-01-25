@@ -4,11 +4,12 @@ import { FcRating } from "react-icons/fc";
 import SecondaryNav from "../../Shared/SecondaryNav";
 import { FaCircleDot, FaComputer } from "react-icons/fa6";
 import StudentReview from "./StudentReview";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import useCardDetails from "../../Hooks/useCardDetails";
 
 const CardDetails = () => {
-  const card = useLoaderData();
-  console.log(card);
+  const {id} = useParams();
+  const {items:card} = useCardDetails(id);
   return (
     <div className="my-20 w-10/12 mx-auto ">
       {/* Banner section */}
@@ -48,9 +49,10 @@ const CardDetails = () => {
                 <h2 className="text-4xl font-bold">${card.price}</h2>
               )}
               {new Date(card.registerStart) <= new Date() && new Date(card.registerEnd) >= new Date() ? (
-                <button className="btn font-bold border-2 border-black text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300">
+                <Link to={`/book/${card._id}`}
+                  className="btn font-bold border-2 border-black text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300">
                   Book Now
-                </button>
+                </Link>
               ) : (
                 <button className="btn font-bold border-2 border-red-500 text-base bg-red-500 hover:text-white text-white transition-all ease-in-out duration-300 ">
                   Not Available Now
