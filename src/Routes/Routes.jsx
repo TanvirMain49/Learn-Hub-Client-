@@ -14,6 +14,8 @@ import Materials from "../Page/Dashboard/Tutor/Materials";
 import AllMaterials from "../Page/Dashboard/Tutor/AllMaterials";
 import AddMaterial from "../Page/Dashboard/Tutor/AddMaterial";
 import UpdateMaterial from "../Page/Dashboard/Tutor/UpdateMaterial";
+import MangeNote from "../Page/Dashboard/Student/MangeNote";
+import NoteDetails from "../Page/Dashboard/Student/NoteDetails";
 
 const router = createBrowserRouter([
     {
@@ -53,8 +55,17 @@ const router = createBrowserRouter([
           element:<BookedSession></BookedSession>
         },
         {
-          path:'Notes',
+          path:'notes',
           element:<Notes></Notes>
+        },
+        {
+          path:'mangeNotes',
+          element:<MangeNote></MangeNote>
+        },
+        {
+          path:'mangeNotes/:id',
+          element:<NoteDetails></NoteDetails>,
+          loader: ({params})=> fetch(`http://localhost:5000/note/${params.id}`)
         },
 
         // !Tutor

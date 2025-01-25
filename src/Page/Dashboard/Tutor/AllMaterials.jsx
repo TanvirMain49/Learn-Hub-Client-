@@ -57,7 +57,7 @@ const AllMaterials = () => {
         Heading=" Manage Your Material"
         subHeading="Organize Your Material"
       ></DasHeading>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="w-11/12 mx-auto grid grid-cols-3 space-x-12">
         {items.map((item) => (
           <div className="card w-96 bg-white border border-gray-950 transition-all duration-300 ease-out mb-8 box grow flex flex-col">
             <img

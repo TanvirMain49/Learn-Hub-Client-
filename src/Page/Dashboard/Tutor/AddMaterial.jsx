@@ -39,14 +39,12 @@ const AddMaterial = () => {
           doc: data.doc,
           image: imgRes.data?.data?.display_url,
         };
-        console.log(material);
+
         const res = await axiosSecure.post(
           `/materials?email=${user?.email}&id=${item._id}`,
           material
         );
-        console.log(res.data);
         if (res.data.insertedId > "0") {
-          console.log("Ji asi");
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",

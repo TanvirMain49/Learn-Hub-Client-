@@ -42,3 +42,10 @@ const MaterialCard = ({ item }) => {
 };
 
 export default MaterialCard;
+
+{/* <Link
+to={`/dashboard/addMaterial/${item._id}`}
+className="flex items-center btn font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+>
+Add Material
+</Link> */}

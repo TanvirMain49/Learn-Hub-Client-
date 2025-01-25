@@ -9,7 +9,7 @@ const Materials = () => {
     <>
       <DasHeading Heading="Add Essential Materials" subHeading="The Essentials"></DasHeading>
     
-        <div className="grid grid-cols-3 gap-2">
+        <div className="w-11/12 mx-auto grid grid-cols-3 gap-2">
         {
             items.map(item=><MaterialCard key={item._id} item={item}></MaterialCard> )
         }

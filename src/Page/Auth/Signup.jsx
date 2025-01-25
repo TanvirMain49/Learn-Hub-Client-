@@ -3,19 +3,20 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   const { createUser, updatePfp, signInWithGoogle } = useAuth();
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
   const { register, handleSubmit, reset, formState: { errors }, } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-
     createUser(data.email, data.password)
       .then((res) => {
         updatePfp({ displayName: data.name, photoURL: data.photoURL })
-          .then((res) => {
+          .then(async (res) => {
             reset();
             const userInfo = {
               name: data.name,
@@ -23,10 +24,34 @@ const Signup = () => {
               email: data.email,
               role: data.role,
             };
+            const userRes = await axiosPublic.post('/users', userInfo)
+            console.log(userRes.data); 
+            if(userRes.data.insertedId > '0'){
+              Swal.fire({
+                title: `${data.name} Welcome Back!`,
+                icon: "success",
+                draggable: true,
+                background: '#198754',
+                color: '#ffff',
+                confirmButtonColor: '#000000', 
+                confirmButtonText: 'Continue', 
+                confirmButtonTextColor: '#ffffff'
+              });
+            }
             navigate('/')
           })
           .catch((error) => {
             console.log(error.message);
+            Swal.fire({
+              title: `error.message`,
+              icon: "error",
+              draggable: true,
+              background: '#dc3545', 
+              color: '#ffffff',
+              confirmButtonColor: '#000000', 
+              confirmButtonText: 'Close', 
+              confirmButtonTextColor: '#ffffff'
+            });
           });
       })
       .catch((error) => {

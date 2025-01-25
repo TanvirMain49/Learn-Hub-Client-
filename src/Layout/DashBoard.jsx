@@ -5,11 +5,14 @@ import { MdAlignHorizontalLeft, MdHome, MdNoteAlt } from "react-icons/md";
 import { FaBookBookmark, FaNoteSticky } from "react-icons/fa6";
 import { IoAddCircle, IoAddCircleOutline, IoBookSharp, IoLogOut } from "react-icons/io5";
 import { FaBookOpen } from "react-icons/fa";
+import useRole from "../Hooks/useRole";
+import Loader from "../Shared/Loader";
 
 const DashBoard = () => {
   const { user, signOutUser } = useAuth();
   const navigate = useNavigate();
-  const isRole = "tutor";
+  const {isRole, isLoading} = useRole();
+  console.log(isRole);
 
   const handleLogOut = () => {
     signOutUser().then((res) => {
@@ -17,18 +20,22 @@ const DashBoard = () => {
     });
   };
 
+  // if(isLoading){
+  //   return <Loader></Loader>
+  // }
+
   return (
     <div className="flex roboto">
-      <div className="fixed top-0 left-0 w-64 p-3 h-screen bg-black text-white smooch-sans">
+      <div className="fixed top-0 left-0 w-72 p-3 h-screen bg-black text-white smooch-sans">
         {/* profile */}
         <div className="flex sticky items-center justify-between border-b-2 border-white/30 pb-4">
           <p className="text-2xl text-white font-bold">LearnHub</p>
-          <div className="w-10 border-2 border-white rounded-full">
+          <div className="border-2 border-white rounded-full">
             {user && (
               <img
                 alt={user?.name}
                 src={user?.photoURL}
-                className="rounded-full"
+                className="w-12 h-12 object-cover rounded-full"
               />
             )}
           </div>
@@ -41,7 +48,7 @@ const DashBoard = () => {
           {/* navbar */}
           <ul className="flex flex-col menu menu-horizontal text-white font-semibold uppercase space-y-6">
             {/* student navbar */}
-            {isRole === "student" && (
+            {isRole === "Student" && (
               <>
                 <NavLink
                   to="bookedSession"
@@ -51,12 +58,15 @@ const DashBoard = () => {
                   session
                 </NavLink>
                 <NavLink
-                  to="Notes"
+                  to="notes"
                   className="flex items-center gap-2 text-2xl"
                 >
-                  <MdNoteAlt className="text-lg"></MdNoteAlt> Create note
+                  <MdNoteAlt 
+                  className="text-lg"></MdNoteAlt> Create note
                 </NavLink>
-                <NavLink className="flex items-center gap-2 text-2xl">
+                <NavLink 
+                to="mangeNotes"
+                className="flex items-center gap-2 text-2xl">
                   <FaNoteSticky className="text-lg"></FaNoteSticky> Manage notes
                 </NavLink>
                 <NavLink className="flex items-center gap-2 text-2xl">
@@ -67,7 +77,7 @@ const DashBoard = () => {
             )}
 
             {/* tutor navbar */}
-            {isRole === "tutor" && (
+            {isRole === "Tutor" && (
               <>
                 <NavLink
                   to="addSession"
