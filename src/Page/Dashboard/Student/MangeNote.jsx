@@ -17,7 +17,6 @@ const MangeNote = () => {
       return res.data;
     },
   });
-  console.log(notes);
   return (
     <div>
       <DasHeading Heading="Mange Note"></DasHeading>
