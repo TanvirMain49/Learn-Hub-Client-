@@ -11,6 +11,7 @@ const Signup = () => {
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
+  // TODO: error from
   const { register, handleSubmit, reset, formState: { errors }, } = useForm();
   const onSubmit = (data) => {
     createUser(data.email, data.password)
@@ -24,7 +25,7 @@ const Signup = () => {
               email: data.email,
               role: data.role,
             };
-            const userRes = await axiosPublic.post('/users', userInfo)
+            const userRes = await axiosPublic.post(`/users?email=${data.email}`, userInfo)
             console.log(userRes.data); 
             if(userRes.data.insertedId > '0'){
               Swal.fire({
@@ -55,17 +56,39 @@ const Signup = () => {
           });
       })
       .catch((error) => {
+        // TODO: Error alert
         console.log(error);
       });
   };
 
   const handleGoogle=()=>{
     signInWithGoogle()
-    .then(res=>{
+    .then(async(res)=>{
       console.log(res.user);
+      const userInfo = {
+        name: res.user.displayName,
+        photoURL: res.user.photoURL,
+        email: res.user.email,
+        role: "Student",
+      };
+      const userRes = await axiosPublic.post(`/users?email=${res.user.email}`, userInfo)
+      console.log(userRes.data); 
+      if(userRes.data.insertedId > '0'){
+        Swal.fire({
+          title: `${res.user.name} Welcome Back!`,
+          icon: "success",
+          draggable: true,
+          background: '#198754',
+          color: '#ffff',
+          confirmButtonColor: '#000000', 
+          confirmButtonText: 'Continue', 
+          confirmButtonTextColor: '#ffffff'
+        });
+      }
       navigate('/')
     })
     .catch(error=>{
+      // TODO: Error alert
       console.log(error);
     })
   }
