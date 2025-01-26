@@ -5,10 +5,9 @@ import StudyMaterialCard from "./StudyMaterialCard";
 
 const StudyMaterial = () => {
   const { bookedSessions } = useBooked();
-  console.log(bookedSessions);
   return (
     <div>
-      <DasHeading Heading="Get Study Material"></DasHeading>
+      <DasHeading Heading="Get Study Material" subHeading="Discover Study Content"></DasHeading>
       <div className="grid grid-cols-3 gap-6 px-10">
         {bookedSessions.map((session) => (
           <StudyMaterialCard

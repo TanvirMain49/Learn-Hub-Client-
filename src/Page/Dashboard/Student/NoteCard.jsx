@@ -4,9 +4,52 @@ import NoteModal from "./NoteModal";
 import { GrUpdate } from "react-icons/gr";
 import { FaList } from "react-icons/fa6";
 import { FaTrashAlt } from "react-icons/fa";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
-const NoteCard = ({ note }) => {
-  console.log(note);
+const NoteCard = ({ note, refetch }) => {
+  const axiosSecure = useAxiosSecure();
+  const handleDelete = (id)=>{
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success text-white ml-6",
+        cancelButton: "btn btn-danger"
+      },
+      buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert note!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true
+    }).then(async(result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/notes/${id}`);
+        console.log(res.data);
+        if(res.data.deletedCount){
+          swalWithBootstrapButtons.fire({
+            title: "Deleted!",
+            text: `${note.title} has been deleted.`,
+            icon: "success"
+          });
+          refetch()
+        }
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire({
+          title: "Cancelled",
+          text: `Your ${note.title} is safe :)`,
+          icon: "error",
+          confirmButton: "btn btn-success text-white",
+        });
+      }
+    });
+  }
   return (
     <div className="card bg-white text-black border border-black box transition-all duration-300 ease-in-out hover:border-none">
       <div className="card-body">
@@ -40,7 +83,9 @@ const NoteCard = ({ note }) => {
         <GrUpdate className="font-extrabold"></GrUpdate>
           Update
         </Link>
-        <button className="btn text-base font-bold bg-white border border-black hover:bg-red-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-105">
+        <button 
+        onClick={()=>handleDelete(note._id)}
+        className="btn text-base font-bold bg-white border border-black hover:bg-red-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-105">
           <FaTrashAlt></FaTrashAlt>
           Delete
         </button>

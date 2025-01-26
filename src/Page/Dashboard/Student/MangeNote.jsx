@@ -10,7 +10,7 @@ import Note from "../../../../public/Animation - 1737810743733.json"
 const MangeNote = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const { data: notes = [] } = useQuery({
+  const { data: notes = [], refetch } = useQuery({
     queryKey: ["note", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`notes/${user?.email}`);
@@ -19,16 +19,16 @@ const MangeNote = () => {
   });
   return (
     <div>
-      <DasHeading Heading="Mange Note"></DasHeading>
+      <DasHeading Heading="Mange Note" subHeading='Organize Your Notes'></DasHeading>
       {notes.length ? (
         <div className="w-11/12 mx-auto grid grid-cols-3 gap-9">
           {notes.map((note) => (
-            <NoteCard key={note._id} note={note}></NoteCard>
+            <NoteCard key={note._id} note={note} refetch={refetch}></NoteCard>
           ))}
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center">
-            <Lottie animationData={Note} loop={true} className="max-w-72"/>
+            <Lottie animationData={Note} loop={true}  className="max-w-72"/>
             <h1 className="text-center text-3xl font-extrabold">Create Note First</h1>
         </div>
       )}

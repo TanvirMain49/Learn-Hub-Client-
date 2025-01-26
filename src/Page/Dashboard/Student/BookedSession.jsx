@@ -9,7 +9,7 @@ const BookedSession = () => {
   const { bookedSessions } = useBooked();
   return (
     <>
-      <DasHeading Heading="View Your Booked Study Session"></DasHeading>
+      <DasHeading Heading="View Your Booked Study Session" subHeading="See Your Booked Sessions"></DasHeading>
       {bookedSessions.length ? (
         <div className="overflow-x-auto px-16 rounded-xl">
           <table className="table">

@@ -47,7 +47,7 @@ const Notes = () => {
 
   return (
     <div className="pb-20 pt-8">
-      <DasHeading Heading="Create Your Notes"></DasHeading>
+      <DasHeading Heading="Create Your Notes" subHeading="Write and Save Your Ideas"></DasHeading>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="card-body bg-white border border-black max-w-3xl mx-auto p-12 boxFixed rounded-lg"
