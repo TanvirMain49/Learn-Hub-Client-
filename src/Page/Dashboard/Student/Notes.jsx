@@ -50,7 +50,7 @@ const Notes = () => {
       <DasHeading Heading="Create Your Notes"></DasHeading>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body border border-black max-w-3xl mx-auto p-12 boxFixed rounded-lg"
+        className="card-body bg-white border border-black max-w-3xl mx-auto p-12 boxFixed rounded-lg"
       >
         <div className="form-control">
           <input
@@ -58,8 +58,9 @@ const Notes = () => {
             type="email"
             defaultValue={user?.email}
             placeholder="Email"
-            className="input input-bordered border border-black mb-3"
+            className="input input-bordered placeholder:text-black placeholder:text-xl border border-black mb-3"
             required
+            readOnly
           />
         </div>
         <div className="form-control">
@@ -67,7 +68,7 @@ const Notes = () => {
             {...register("title")}
             type="text"
             placeholder="Title"
-            className="input input-bordered border border-black"
+            className="input input-bordered placeholder:text-black placeholder:opacity-40 border border-black"
             required
           />
         </div>
@@ -78,7 +79,7 @@ const Notes = () => {
             cols="20"
             rows="8"
             placeholder="Note Description...."
-            className="textarea textarea-bordered border border-black mt-2"
+            className="textarea textarea-bordered placeholder:text-black placeholder:opacity-40 border border-black mt-2"
             required
           />
         </div>

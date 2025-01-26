@@ -7,6 +7,7 @@ import BookedSession from "../Page/Dashboard/Student/BookedSession";
 import MangeNote from "../Page/Dashboard/Student/MangeNote";
 import Notes from "../Page/Dashboard/Student/Notes";
 import StudyMaterial from "../Page/Dashboard/Student/StudyMaterial";
+import UpdateStudyMaterial from "../Page/Dashboard/Student/UpdateStudyMaterial";
 import AddMaterial from "../Page/Dashboard/Tutor/AddMaterial";
 import AddSession from "../Page/Dashboard/Tutor/AddSession";
 import AllMaterials from "../Page/Dashboard/Tutor/AllMaterials";
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
         {
           path:'mangeNotes',
           element:<MangeNote></MangeNote>
+        },
+        {
+          path:'updateNotes/:id',
+          element:<UpdateStudyMaterial></UpdateStudyMaterial>
         },
         {
           path:'studyMaterial',

@@ -5,17 +5,9 @@ import Lottie from "lottie-react";
 import { FaBook, FaLink } from "react-icons/fa6";
 
 const StudyMatModal = ({ session, sessionId, material }) => {
-  //   const axiosSecure = useAxiosSecure();
-  //   const { data: material, isLoading } = useQuery({
-  //     queryKey: ["material", session.sessionId],
-  //     queryFn: async () => {
-  //       const res = await axiosSecure.get(`/materials/${session.sessionId}`);
-  //       return res.data;
-  //     },
-  //   });
-  console.log(material);
+
   return (
-    <dialog id={`my_modal_${sessionId}`} className="modal ">
+    <dialog id={`my_modal_${sessionId}`} className="modal">
       <div className="modal-box w-11/12 max-w-5xl text-black">
         <h3 className="font-extrabold text-3xl text-blue-800">
           {session.title}

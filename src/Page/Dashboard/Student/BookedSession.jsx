@@ -3,6 +3,7 @@ import DasHeading from "../../../Shared/DashBoardHeading";
 import useBooked from "../../../Hooks/useBooked";
 import Lottie from "lottie-react";
 import Booked from "../../../../public/Booked.json";
+import { FaList } from "react-icons/fa6";
 
 const BookedSession = () => {
   const { bookedSessions } = useBooked();
@@ -10,7 +11,7 @@ const BookedSession = () => {
     <>
       <DasHeading Heading="View Your Booked Study Session"></DasHeading>
       {bookedSessions.length ? (
-        <div className="overflow-x-auto px-16 ">
+        <div className="overflow-x-auto px-16 rounded-xl">
           <table className="table">
             {/* head */}
             <thead className="text-center text-lg bg-black text-white">
@@ -22,7 +23,7 @@ const BookedSession = () => {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody className="text-center text-lg bg-gray-100">
+            <tbody className="text-center text-lg bg-white">
               {bookedSessions.map((booked) => (
                 <tr className="border border-black">
                   <th>1</th>
@@ -41,8 +42,9 @@ const BookedSession = () => {
                   <th>
                     <Link
                       to={`/cardDetails/${booked.sessionId}`}
-                      className="flex items-center btn border border-black font-bold text-sm hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+                      className="flex items-center btn bg-white text-base border border-black font-bold hover:bg-black hover:text-white transition-all ease-in-out duration-300"
                     >
+                      <FaList></FaList>
                       View Details
                     </Link>
                   </th>

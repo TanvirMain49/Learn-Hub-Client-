@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import loading from "../../../../public/Loading.json";
 import Lottie from "lottie-react";
+import { FaList } from "react-icons/fa6";
 
 const StudyMaterialCard = ({ session }) => {
 
@@ -15,7 +16,6 @@ const StudyMaterialCard = ({ session }) => {
             return res.data;
         }
     })
-    console.log(material);
 
     if (isLoading) {
         return (
@@ -32,12 +32,13 @@ const StudyMaterialCard = ({ session }) => {
       </div>
       <div className="flex justify-center items-center ">
         <button
-          className="btn mb-6 border hover:bg-black hover:text-white  border-black transition-all ease-in-out duration-300 text-xl font-bold"
+          className="btn mb-6 bg-white border hover:bg-black hover:text-white  border-black transition-all ease-in-out duration-300 text-xl font-bold"
           onClick={() =>
             document.getElementById(`my_modal_${session._id}`).showModal()
           }
         >
-          view Material
+          <FaList></FaList>
+          View Material
         </button>
       </div>
       <StudyMatModal session={session} sessionId={session._id} material={material}></StudyMatModal>

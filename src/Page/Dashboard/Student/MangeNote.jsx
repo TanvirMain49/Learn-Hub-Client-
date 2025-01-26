@@ -21,7 +21,7 @@ const MangeNote = () => {
     <div>
       <DasHeading Heading="Mange Note"></DasHeading>
       {notes.length ? (
-        <div className="w-11/12 mx-auto grid grid-cols-3 gap-6">
+        <div className="w-11/12 mx-auto grid grid-cols-3 gap-9">
           {notes.map((note) => (
             <NoteCard key={note._id} note={note}></NoteCard>
           ))}
