@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import { MdAlignHorizontalLeft, MdHome, MdNoteAlt } from "react-icons/md";
-import { FaBookBookmark, FaNoteSticky } from "react-icons/fa6";
+import { FaBookBookmark, FaNoteSticky, FaUsers } from "react-icons/fa6";
 import { IoAddCircle, IoAddCircleOutline, IoBookSharp, IoLogOut } from "react-icons/io5";
 import { FaBookOpen } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
@@ -77,6 +77,31 @@ const DashBoard = () => {
               </>
             )}
 
+
+            {/* tutor navbar */}
+            {isRole === "Admin" && (
+              <>
+                <NavLink
+                  to="users"
+                  className="flex items-center gap-2 text-2xl"
+                >
+                  <FaUsers className="text-xl"></FaUsers> View all users
+                </NavLink>
+                <NavLink
+                  to="personalSession"
+                  className="flex items-center gap-2 text-2xl"
+                >
+                  <MdAlignHorizontalLeft className="text-lg"></MdAlignHorizontalLeft> View all study session
+                </NavLink>
+                <NavLink 
+                to="allMaterials"
+                className="flex items-center gap-2 text-2xl">
+                  <IoBookSharp className="text-lg"></IoBookSharp>
+                  View all materials
+                </NavLink>
+              </>
+            )}
+
             {/* tutor navbar */}
             {isRole === "Tutor" && (
               <>
@@ -95,7 +120,7 @@ const DashBoard = () => {
                 <NavLink
                 to="materials"
                 className="flex items-center gap-2 text-2xl">
-                  <IoAddCircleOutline className="text-xl"></IoAddCircleOutline> Update materials
+                  <IoAddCircleOutline className="text-xl"></IoAddCircleOutline> Upload materials
                 </NavLink>
                 <NavLink 
                 to="allMaterials"

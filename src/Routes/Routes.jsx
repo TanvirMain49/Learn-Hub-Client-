@@ -18,6 +18,8 @@ import AllSession from "../Page/Home/AllSession";
 import CardDetails from "../Page/Home/CardDetails";
 import Home from "../Page/Home/Home";
 import Payment from "../Page/Payment/Payment";
+import Users from "../Page/Dashboard/Admin/Users";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -47,63 +49,97 @@ const router = createBrowserRouter([
         },
         {
             path:'book/:id',
-            element: <Payment></Payment>,
+            element: <PrivateRoutes>
+              <Payment></Payment>
+            </PrivateRoutes>,
         }
       ]
     },
     {
       path:"dashboard",
-      element:<DashBoard></DashBoard>,
+      element: <PrivateRoutes>
+        <DashBoard></DashBoard>
+      </PrivateRoutes> ,
       children:[
         // !student
         {
           path:'bookedSession',
-          element:<BookedSession></BookedSession>
+          element:<PrivateRoutes>
+            <BookedSession></BookedSession>
+          </PrivateRoutes>
         },
         {
           path:'notes',
-          element:<Notes></Notes>
+          element:<PrivateRoutes>
+            <Notes></Notes>
+          </PrivateRoutes>
         },
         {
           path:'mangeNotes',
-          element:<MangeNote></MangeNote>
+          element:<PrivateRoutes>
+            <MangeNote></MangeNote>
+          </PrivateRoutes>
         },
         {
           path:'updateNotes/:id',
-          element:<UpdateStudyMaterial></UpdateStudyMaterial>
+          element:<PrivateRoutes>
+            <UpdateStudyMaterial></UpdateStudyMaterial>
+          </PrivateRoutes>
         },
         {
           path:'studyMaterial',
-          element: <StudyMaterial></StudyMaterial>
+          element: <PrivateRoutes>
+            <StudyMaterial></StudyMaterial>
+          </PrivateRoutes>
         },
 
         // !Tutor
         {
           path:'addSession',
-          element:<AddSession></AddSession>
+          element:<PrivateRoutes>
+            <AddSession></AddSession>
+          </PrivateRoutes>
         },
         {
           path:'personalSession',
-          element:<PersonalSession></PersonalSession>
+          element:<PrivateRoutes>
+            <PersonalSession></PersonalSession>
+          </PrivateRoutes>
         },
         {
           path:'addMaterial/:id',
-          element:<AddMaterial></AddMaterial>,
+          element:<PrivateRoutes>
+            <AddMaterial></AddMaterial>
+          </PrivateRoutes>,
           loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
           path:'updateMaterial/:id',
-          element:<UpdateMaterial></UpdateMaterial>,
+          element:<PrivateRoutes>
+            <UpdateMaterial></UpdateMaterial>
+          </PrivateRoutes>,
           loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
           path:'materials',
-          element:<Materials></Materials>
+          element:<PrivateRoutes>
+            <Materials></Materials>
+          </PrivateRoutes>
         },
         {
           path:'allMaterials',
-          element:<AllMaterials></AllMaterials>
+          element:<PrivateRoutes>
+            <AllMaterials></AllMaterials>
+          </PrivateRoutes>
         },
+
+        // !{Admin}
+        {
+          path:'Users',
+          element:<PrivateRoutes>
+            <Users></Users>
+          </PrivateRoutes>
+        }
       ]
     }
   ]);

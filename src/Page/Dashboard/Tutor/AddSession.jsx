@@ -7,7 +7,9 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import DasHeading from "../../../Shared/DashBoardHeading";
 
-const imgApiKey = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Imge_Key}`;
+const imgApiKey = `https://api.imgbb.com/1/upload?key=${
+  import.meta.env.VITE_Imge_Key
+}`;
 
 const AddSession = () => {
   const { user } = useAuth();
@@ -22,14 +24,18 @@ const AddSession = () => {
   } = useForm();
   const onSubmit = async (data) => {
     // Prepare form data for both session and tutor images
-    const sessionImageFile = { image: data.image[0] }; 
+    const sessionImageFile = { image: data.image[0] };
     try {
       // Upload session image
-      const sessionImageRes = await axiosPublic.post(imgApiKey, sessionImageFile, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
+      const sessionImageRes = await axiosPublic.post(
+        imgApiKey,
+        sessionImageFile,
+        {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      );
       if (sessionImageRes.data.success) {
         const sessionInfo = {
           title: data.title,
@@ -38,34 +44,34 @@ const AddSession = () => {
           classEnd: data.classEnd,
           status: "pending",
           price: "0",
-          imageUrl: sessionImageRes.data.data.url,  // Session image URL
-          tutorImageUrl: data.tutorImage, 
-          registerStart: resStart.toISOString().split("T")[0],  // Format the date
-          registerEnd: resEnd.toISOString().split("T")[0],  // Format the date
+          imageUrl: sessionImageRes.data.data.url, // Session image URL
+          tutorImageUrl: data.tutorImage,
+          registerStart: resStart.toISOString().split("T")[0], // Format the date
+          registerEnd: resEnd.toISOString().split("T")[0], // Format the date
           tutorName: data.tutorName,
           tutorEmail: data.tutorEmail,
           tutorPro: data.tutorPro,
           tutorDescription: data.tutorDescription,
         };
-        // post in the server side  
-        const sessionRes = await axiosPublic.post('/session', sessionInfo);
+        // post in the server side
+        const sessionRes = await axiosPublic.post("/session", sessionInfo);
         //data is inserted at mongodb
-        if(sessionRes.data.insertedId){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.onmouseenter = Swal.stopTimer;
-                  toast.onmouseleave = Swal.resumeTimer;
-                }
-              });
-              Toast.fire({
-                icon: "success",
-                title: `${sessionInfo.title} session added`,
-              });
+        if (sessionRes.data.insertedId) {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            },
+          });
+          Toast.fire({
+            icon: "success",
+            title: `${sessionInfo.title} session added`,
+          });
         }
         reset();
       }
@@ -75,10 +81,13 @@ const AddSession = () => {
   };
   return (
     <div>
-      <DasHeading Heading="Add a session" subHeading="Let's Get Started"></DasHeading>
+      <DasHeading
+        Heading="Add a session"
+        subHeading="Let's Get Started"
+      ></DasHeading>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body border border-black max-w-4xl mx-auto p-12 boxFixed rounded-lg grid grid-cols-2 gap-3"
+        className="card-body bg-white border border-black max-w-4xl mx-auto p-12 boxFixed rounded-lg grid grid-cols-2 gap-3"
       >
         {/* Session Details Section */}
         <div className="form-control">
@@ -132,7 +141,7 @@ const AddSession = () => {
           </label>
           <input
             {...register("classStart")}
-            type="text"
+            type="time"
             id="classStart"
             placeholder="Class Start Time"
             className="input input-bordered border border-black"
@@ -145,7 +154,7 @@ const AddSession = () => {
           </label>
           <input
             {...register("classEnd")}
-            type="text"
+            type="time"
             id="classEnd"
             placeholder="Class End Time"
             className="input input-bordered border border-black"

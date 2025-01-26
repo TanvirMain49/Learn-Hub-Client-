@@ -1,14 +1,11 @@
-import React from 'react';
+import Lottie from "lottie-react";
+import loading from "../../public/Loading.json"
 
 const Loader = () => {
     return (
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-        <div className="flex space-x-2">
-          <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
-          <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
-          <div className="w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
-        </div>
-      </div>
+      <div className="flex flex-col justify-center items-center mt-[20%]">
+      <Lottie animationData={loading} loop={true} className="max-w-72 text-black" />
+    </div>
     );
 };
 

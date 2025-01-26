@@ -1,5 +1,6 @@
 import {
     createUserWithEmailAndPassword,
+    deleteUser,
     getAuth,
     GoogleAuthProvider,
     onAuthStateChanged,
@@ -85,7 +86,11 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
     const forgetPassword = (email) => {
       return sendPasswordResetEmail(auth, email);
     };
-  
+
+    // delete user
+    const userDelete = (user) =>{
+      return deleteUser(user);
+    }
     const authInfo = {
       createUser,
       signOutUser,
@@ -103,6 +108,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
       dark,
       setDark,
       setLoader,
+      userDelete
     };
     return (
       <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

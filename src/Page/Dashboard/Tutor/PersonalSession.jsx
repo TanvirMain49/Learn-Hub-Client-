@@ -61,15 +61,15 @@ const PersonalSession = () => {
                 </td>
                 <td>
                     {item.status === "success" && (
-                      <h2 className="border border-black px-1 rounded font-semibold text-white bg-green-500 smooch-sans">
+                      <h2 className="hover:text-white px-3 py-2 rounded font-bold border border-green-500 text-green-500 hover:bg-green-400 transition-all ease-in-out duration-300">
                         {item.status}
                       </h2>
                     )} {item.status === "pending" && (
-                      <h2 className="border border-black px-1 rounded font-semibold text-white bg-yellow-500 smooch-sans">
+                      <h2 className="hover:text-white px-3 py-2 rounded font-bold border border-yellow-500 text-yellow-500 hover:bg-yellow-400 transition-all ease-in-out duration-300">
                         {item.status}
                       </h2>
                     )} {item.status === "rejected" && (
-                      <h2 className="border border-black px-1 rounded font-semibold text-white bg-red-500 smooch-sans">
+                      <h2 className="hover:text-white px-3 py-2 rounded font-bold border border-red-500 text-red-500 hover:bg-red-400 transition-all ease-in-out duration-300">
                         {item.status}
                       </h2>
                     )} 

@@ -160,7 +160,7 @@ const AddMaterial = () => {
         <div className="flex justify-center items-center mt-8">
           <button
             type="submit"
-            className="flex items-center btn font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+            className="flex items-center bg-white font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
           >
             Add Material
           </button>
