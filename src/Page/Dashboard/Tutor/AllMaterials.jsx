@@ -88,13 +88,13 @@ const AllMaterials = () => {
               <div className="flex justify-between items-center my-4 flex-grow">
                 <Link
                   to={`/dashboard/updateMaterial/${item._id}`}
-                  className="flex items-center btn font-bold text-base border border-green-500 text-green-500 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300"
+                  className="flex items-center btn font-bold text-base bg-white border border-black  text-black hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300"
                 >
                   Update Material
                 </Link>
                 <button
                   onClick={() => handleDelete(item._id)}
-                  className="flex items-center btn font-bold text-base border border-red-700 text-red-700 hover:bg-red-600 hover:text-white transition-all ease-in-out duration-300"
+                  className="flex items-center btn font-bold text-base bg-black text-white hover:bg-red-600 hover:text-white transition-all ease-in-out duration-300"
                 >
                   Delete material
                 </button>

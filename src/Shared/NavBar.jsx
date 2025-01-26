@@ -10,7 +10,7 @@ const Navbar = () => {
   const navHome = location?.pathname === '/'; // Check if the path is the home page
 
   return (
-    <div className="smooch-sans">
+    <div className="roboto">
       <div className={`navbar z-10 ${
         navHome
           ? "absolute top-0 left-0 bg-transparent bg-opacity-45 shadow-lg text-gray-300"
@@ -57,14 +57,14 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-4xl text-black font-bold">LearnHub</a>
+          <a className="btn btn-ghost text-2xl text-black font-extrabold">LearnHub</a>
         </div>
         {/* Larger screen */}
         <div className={`navbar-end hidden lg:flex`}>
-          <ul className="menu menu-horizontal px-1 space-x-3 mr-3 text-black font-bold">
-              <NavLink to='/' className='text-3xl p-3'>Home</NavLink>
-              <NavLink to="allSession" className='text-3xl p-3'>All Session</NavLink>
-              <NavLink to='/dashboard/bookedSession' className='text-3xl p-3'>Dashboard</NavLink>
+          <ul className="my-6 px-1 space-x-3 mr-3 text-black font-bold">
+              <NavLink to='/' className='text-lg p-3'>Home</NavLink>
+              <NavLink to="allSession" className='text-lg'>All Session</NavLink>
+              <NavLink to='/dashboard/bookedSession' className='text-lg'>Dashboard</NavLink>
           </ul>
         </div>
         <div className="">
@@ -84,7 +84,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
               <button onClick={signOutUser}>
-              <li className="text-xl">Logout</li>
+              <li className="text-lg">Logout</li>
               </button>
             </ul>
           </div> : <div className="flex gap-2 items-center">

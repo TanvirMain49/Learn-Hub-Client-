@@ -11,10 +11,10 @@ const CardDetails = () => {
   const {id} = useParams();
   const {items:card} = useCardDetails(id);
   return (
-    <div className="my-20 w-10/12 mx-auto ">
+    <div className="my-20 w-11/12 mx-auto ">
       {/* Banner section */}
-      <div className="">
-        <div className="hero-content flex-col lg:flex-row-reverse justify-between gap-32">
+      <>
+        <div className="flex justify-center flex-col lg:flex-row-reverse gap-0">
           <img
             src={card.imageUrl}
             class="h-[460px] max-w-[572px] object-cover rounded-lg shadow-2xl boxSecondary border-2 border-gray-300"
@@ -61,10 +61,10 @@ const CardDetails = () => {
             </div>
           </div>
         </div>
-      </div>
+      </>
 
       {/* what you learn form this course section */}
-      <div className="my-24 flex items-center justify-between">
+      <div className="mb-36 mt-28 flex justify-center gap-10">
         <div>
           <h2 className="text-5xl font-extrabold mb-4">What You will Learn</h2>
           <p className="max-w-2xl text-lg">
@@ -74,7 +74,7 @@ const CardDetails = () => {
 
         {/* session formate */}
         <div className="flex items-center gap-4">
-          <div className="border border-black p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex items-center justify-center flex-col hover:scale-110">
+          <div className="border border-black p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex items-center justify-center flex-col hover:-translate-y-3">
             <FaComputer className="text-6xl mb-3"></FaComputer>
 
             <h2 className="text-3xl font-semibold mb-3">Course Format</h2>
@@ -91,7 +91,7 @@ const CardDetails = () => {
             </ul>
           </div>
           {/* second card 2*/}
-          <div className="border border-black p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex items-center justify-center flex-col hover:scale-110">
+          <div className="border border-black p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex items-center justify-center flex-col hover:-translate-y-3">
             <FaClock className="text-6xl mb-3"></FaClock>
 
             <h2 className="text-3xl font-semibold mb-3">Duration Course</h2>
@@ -111,14 +111,14 @@ const CardDetails = () => {
       </div>
 
       {/* Session Instructors */}
-      <div className="my-24 flex justify-center gap-10">
+      <div className="mb-28 flex justify-center gap-3">
         <img
           src={card.tutorImageUrl}
           alt=""
-          className="h-[440px] boxFixed border-2 border-gray-300 object-cover"
+          className="h-[540px] boxFixed border-2 border-gray-300 object-cover"
         />
 
-        <div className="ml-[7%]">
+        <div className="flex-1 ml-[7%]">
           <h1 className="text-6xl font-extrabold mb-4">Session Instructors</h1>
           {/* name */}
           <p className="text-4xl font-bold mb-2">{card.tutorName}.</p>
@@ -134,7 +134,7 @@ const CardDetails = () => {
             </p>
           </div>
           {/* description */}
-          <p className="text-lg max-w-xl">
+          <p className="text-lg max-w-4xl">
            {card.tutorDescription}
           </p>
         </div>

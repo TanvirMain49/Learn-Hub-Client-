@@ -15,6 +15,7 @@ const StudyMaterialCard = ({ session }) => {
             return res.data;
         }
     })
+    console.log(material);
 
     if (isLoading) {
         return (
