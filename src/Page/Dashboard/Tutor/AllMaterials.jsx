@@ -8,7 +8,6 @@ import DasHeading from "../../../Shared/DashBoardHeading";
 const AllMaterials = () => {
   const { items, refetch } = useMaterialCard();
   const axiosSecure = useAxiosSecure();
-  console.log(items);
 
   const handleDelete = (id) => {
     console.log(id);

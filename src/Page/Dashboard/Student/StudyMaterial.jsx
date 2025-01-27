@@ -35,16 +35,3 @@ const StudyMaterial = () => {
 
 export default StudyMaterial;
 
-{
-  /* <div className="card bg-black text-white w-96">
-<div className="card-body">
-  <h2 className="card-title text-3xl mb-2">{session.title}</h2>
-</div>
-<div>
-  <button className="btn m-2" onClick={()=>document.getElementById(`my_modal_${session._id}`).showModal()}>
-      view Material
-  </button>
-</div>
-  <NoteModal note={session} noteId={session._id}></NoteModal>
-</div> */
-}

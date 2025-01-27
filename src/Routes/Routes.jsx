@@ -21,6 +21,7 @@ import Payment from "../Page/Payment/Payment";
 import Users from "../Page/Dashboard/Admin/Users";
 import PrivateRoutes from "./PrivateRoutes";
 import AllSessionAdmin from "../Page/Dashboard/Admin/AllSessionAdmin";
+import ViewAllMaterial from "../Page/Dashboard/Admin/ViewAllMetarial";
 
 const router = createBrowserRouter([
     {
@@ -145,6 +146,12 @@ const router = createBrowserRouter([
           path:'Admin/AllSession',
           element:<PrivateRoutes>
             <AllSessionAdmin></AllSessionAdmin>
+          </PrivateRoutes>
+        },
+        {
+          path:'Admin/AllMaterials',
+          element:<PrivateRoutes>
+            <ViewAllMaterial></ViewAllMaterial>
           </PrivateRoutes>
         }
       ]

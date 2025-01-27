@@ -1,5 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import loading from "../../../../public/Loading.json";
 import Lottie from "lottie-react";
 import { FaBook, FaLink } from "react-icons/fa6";
