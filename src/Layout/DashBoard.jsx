@@ -12,7 +12,6 @@ const DashBoard = () => {
   const { user, signOutUser } = useAuth();
   const navigate = useNavigate();
   const {isRole, isLoading} = useRole();
-  console.log(isRole);
 
   const handleLogOut = () => {
     signOutUser().then((res) => {
@@ -20,9 +19,9 @@ const DashBoard = () => {
     });
   };
 
-  // if(isLoading){
-  //   return <Loader></Loader>
-  // }
+  if(isLoading){
+    return <Loader></Loader>
+  }
 
   return (
     <div className="flex roboto">

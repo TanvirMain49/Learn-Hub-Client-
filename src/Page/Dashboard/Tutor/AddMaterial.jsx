@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import useSessionById from "../../../Hooks/useSessionbyId";
+import Loader from "../../../Shared/Loader";
 
 const imgApi = `https://api.imgbb.com/1/upload?key=${
   import.meta.env.VITE_Imge_Key
 }`;
 
 const AddMaterial = () => {
-  const item = useLoaderData();
+  const {id} = useParams();
+  const {item} = useSessionById(id);
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -25,6 +29,7 @@ const AddMaterial = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       const imageUrl = { image: data.image[0] };
       const imgRes = await axiosPublic.post(imgApi, imageUrl, {
@@ -34,16 +39,18 @@ const AddMaterial = () => {
       });
       if (imgRes.data.success) {
         const material = {
-          sessionId: item._id,
+          title: item?.title,
+          imageUrl: item?.imageUrl,
+          sessionId: item?._id,
           email: user?.email,
           doc: data.doc,
           image: imgRes.data?.data?.display_url,
         };
-
         const res = await axiosSecure.post(
-          `/materials?email=${user?.email}&id=${item._id}`,
+          `/materials?email=${user?.email}&id=${item?._id}`,
           material
-        );
+        )
+        console.log(res.data);
         if (res.data.insertedId > "0") {
           const Toast = Swal.mixin({
             toast: true,
@@ -58,7 +65,7 @@ const AddMaterial = () => {
           });
           Toast.fire({
             icon: "success",
-            title: `${item.title} is added`,
+            title: `${item?.title} is added`,
             background: "#28a745",
             color: "#ffff",
           });
@@ -67,7 +74,7 @@ const AddMaterial = () => {
         }
       }
     } catch (error) {
-      reset();
+      console.log(error);
       if (error.response?.status === 400) {
         Swal.fire({
           icon: "error",
@@ -78,6 +85,7 @@ const AddMaterial = () => {
           confirmButtonColor: "#000000",
           confirmButtonText: '<span style="color: white;">OK</span>',
         });
+        reset();
       } else {
         Swal.fire({
           icon: "error",
@@ -89,10 +97,13 @@ const AddMaterial = () => {
           confirmButtonText: '<span style="color: white;">OK</span>',
         });
       }
+    }
+    finally {
+      setLoading(false); 
       navigate('/dashboard/materials');
     }
   };
-  //
+  
   return (
     <>
       <form
@@ -109,20 +120,20 @@ const AddMaterial = () => {
             <span className="text-blue-500 border-l-4 border-black pl-1">
               Session Name:
             </span>{" "}
-            {item.title}
+            {item?.title}
           </h3>
           <h3 className="font-bold text-lg">
             <span className="text-blue-500 border-l-4 border-black pl-1">
               Session Id:
             </span>{" "}
-            {item._id}
+            {item?._id}
           </h3>
 
           <h3 className="font-bold text-lg">
             <span className="text-blue-500 border-l-4 border-black pl-1">
               Tutor Email:
             </span>{" "}
-            {item.tutorEmail}
+            {item?.tutorEmail}
           </h3>
         </div>
 
@@ -160,9 +171,9 @@ const AddMaterial = () => {
         <div className="flex justify-center items-center mt-8">
           <button
             type="submit"
-            className="flex items-center bg-white font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
-          >
-            Add Material
+            className="bg-white font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300 btn"
+          > {loading ? <span className="loading loading-dots loading-xs"></span> : "Add Material"}
+            
           </button>
         </div>
       </form>

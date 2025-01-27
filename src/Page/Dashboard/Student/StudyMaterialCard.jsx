@@ -12,7 +12,7 @@ const StudyMaterialCard = ({ session }) => {
     const {data:material, isLoading} = useQuery({
         queryKey:['material', session.sessionId],
         queryFn: async()=>{
-            const res = await axiosSecure.get(`/materials/${session.sessionId}`)
+            const res = await axiosSecure.get(`/materialStudent/${session.sessionId}`)
             return res.data;
         }
     })

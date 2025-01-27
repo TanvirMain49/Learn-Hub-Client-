@@ -1,13 +1,14 @@
 import React from "react";
-import usePersonalSession from "../../../Hooks/usePersonalSession";
 import { Link } from "react-router-dom";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useMaterialCard from "../../../Hooks/useMaterialCard";
 import DasHeading from "../../../Shared/DashBoardHeading";
 
 const AllMaterials = () => {
-  const { items, refetch } = usePersonalSession();
+  const { items, refetch } = useMaterialCard();
   const axiosSecure = useAxiosSecure();
+  console.log(items);
 
   const handleDelete = (id) => {
     console.log(id);
@@ -31,6 +32,7 @@ const AllMaterials = () => {
       .then(async (result) => {
         if (result.isConfirmed) {
           const res = await axiosSecure.delete(`/materials/${id}`);
+          console.log(res.data);
           if (res.data.deletedCount > 0) {
             swalWithBootstrapButtons.fire({
               title: "Deleted!",
@@ -57,9 +59,10 @@ const AllMaterials = () => {
         Heading=" Manage Your Material"
         subHeading="Organize Your Material"
       ></DasHeading>
-      <div className="w-11/12 mx-auto grid grid-cols-3 space-x-12">
+      <div className={`w-11/12 mx-auto grid grid-cols-3 gap-8`}>
         {items.map((item) => (
-          <div className="card w-96 bg-white border border-gray-950 transition-all duration-300 ease-out mb-8 box grow flex flex-col">
+          <div key={item._id}
+           className="card bg-white border border-gray-950 transition-all duration-300 ease-out mb-8 box grow flex flex-col">
             <img
               src={item.imageUrl}
               className="w-full h-56 object-cover rounded-t-lg"
