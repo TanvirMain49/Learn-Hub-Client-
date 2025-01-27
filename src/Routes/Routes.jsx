@@ -20,6 +20,7 @@ import Home from "../Page/Home/Home";
 import Payment from "../Page/Payment/Payment";
 import Users from "../Page/Dashboard/Admin/Users";
 import PrivateRoutes from "./PrivateRoutes";
+import AllSessionAdmin from "../Page/Dashboard/Admin/AllSessionAdmin";
 
 const router = createBrowserRouter([
     {
@@ -135,9 +136,15 @@ const router = createBrowserRouter([
 
         // !{Admin}
         {
-          path:'Users',
+          path:'Admin/Users',
           element:<PrivateRoutes>
             <Users></Users>
+          </PrivateRoutes>
+        },
+        {
+          path:'Admin/AllSession',
+          element:<PrivateRoutes>
+            <AllSessionAdmin></AllSessionAdmin>
           </PrivateRoutes>
         }
       ]

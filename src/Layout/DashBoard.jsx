@@ -82,19 +82,19 @@ const DashBoard = () => {
             {isRole === "Admin" && (
               <>
                 <NavLink
-                  to="users"
+                  to="Admin/Users"
                   className="flex items-center gap-2 text-2xl"
                 >
                   <FaUsers className="text-xl"></FaUsers> View all users
                 </NavLink>
                 <NavLink
-                  to="personalSession"
+                  to="Admin/AllSession"
                   className="flex items-center gap-2 text-2xl"
                 >
                   <MdAlignHorizontalLeft className="text-lg"></MdAlignHorizontalLeft> View all study session
                 </NavLink>
                 <NavLink 
-                to="allMaterials"
+                to="Admin/AllMaterials"
                 className="flex items-center gap-2 text-2xl">
                   <IoBookSharp className="text-lg"></IoBookSharp>
                   View all materials

@@ -57,7 +57,7 @@ const UpdateMaterial = () => {
       };
 
       const res = await axiosSecure.patch(`/materials/${item._id}`, material);
-
+      console.log(res.data);
       if (res.data.modifiedCount > 0) {
         const Toast = Swal.mixin({
           toast: true,
