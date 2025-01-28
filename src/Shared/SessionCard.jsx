@@ -25,14 +25,14 @@ const SessionCard = ({ item }) => {
         </div>
         <div>
           <h1 className="text-2xl font-bold">{item.title}</h1>
-          <p className="text-base mt-2">
+          {/* <p className="text-base mt-2">
             {item.description.substring(0, 50)}...see more
-          </p>
+          </p> */}
         </div>
         <div className="flex justify-between items-center my-4 flex-grow">
           <Link
             to={`/cardDetails/${item._id}`}
-            className="flex items-center btn font-bold text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+            className="flex items-center bg-white border border-black btn font-bold text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300"
           >
             Read more
             <FaArrowRight />

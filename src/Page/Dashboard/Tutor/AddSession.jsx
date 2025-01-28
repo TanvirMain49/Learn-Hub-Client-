@@ -23,7 +23,7 @@ const AddSession = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    // Prepare form data for both session and tutor images
+
     const sessionImageFile = { image: data.image[0] };
     try {
       // Upload session image
@@ -36,6 +36,7 @@ const AddSession = () => {
           },
         }
       );
+      console.log(sessionImageRes.data);
       if (sessionImageRes.data.success) {
         const sessionInfo = {
           title: data.title,
@@ -44,10 +45,10 @@ const AddSession = () => {
           classEnd: data.classEnd,
           status: "pending",
           price: "0",
-          imageUrl: sessionImageRes.data.data.url, // Session image URL
+          imageUrl: sessionImageRes.data.data.url, 
           tutorImageUrl: data.tutorImage,
-          registerStart: resStart.toISOString().split("T")[0], // Format the date
-          registerEnd: resEnd.toISOString().split("T")[0], // Format the date
+          registerStart: resStart.toISOString().split("T")[0], 
+          registerEnd: resEnd.toISOString().split("T")[0], 
           tutorName: data.tutorName,
           tutorEmail: data.tutorEmail,
           tutorPro: data.tutorPro,

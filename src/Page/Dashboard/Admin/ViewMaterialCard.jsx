@@ -5,8 +5,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useMaterialCard from "../../../Hooks/useMaterialCard";
 import Swal from "sweetalert2";
 
-const ViewMaterialCard = ({ material}) => {
-    const { refetch } = useMaterialCard();
+const ViewMaterialCard = ({ material, refetch}) => {
   const axiosSecure = useAxiosSecure();
 
   const handleDelete = (id) => {

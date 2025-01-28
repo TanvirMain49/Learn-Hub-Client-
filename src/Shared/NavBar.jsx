@@ -74,7 +74,7 @@ const Navbar = () => {
               <div className="w-20 rounded-full">
                 {
                   user && <img
-                  alt="Tailwind CSS Navbar component"
+                  alt="user photoUrl"
                   src={user?.photoURL} 
                   />
                 }
@@ -88,8 +88,8 @@ const Navbar = () => {
               </button>
             </ul>
           </div> : <div className="flex gap-2 items-center">
-            <Link to='/login' className="hover:bg-neutral-900 text-3xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent">Log in</Link>
-            <Link to='/signup' className="hover:bg-neutral-900 btn border border-black  hover:text-white text-3xl rounded-xl font-bold text-black transition-all ease-in-out duration-300 bg-transparent"  >sign in</Link>
+            <Link to='/login' className="hover:bg-neutral-900 text-xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent">Log in</Link>
+            <Link to='/signup' className="hover:bg-neutral-900 btn border border-black  hover:text-white text-xl rounded-xl font-bold text-black transition-all ease-in-out duration-300 bg-transparent"  >sign in</Link>
             
             </div>
           }

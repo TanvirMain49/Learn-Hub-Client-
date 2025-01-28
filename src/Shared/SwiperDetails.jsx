@@ -14,7 +14,7 @@ const SwiperDetails = ({ img, heading, subHeading }) => {
       <div className="relative z-10 flex justify-center items-center flex-col bg-opacity-60 text-white">
         <h1 className="text-6xl font-extrabold mb-4 text-center max-w-4xl ">{heading}</h1>
         <p className="text-lg mb-6 text-center max-w-xl">{subHeading}</p>
-        <button className="px-6 py-3 bg-black text-white font-bold rounded-md shadow transition">
+        <button className="px-6 py-3 bg-white text-black text-lg font-extrabold rounded-md shadow transition">
           Explore More
         </button>
       </div>
