@@ -11,7 +11,7 @@ const Materials = () => {
     
         <div className="w-11/12 mx-auto grid grid-cols-3 gap-6">
         {
-            items.map(item=><MaterialCard key={item._id} item={item}></MaterialCard> )
+          items.status !== 'rejected' && items.map(item=><MaterialCard key={item._id} item={item}></MaterialCard> )
         }
         </div>
 

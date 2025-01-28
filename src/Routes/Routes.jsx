@@ -22,6 +22,7 @@ import Users from "../Page/Dashboard/Admin/Users";
 import PrivateRoutes from "./PrivateRoutes";
 import AllSessionAdmin from "../Page/Dashboard/Admin/AllSessionAdmin";
 import ViewAllMaterial from "../Page/Dashboard/Admin/ViewAllMetarial";
+import DashBoardBanner from "../Page/Dashboard/DashBoardBanner";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,12 @@ const router = createBrowserRouter([
         <DashBoard></DashBoard>
       </PrivateRoutes> ,
       children:[
+
+        {
+          path:'/dashboard',
+          element: <DashBoardBanner></DashBoardBanner>
+        },
+
         // !student
         {
           path:'bookedSession',

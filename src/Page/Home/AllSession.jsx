@@ -22,7 +22,7 @@ const AllSession = () => {
   return (
     <div>
       <AllSessionBanner></AllSessionBanner>
-      <div className="w-10/12 mx-auto grid grid-cols-3 gap-6">
+      <div className="md:w-10/12 md:mx-auto mx-2 grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-3">
         {card.map(
           (item) =>
             item.status === "success" && (

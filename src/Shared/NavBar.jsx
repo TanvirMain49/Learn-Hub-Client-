@@ -38,26 +38,13 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              <NavLink to='/' className='text-lg p-3'>Home</NavLink>
+              <NavLink to="allSession" className='text-lg'>All Session</NavLink>
+              <NavLink to='/dashboard' className='text-lg'>Dashboard</NavLink>
             </ul>
           </div>
-          <a className="btn btn-ghost text-2xl text-black font-extrabold">LearnHub</a>
+          <Link to="/"
+            className="md:btn md:btn-ghost md:text-2xl text-xl text-black font-bold mr-0">LearnHub</Link>
         </div>
         {/* Larger screen */}
         <div className={`navbar-end hidden lg:flex`}>
@@ -69,9 +56,9 @@ const Navbar = () => {
         </div>
         <div className="">
           {
-            user ?  <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-20 rounded-full">
+            user ?  <div className="dropdown md:dropdown-end">
+            <div tabIndex={0} role="button" className="btn ml-20 md:ml-0 btn-ghost btn-circle avatar">
+              <div className="md:w-20 w-16 rounded-full">
                 {
                   user && <img
                   alt="user photoUrl"
@@ -87,9 +74,9 @@ const Navbar = () => {
               <li className="text-lg">Logout</li>
               </button>
             </ul>
-          </div> : <div className="flex gap-2 items-center">
-            <Link to='/login' className="hover:bg-neutral-900 text-xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent">Log in</Link>
-            <Link to='/signup' className="hover:bg-neutral-900 btn border border-black  hover:text-white text-xl rounded-xl font-bold text-black transition-all ease-in-out duration-300 bg-transparent"  >sign in</Link>
+          </div> : <div className="md:flex md:gap-2 md:items-center">
+            <Link to='/login' className="hover:bg-neutral-900 text-xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent md:block hidden">Log in</Link>
+            <Link to='/signup' className="hover:bg-neutral-900 btn border border-black  hover:text-white md:text-xl ml-10 md:ml-0 rounded-xl font-bold text-black transition-all ease-in-out duration-300 bg-transparent"  >sign in</Link>
             
             </div>
           }

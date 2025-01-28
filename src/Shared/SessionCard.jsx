@@ -5,7 +5,7 @@ import "./boxShadow.css";
 
 const SessionCard = ({ item }) => {
   return (
-    <div className="card w-96 bg-white border hover:border hover:border-gray-950 transition-all duration-300 ease-out hover:-translate-x-2 box mb-8 ">
+    <div className="card bg-white border hover:border hover:border-gray-950 transition-all duration-300 ease-out hover:-translate-x-2 box mb-8 ">
       <figure className="rounded-t-xl w-full h-[280px]">
         <img
           src={item.imageUrl}
@@ -25,9 +25,9 @@ const SessionCard = ({ item }) => {
         </div>
         <div>
           <h1 className="text-2xl font-bold">{item.title}</h1>
-          {/* <p className="text-base mt-2">
+          <p className="text-base mt-2">
             {item.description.substring(0, 50)}...see more
-          </p> */}
+          </p>
         </div>
         <div className="flex justify-between items-center my-4 flex-grow">
           <Link

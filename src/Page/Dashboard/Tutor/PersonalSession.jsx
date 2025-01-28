@@ -3,11 +3,13 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import DasHeading from "../../../Shared/DashBoardHeading";
+import { FaBell, FaBellSlash } from "react-icons/fa";
+import RejectedModal from "./RejectedModal";
 
 const PersonalSession = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const { data: items = [] } = useQuery({
+  const { data: items = [], refetch } = useQuery({
     queryKey: ["session", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/personalSession/${user?.email}`);
@@ -34,7 +36,7 @@ const PersonalSession = () => {
           </thead>
           <tbody className="text-center text-xl bg-gray-100">
             {items.map((item, idx) => (
-              <tr>
+              <tr key={item._id}>
                 <th>{idx+1}</th>
                 <td>
                   <div className="flex justify-center items-center gap-3">
@@ -69,10 +71,17 @@ const PersonalSession = () => {
                         {item.status}
                       </h2>
                     )} {item.status === "rejected" && (
-                      <h2 className="hover:text-white px-3 py-2 rounded font-bold border border-red-500 text-red-500 hover:bg-red-400 transition-all ease-in-out duration-300">
+                      <div className="flex items-center gap-2">
+                      <h2 className="hover:text-white px-3 py-2 rounded font-bold border border-red-500 text-red-500 hover:bg-red-400 transition-all ease-in-out duration-300 w-full">
                         {item.status}
                       </h2>
-                    )} 
+                      <button
+                      className="text-red-500 font-bold hover:scale-125 transition-all ease-in-out"
+                      onClick={()=>document.getElementById(`my_modal_${item._id}`).showModal()}
+                      ><FaBell/></button>
+                      </div>
+                    )}
+                    <RejectedModal item={item} refetch={refetch}></RejectedModal> 
                 </td>
               </tr>
             ))}
