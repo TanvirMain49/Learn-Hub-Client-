@@ -13,7 +13,7 @@ const StudyMaterial = () => {
         subHeading="Discover Study Content"
       ></DasHeading>
       {bookedSessions.length ? (
-        <div className="grid grid-cols-3 gap-6 px-10">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-5 md:px-10">
           {bookedSessions.map((session) => (
             <StudyMaterialCard
               session={session}

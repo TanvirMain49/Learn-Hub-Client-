@@ -31,7 +31,7 @@ const MaterialCard = ({ item }) => {
         <Link  to={`/dashboard/addMaterial/${item._id}`}
          className="flex justify-center items-center mt-7 mb-4 flex-grow">
           <button
-          disabled={item.status === 'pending'}
+          disabled={item.status !== 'success'}
             className="flex items-center btn font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
           >
             Add Material

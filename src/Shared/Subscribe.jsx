@@ -9,8 +9,7 @@ const Subscribe = () => {
             Subscribe Now Forget 20% Discount Every Session
           </h2>
           <p className="mb-6 text-sm max-w-sm mx-auto">
-            Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.
-            Sed magna purus, fermentum eu.
+          Subscribe now and enjoy a 20% discount on every session. Don't miss out on exclusive savings!
           </p>
           <div className="flex justify-center items-center">
             <input

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "bistro-boss-e8ba4"
-  }
+    "default": "learn-hub-d12e0",
+    "learn-hub": "learn-hub-d12e0"
+  },
+  "targets": {},
+  "etags": {}
 }

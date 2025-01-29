@@ -17,7 +17,7 @@ const ViewAllMaterial = () => {
     return (
         <div>
             <DasHeading Heading="Mange All Material" subHeading="Organize Material"></DasHeading>
-            <div className='w-11/12 mx-auto grid grid-cols-3 gap-8'>
+            <div className='md:w-11/12 md:mx-auto grid md:grid-cols-3 grid-cols-1 gap-8'>
                 {
                     materials.map(material=><ViewMaterialCard key={material._id} material={material} refetch={refetch}></ViewMaterialCard>)
                 }

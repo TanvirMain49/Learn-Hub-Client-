@@ -12,7 +12,7 @@ const AllSessionAdmin = () => {
   return (
     <>
     <DasHeading Heading="Mange All Session" subHeading="pending success reject"></DasHeading>
-    <div className="px-16 space-y-20">
+    <div className="md:px-16 space-y-20">
         <RenderTable cards={pendingCard} status="pending" refetch={refetch}></RenderTable>
         <RenderTable cards={successCard} status="success" refetch={refetch}></RenderTable>
         <RenderTable cards={rejectedCard} status="rejected" refetch={refetch}></RenderTable>

@@ -9,7 +9,7 @@ const Materials = () => {
     <>
       <DasHeading Heading="Add Essential Materials" subHeading="The Essentials"></DasHeading>
     
-        <div className="w-11/12 mx-auto grid grid-cols-3 gap-6">
+        <div className="md:w-11/12 md:mx-auto grid md:grid-cols-3 grid-cols-1 gap-6">
         {
           items.status !== 'rejected' && items.map(item=><MaterialCard key={item._id} item={item}></MaterialCard> )
         }

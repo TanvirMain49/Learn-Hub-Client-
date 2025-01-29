@@ -8,10 +8,6 @@ import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import useSessionById from "../../../Hooks/useSessionbyId";
 import Loader from "../../../Shared/Loader";
 
-const imgApi = `https://api.imgbb.com/1/upload?key=${
-  import.meta.env.VITE_Imge_Key
-}`;
-
 const AddMaterial = () => {
   const {id} = useParams();
   const {item} = useSessionById(id);
@@ -32,19 +28,21 @@ const AddMaterial = () => {
     setLoading(true);
     try {
       const imageUrl = { image: data.image[0] };
-      const imgRes = await axiosPublic.post(imgApi, imageUrl, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
-      if (imgRes.data.success) {
+
+      const imgData = new FormData();
+      imgData.append("file", imageUrl.image);
+      imgData.append('upload_preset', "Learn_Hub")
+      imgData.append("cloud_name", "dvrn5hqsv")
+
+      const imgRes = await axiosPublic.post( "https://api.cloudinary.com/v1_1/dvrn5hqsv/image/upload", imgData);
+      if (imgRes.data.secure_url) {
         const material = {
           title: item?.title,
           imageUrl: item?.imageUrl,
           sessionId: item?._id,
           email: user?.email,
           doc: data.doc,
-          image: imgRes.data?.data?.display_url,
+          image: imgRes.data.secure_url,
         };
         const res = await axiosSecure.post(
           `/materials?email=${user?.email}&id=${item?._id}`,
@@ -74,7 +72,6 @@ const AddMaterial = () => {
         }
       }
     } catch (error) {
-      console.log(error);
       if (error.response?.status === 400) {
         Swal.fire({
           icon: "error",
@@ -107,7 +104,7 @@ const AddMaterial = () => {
   return (
     <>
       <form
-        className="card-body border border-black max-w-4xl mx-auto p-12 boxFixed rounded-lg"
+        className="card-body border border-black max-w-4xl mx-auto md:p-12 boxFixed rounded-lg"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-2xl font-bold mb-8 text-center">

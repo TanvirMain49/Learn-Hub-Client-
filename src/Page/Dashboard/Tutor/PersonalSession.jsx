@@ -20,7 +20,7 @@ const PersonalSession = () => {
   return (
     <>
       <DasHeading Heading=" Manage Your Sessions" subHeading="Organize Your Session"></DasHeading>
-      <div className="overflow-x-auto px-16 ">
+      <div className="overflow-x-auto md:px-16">
         <table className="table smooch-sans">
           {/* head */}
           <thead className="text-center  text-2xl bg-black text-white">

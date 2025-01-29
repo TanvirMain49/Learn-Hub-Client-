@@ -54,7 +54,6 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
       const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
         if (currentUser?.email) {
           setUser(currentUser);
-          console.log("AuthProvider: ", currentUser);
           const userInfo = { email: currentUser.email }
           
           axiosPublic.post('/jwt', userInfo)

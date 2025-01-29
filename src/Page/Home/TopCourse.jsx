@@ -14,7 +14,7 @@ const TopCourse = () => {
       ></SectionHeading>
       <div className="md:w-10/12 md:mx-auto mx-2 grid md:grid-cols-3 grid-cols-1 md:gap-6 gap-2">
       {
-        card.slice(0, 6).map(item => item.status === 'success' && <SessionCard key={item._id} item={item}></SessionCard> )
+        card.slice(0, 6).map(item => new Date() <= new Date(item.registerEnd) && item.status === 'success' &&  <SessionCard key={item._id} item={item}></SessionCard> )
       }
       </div>
       <div className="flex justify-center items-center">

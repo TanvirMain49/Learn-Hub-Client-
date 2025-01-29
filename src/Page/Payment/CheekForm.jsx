@@ -38,7 +38,6 @@ const CheckoutForm = () => {
       `/bookedSession?id=${items._id}&email=${user?.email}`,
       bookedSession
     );
-    console.log(bookedRes.data);
     if (bookedRes.data?.insertedId > "0") {
       Swal.fire({
         title: `${items.title} is added`,
@@ -108,7 +107,7 @@ const CheckoutForm = () => {
       setError(error.message);
     } else {
       setSuccess("Payment method created successfully!");
-      console.log("[PaymentMethod]", paymentMethod);
+      // console.log("[PaymentMethod]", paymentMethod);
     }
 
     const { paymentIntent, error: confirmError } =

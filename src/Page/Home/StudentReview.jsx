@@ -1,11 +1,41 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import useRole from "../../Hooks/useRole";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const StudentReview = () => {
-  const { register, handleSubmit } = useForm();
+  const { user } = useAuth();
+  const axiosPublic = useAxiosPublic();
+  const { isRole } = useRole();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: user?.displayName || "",
+      email: user?.email || "",
+    },
+  });
   const onSubmit = (data) => {
-    console.log(data);
+    const reviews = { photo: user?.photoURL, ...data };
+
+    axiosPublic.post("/reviews", reviews).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId > "0") {
+        Swal.fire({
+          icon: "success",
+          title: "Thank you for your review",
+          color: "#ffff",
+          confirmButtonColor: "#000000",
+          confirmButtonText: '<span style="color: white;">OK</span>',
+        });
+      }
+    });
+    reset();
   };
 
   return (
@@ -28,7 +58,9 @@ const StudentReview = () => {
           <input
             {...register("name")}
             type="text"
+            defaultValue={user?.displayName}
             placeholder="Student Name"
+            readOnly
             className="input input-bordered border border-black mb-3 w-full"
             required
           />
@@ -37,7 +69,9 @@ const StudentReview = () => {
           <input
             {...register("email")}
             type="email"
+            defaultValue={user?.email}
             placeholder="Student Username or Email"
+            readOnly
             className="input input-bordered border border-black mb-3 w-full"
             required
           />
@@ -53,16 +87,31 @@ const StudentReview = () => {
         </div>
         <div className="form-control mt-3">
           <input
-            {...register("rating")}
-            type="text"
+            {...register("rating", {
+              required: "Rating is required",
+              max: {
+                value: 5,
+                message: "Rating cannot be greater than 5",
+              },
+              min: {
+                value: 0,
+                message: "Rating cannot be less than 0",
+              },
+            })}
+            type="number"
             placeholder="Your Rating (out of 5)"
             className="input input-bordered border border-black w-full"
-            required
           />
+          {errors.rating && (
+            <span className="text-red-500 text-sm">
+              {errors.rating.message}
+            </span>
+          )}
         </div>
         <div className="form-control mt-6">
           <input
             type="submit"
+            disabled={isRole !== "Student"}
             className="btn bg-neutral-900 text-white hover:bg-neutral-700 w-full"
             value="Send Review & Rating"
           />

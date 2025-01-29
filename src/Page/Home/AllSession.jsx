@@ -30,7 +30,7 @@ const AllSession = () => {
             )
         )}
       </div>
-      <div className="space-x-4 flex justify-center items-center mt-8">
+      <div className="space-x-4 flex justify-center items-center my-8">
         {pages.map((page) => (
           <button
             onClick={() => {

@@ -12,7 +12,7 @@ import SwiperDetails from "../../Shared/SwiperDetails";
 
 const Banner = () => {
   return (
-    <div>
+    <>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
         <SwiperSlide>
           <SwiperDetails
@@ -39,7 +39,7 @@ const Banner = () => {
           ></SwiperDetails>
         </SwiperSlide>
       </Swiper>
-    </div>
+    </>
   );
 };
 

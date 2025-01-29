@@ -13,7 +13,6 @@ const MainLayOut = () => {
             <div className='min-h-screen'>
             <Outlet></Outlet>
             </div>
-            <Subscribe></Subscribe>
             <Footer></Footer>
         </div>
     );

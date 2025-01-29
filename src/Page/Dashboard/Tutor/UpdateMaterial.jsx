@@ -8,9 +8,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import useMaterialById from "../../../Hooks/useMetarilaById";
 
-const imgApi = `https://api.imgbb.com/1/upload?key=${
-  import.meta.env.VITE_Imge_Key
-}`;
 
 const UpdateMaterial = () => {
   const {id} = useParams();
@@ -20,22 +17,6 @@ const UpdateMaterial = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
-  console.log(item);
-
-  // const {
-  //   data: material,
-  //   isLoading,
-  // } = useQuery({
-  //   queryKey: ["material", user?.email],
-  //   queryFn: async () => {
-  //     const req = await axiosSecure.get(
-  //       `/materials/${user?.email}?id=${item._id}`
-  //     );
-  //     return req.data;
-  //   },
-  // });
-
-  // console.log(material);
 
   const {
     register,
@@ -47,16 +28,20 @@ const UpdateMaterial = () => {
   const onSubmit = async (data) => {
     setLoader(true);
     const imageUrl = { image: data.image[0] };
-    const imgRes = await axiosPublic.post(imgApi, imageUrl, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
-    if (imgRes.data.success) {
+    
+    const imgData = new FormData()
+    imgData.append("file", imageUrl.image);
+    imgData.append('upload_preset', "Learn_Hub")
+    imgData.append("cloud_name", "dvrn5hqsv")
+
+    const imgRes = await axiosPublic.post(
+      "https://api.cloudinary.com/v1_1/dvrn5hqsv/image/upload",
+      imgData);
+    if (imgRes.data.secure_url) {
       const material = {
         sessionId: item?.sessionId,
         email: user?.email,
-        image: imgRes.data?.data?.display_url,
+        image: imgRes.data.secure_url,
         doc: data.doc,
       };
 

@@ -23,6 +23,8 @@ import PrivateRoutes from "./PrivateRoutes";
 import AllSessionAdmin from "../Page/Dashboard/Admin/AllSessionAdmin";
 import ViewAllMaterial from "../Page/Dashboard/Admin/ViewAllMetarial";
 import DashBoardBanner from "../Page/Dashboard/DashBoardBanner";
+import PrivateTutorRoutes from "./PrivateTutorRoutes";
+import PrivateAdminRoutes from "./PrivateAdminRoutes";
 
 const router = createBrowserRouter([
     {
@@ -106,39 +108,51 @@ const router = createBrowserRouter([
         {
           path:'addSession',
           element:<PrivateRoutes>
+            <PrivateTutorRoutes>
             <AddSession></AddSession>
+            </PrivateTutorRoutes>
           </PrivateRoutes>
         },
         {
           path:'personalSession',
           element:<PrivateRoutes>
+            <PrivateTutorRoutes>
             <PersonalSession></PersonalSession>
+            </PrivateTutorRoutes>
           </PrivateRoutes>
         },
         {
           path:'addMaterial/:id',
           element:<PrivateRoutes>
+            <PrivateTutorRoutes>
             <AddMaterial></AddMaterial>
+            </PrivateTutorRoutes>
           </PrivateRoutes>,
           loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
           path:'updateMaterial/:id',
           element:<PrivateRoutes>
+            <PrivateTutorRoutes>
             <UpdateMaterial></UpdateMaterial>
+            </PrivateTutorRoutes>
           </PrivateRoutes>,
           loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
           path:'materials',
           element:<PrivateRoutes>
+            <PrivateTutorRoutes>
             <Materials></Materials>
+            </PrivateTutorRoutes>
           </PrivateRoutes>
         },
         {
           path:'allMaterials',
           element:<PrivateRoutes>
+            <PrivateTutorRoutes>
             <AllMaterials></AllMaterials>
+            </PrivateTutorRoutes>
           </PrivateRoutes>
         },
 
@@ -146,19 +160,25 @@ const router = createBrowserRouter([
         {
           path:'Admin/Users',
           element:<PrivateRoutes>
+            <PrivateAdminRoutes>
             <Users></Users>
+            </PrivateAdminRoutes>
           </PrivateRoutes>
         },
         {
           path:'Admin/AllSession',
           element:<PrivateRoutes>
+            <PrivateAdminRoutes>
             <AllSessionAdmin></AllSessionAdmin>
+            </PrivateAdminRoutes>
           </PrivateRoutes>
         },
         {
           path:'Admin/AllMaterials',
           element:<PrivateRoutes>
+            <PrivateAdminRoutes>
             <ViewAllMaterial></ViewAllMaterial>
+            </PrivateAdminRoutes>
           </PrivateRoutes>
         }
       ]

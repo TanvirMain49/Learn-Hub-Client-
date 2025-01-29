@@ -25,8 +25,8 @@ const UpdateSessionStatus = ({ item, refetch }) => {
     };
 
     const res = await axiosSecure.patch(`/session/${item._id}`, updatedDoc);
-    console.log(res.data);
     if (res.data.modifiedCount > 0) {
+      document.getElementById(`my_modal_${item._id}`).close();
       Swal.fire({
         position: "center",
         icon: "success",

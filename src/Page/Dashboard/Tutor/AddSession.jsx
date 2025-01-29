@@ -7,10 +7,6 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import DasHeading from "../../../Shared/DashBoardHeading";
 
-const imgApiKey = `https://api.imgbb.com/1/upload?key=${
-  import.meta.env.VITE_Imge_Key
-}`;
-
 const AddSession = () => {
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
@@ -22,64 +18,82 @@ const AddSession = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = async (data) => {
 
+  const onSubmit = async (data) => {
     const sessionImageFile = { image: data.image[0] };
-    try {
-      // Upload session image
-      const sessionImageRes = await axiosPublic.post(
-        imgApiKey,
-        sessionImageFile,
-        {
-          headers: {
-            "content-type": "multipart/form-data",
+    const registerStartDate = new Date(data.classStart);
+
+    if (!data.image || !data.image[0]) {
+      Swal.fire({
+        title: "No Image Uploaded",
+        text: "Please upload a session image.",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+      return;
+    }
+    if (registerStartDate < new Date()) {
+      Swal.fire({
+        title: "Invalid Date",
+        text: "Register start date must be greater than the current date.",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+      return;
+    }
+
+    const imgData = new FormData();
+    imgData.append("file", sessionImageFile.image);
+    imgData.append("upload_preset", "Learn_Hub");
+    imgData.append("cloud_name", "dvrn5hqsv");
+
+    // Upload session image
+    const sessionImageRes = await axiosPublic.post(
+      "https://api.cloudinary.com/v1_1/dvrn5hqsv/image/upload",
+      imgData
+    );
+
+    if (sessionImageRes.data.secure_url) {
+      const sessionInfo = {
+        title: data.title,
+        description: data.description,
+        classStart: data.classStart,
+        classEnd: data.classEnd,
+        status: "pending",
+        price: "0",
+        imageUrl: sessionImageRes.data.secure_url,
+        tutorImageUrl: data.tutorImage,
+        registerStart: resStart.toISOString().split("T")[0],
+        registerEnd: resEnd.toISOString().split("T")[0],
+        tutorName: data.tutorName,
+        tutorEmail: data.tutorEmail,
+        tutorPro: data.tutorPro,
+        tutorDescription: data.tutorDescription,
+      };
+      // post in the server side
+      const sessionRes = await axiosPublic.post("/session", sessionInfo);
+      // data is inserted at mongodb
+      if (sessionRes.data.insertedId) {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
           },
-        }
-      );
-      console.log(sessionImageRes.data);
-      if (sessionImageRes.data.success) {
-        const sessionInfo = {
-          title: data.title,
-          description: data.description,
-          classStart: data.classStart,
-          classEnd: data.classEnd,
-          status: "pending",
-          price: "0",
-          imageUrl: sessionImageRes.data.data.url, 
-          tutorImageUrl: data.tutorImage,
-          registerStart: resStart.toISOString().split("T")[0], 
-          registerEnd: resEnd.toISOString().split("T")[0], 
-          tutorName: data.tutorName,
-          tutorEmail: data.tutorEmail,
-          tutorPro: data.tutorPro,
-          tutorDescription: data.tutorDescription,
-        };
-        // post in the server side
-        const sessionRes = await axiosPublic.post("/session", sessionInfo);
-        //data is inserted at mongodb
-        if (sessionRes.data.insertedId) {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            },
-          });
-          Toast.fire({
-            icon: "success",
-            title: `${sessionInfo.title} session added`,
-          });
-        }
-        reset();
+        });
+        Toast.fire({
+          icon: "success",
+          title: `${sessionInfo.title} session added`,
+        });
       }
-    } catch (error) {
-      console.error("Error uploading images: ", error);
+      reset();
     }
   };
+
   return (
     <div>
       <DasHeading
@@ -88,11 +102,14 @@ const AddSession = () => {
       ></DasHeading>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body bg-white border border-black max-w-4xl mx-auto p-12 boxFixed rounded-lg grid grid-cols-2 gap-3"
+        className="card-body bg-white border border-black rounded-lg md:grid flex flex-col md:grid-cols-2  p-4 md:max-w-4xl md:mx-auto md:p-12"
       >
         {/* Session Details Section */}
         <div className="form-control">
-          <label htmlFor="title" className="label font-semibold">
+          <label
+            htmlFor="title"
+            className="label font-semibold text-base md:text-lg"
+          >
             Session Title
           </label>
           <input
@@ -100,12 +117,15 @@ const AddSession = () => {
             type="text"
             id="title"
             placeholder="Session Title"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black w-full"
             required
           />
         </div>
         <div className="form-control">
-          <label htmlFor="image" className="label font-semibold">
+          <label
+            htmlFor="image"
+            className="label font-semibold text-base md:text-lg"
+          >
             Session Image
           </label>
           <input
@@ -115,7 +135,10 @@ const AddSession = () => {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="registerStart" className="label font-semibold">
+          <label
+            htmlFor="registerStart"
+            className="label font-semibold text-base md:text-lg"
+          >
             Registration Start
           </label>
           <DatePicker
@@ -126,7 +149,10 @@ const AddSession = () => {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="registerEnd" className="label font-semibold">
+          <label
+            htmlFor="registerEnd"
+            className="label font-semibold text-base md:text-lg"
+          >
             Registration End
           </label>
           <DatePicker
@@ -137,7 +163,10 @@ const AddSession = () => {
           />
         </div>
         <div className="form-control">
-          <label htmlFor="classStart" className="label font-semibold">
+          <label
+            htmlFor="classStart"
+            className="label font-semibold text-base md:text-lg"
+          >
             Class Start Time
           </label>
           <input
@@ -145,12 +174,15 @@ const AddSession = () => {
             type="time"
             id="classStart"
             placeholder="Class Start Time"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black w-full"
             required
           />
         </div>
         <div className="form-control">
-          <label htmlFor="classEnd" className="label font-semibold">
+          <label
+            htmlFor="classEnd"
+            className="label font-semibold text-base md:text-lg"
+          >
             Class End Time
           </label>
           <input
@@ -158,12 +190,15 @@ const AddSession = () => {
             type="time"
             id="classEnd"
             placeholder="Class End Time"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black w-full"
             required
           />
         </div>
         <div className="form-control col-span-2">
-          <label htmlFor="description" className="label font-semibold">
+          <label
+            htmlFor="description"
+            className="label font-semibold text-base md:text-lg"
+          >
             Session Description
           </label>
           <textarea
@@ -171,15 +206,20 @@ const AddSession = () => {
             cols="20"
             rows="5"
             placeholder="Session Description...."
-            className="textarea textarea-bordered border border-black"
+            className="textarea textarea-bordered border border-black w-full"
             required
           />
         </div>
 
         {/* Tutor Information Section */}
-        <div className="divider col-span-2">Tutor Information</div>
+        <div className="divider col-span-2 text-base md:text-lg">
+          Tutor Information
+        </div>
         <div className="form-control">
-          <label htmlFor="tutorName" className="label font-semibold">
+          <label
+            htmlFor="tutorName"
+            className="label font-semibold text-base md:text-lg"
+          >
             Tutor Name
           </label>
           <input
@@ -188,13 +228,16 @@ const AddSession = () => {
             id="tutorName"
             defaultValue={user?.displayName}
             placeholder="Tutor Name"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black w-full"
             required
             readOnly
           />
         </div>
         <div className="form-control">
-          <label htmlFor="tutorEmail" className="label font-semibold">
+          <label
+            htmlFor="tutorEmail"
+            className="label font-semibold text-base md:text-lg"
+          >
             Tutor Email
           </label>
           <input
@@ -203,13 +246,16 @@ const AddSession = () => {
             id="tutorEmail"
             defaultValue={user?.email}
             placeholder="Tutor Email"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black w-full"
             required
             readOnly
           />
         </div>
         <div className="form-control">
-          <label htmlFor="tutorImage" className="label font-semibold">
+          <label
+            htmlFor="tutorImage"
+            className="label font-semibold text-base md:text-lg"
+          >
             Tutor Image
           </label>
           <input
@@ -217,13 +263,16 @@ const AddSession = () => {
             type="text"
             defaultValue={user?.photoURL}
             placeholder="Tutor Image"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black w-full"
             required
             readOnly
           />
         </div>
         <div className="form-control">
-          <label htmlFor="tutorPro" className="label font-semibold">
+          <label
+            htmlFor="tutorPro"
+            className="label font-semibold text-base md:text-lg"
+          >
             Tutor Profession
           </label>
           <input
@@ -231,12 +280,15 @@ const AddSession = () => {
             type="text"
             id="tutorPro"
             placeholder="Tutor Profession"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black w-full"
             required
           />
         </div>
         <div className="form-control col-span-2">
-          <label htmlFor="tutorDescription" className="label font-semibold">
+          <label
+            htmlFor="tutorDescription"
+            className="label font-semibold text-base md:text-lg"
+          >
             Tutor Description
           </label>
           <textarea
@@ -245,13 +297,14 @@ const AddSession = () => {
             cols="20"
             rows="5"
             placeholder="Tutor Description...."
-            className="textarea textarea-bordered border border-black"
+            className="textarea textarea-bordered border border-black w-full"
             required
           />
         </div>
 
+        {/* Submit Button */}
         <div className="form-control col-span-2 mt-6">
-          <button className="btn bg-neutral-900 text-white hover:bg-neutral-700">
+          <button className="btn bg-neutral-900 text-white hover:bg-neutral-700 w-full md:w-auto">
             Add Session
           </button>
         </div>

@@ -54,7 +54,7 @@ const Navbar = () => {
               <NavLink to='/dashboard' className='text-lg'>Dashboard</NavLink>
           </ul>
         </div>
-        <div className="">
+        <div className="md:ml-0 ml-16">
           {
             user ?  <div className="dropdown md:dropdown-end">
             <div tabIndex={0} role="button" className="btn ml-20 md:ml-0 btn-ghost btn-circle avatar">
@@ -75,7 +75,7 @@ const Navbar = () => {
               </button>
             </ul>
           </div> : <div className="md:flex md:gap-2 md:items-center">
-            <Link to='/login' className="hover:bg-neutral-900 text-xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent md:block hidden">Log in</Link>
+            <Link to='/login' className="hover:bg-neutral-900 text-xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent md:flex hidden">Log in</Link>
             <Link to='/signup' className="hover:bg-neutral-900 btn border border-black  hover:text-white md:text-xl ml-10 md:ml-0 rounded-xl font-bold text-black transition-all ease-in-out duration-300 bg-transparent"  >sign in</Link>
             
             </div>

@@ -17,7 +17,6 @@ const DashBoard = () => {
   const { user, signOutUser } = useAuth();
   const navigate = useNavigate();
   const { isRole, isLoading } = useRole();
-  const [expend, setExpend] = useState(true);
 
   const handleLogOut = () => {
     signOutUser().then((res) => {
@@ -31,11 +30,11 @@ const DashBoard = () => {
 
   return (
     <div className="flex roboto">
-      <div className="lg:hidden relative z-10">
+      <div className="lg:hidden relative z-10 -mr-5">
         <div className="drawer">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
-            <label htmlFor="my-drawer" className="btn drawer-button">
+          <div className="drawer-content pt-2 pl-2 bg-gray-100">
+            <label htmlFor="my-drawer" className="drawer-button">
               <FaListUl className="text-base"></FaListUl>
             </label>
           </div>
@@ -309,7 +308,7 @@ const DashBoard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 py-10 lg:pl-72 min-h-screen bg-gray-100">
+      <div className="flex-1 py-10 md:pl-72 md:pr-0 pr-2 min-h-screen bg-gray-100">
         <Outlet></Outlet>
       </div>
     </div>

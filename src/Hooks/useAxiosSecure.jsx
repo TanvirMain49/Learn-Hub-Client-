@@ -1,5 +1,4 @@
 import axios from "axios";
-import { config } from "localforage";
 import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +12,9 @@ const useAxiosSecure = () => {
   axiosSecure.interceptors.request.use(
     (config) => {
       const token = localStorage.getItem("access-token");
+      console.log(token);
       config.headers.authorization = `Bearer ${token}`;
+      config.headers["Content-Type"] = "application/json";
       return config;
     },
     (error) => {

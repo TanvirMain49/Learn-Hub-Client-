@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./boxShadow.css";
 
 const SessionCard = ({ item }) => {
+
   return (
     <div className="card bg-white border hover:border hover:border-gray-950 transition-all duration-300 ease-out hover:-translate-x-2 box mb-8 ">
       <figure className="rounded-t-xl w-full h-[280px]">
@@ -14,9 +15,13 @@ const SessionCard = ({ item }) => {
       </figure>
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex justify-between items-center mb-2">
-          <h2 className="border border-black px-1 rounded font-semibold text-white bg-green-500 smooch-sans">
+          {
+            new Date() <= new Date(item.registerEnd) ? <h2 className="border border-black px-1 rounded font-semibold text-white bg-green-500 smooch-sans">
             On going
-          </h2>
+          </h2> : <h2 className="border border-black px-1 rounded font-semibold text-white bg-red-500 smooch-sans">
+            Registration End
+          </h2> 
+          }
           {item.price === "0" ? (
             <h2 className="text-3xl font-bold">Free</h2>
           ) : (

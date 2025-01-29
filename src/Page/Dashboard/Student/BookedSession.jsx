@@ -9,32 +9,34 @@ const BookedSession = () => {
   const { bookedSessions } = useBooked();
   return (
     <>
-      <DasHeading Heading="View Your Booked Study Session" subHeading="See Your Booked Sessions"></DasHeading>
+      <DasHeading
+        Heading="View Your Booked Study Session"
+        subHeading="See Your Booked Sessions"
+      ></DasHeading>
       {bookedSessions.length ? (
-        <div className="overflow-x-auto px-16 rounded-xl">
-          <table className="table">
+        <div className="overflow-x-auto px-4 sm:px-8 lg:px-16 py-4 rounded-xl">
+          <table className="table w-full">
             {/* head */}
-            <thead className="text-center text-lg bg-black text-white">
+            <thead className="text-center text-sm sm:text-lg bg-black text-white">
               <tr>
                 <th>#</th>
-                <th>Image</th>
+                <th className="hidden lg:block">Image</th>
                 <th>Title</th>
                 <th>Tutor Name</th>
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody className="text-center text-lg bg-white">
-              {bookedSessions.map((booked) => (
-                <tr className="border border-black">
-                  <th>1</th>
-                  <td>
+            <tbody className="text-center text-sm sm:text-lg bg-white">
+              {bookedSessions.map((booked, idx) => (
+                <tr key={booked.sessionId} className="border border-black">
+                  <th>{idx + 1}</th>
+                  <td className='hidden lg:block'>
                     <div className="flex justify-center items-center gap-3">
                       <div className="avatar">
-                        <div className="mask mask-squircle h-16 w-16">
+                        <div className="mask mask-squircle h-12 w-12 sm:h-16 sm:w-16">
                           <img src={booked.imageUrl} alt={booked.title} />
                         </div>
                       </div>
-                      <div></div>
                     </div>
                   </td>
                   <td className="font-semibold">{booked.title}</td>
@@ -42,10 +44,9 @@ const BookedSession = () => {
                   <th>
                     <Link
                       to={`/cardDetails/${booked.sessionId}`}
-                      className="flex items-center btn bg-white text-base border border-black font-bold hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+                      className="flex items-center justify-center btn bg-white text-xs sm:text-base border border-black font-bold hover:bg-black hover:text-white transition-all ease-in-out duration-300 px-2 py-1 sm:px-4 sm:py-2"
                     >
-                      <FaList></FaList>
-                      View Details
+                      <FaList className="mr-1 hidden lg:block" /> View Details
                     </Link>
                   </th>
                 </tr>
