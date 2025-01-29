@@ -8,7 +8,6 @@ const AllSessionAdmin = () => {
   const pendingCard = card.filter(item=>item.status === "pending")
   const successCard = card.filter(item=>item.status === "success")
   const rejectedCard = card.filter(item=>item.status === "rejected")
-  console.log(successCard);
   return (
     <>
     <DasHeading Heading="Mange All Session" subHeading="pending success reject"></DasHeading>

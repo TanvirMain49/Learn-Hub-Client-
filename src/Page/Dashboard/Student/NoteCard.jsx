@@ -28,7 +28,6 @@ const NoteCard = ({ note, refetch }) => {
     }).then(async(result) => {
       if (result.isConfirmed) {
         const res = await axiosSecure.delete(`/notes/${id}`);
-        console.log(res.data);
         if(res.data.deletedCount){
           swalWithBootstrapButtons.fire({
             title: "Deleted!",

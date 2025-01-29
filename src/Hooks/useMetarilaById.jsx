@@ -4,7 +4,6 @@ import useAxiosSecure from './useAxiosSecure';
 
 const useMaterialById = (id) => {
     const axiosSecure = useAxiosSecure();
-    console.log(id);
     const { data: item, refetch } = useQuery({
       queryKey: ["material", id],
       queryFn: async () => {

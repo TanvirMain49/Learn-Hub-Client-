@@ -48,7 +48,6 @@ const AddMaterial = () => {
           `/materials?email=${user?.email}&id=${item?._id}`,
           material
         )
-        console.log(res.data);
         if (res.data.insertedId > "0") {
           const Toast = Swal.mixin({
             toast: true,

@@ -35,7 +35,6 @@ const Signup = () => {
               `/users?email=${data.email}`,
               userInfo
             );
-            console.log(userRes.data);
             if (userRes.data.insertedId > "0") {
               Swal.fire({
                 title: `${data.name} Welcome Back!`,
@@ -48,7 +47,7 @@ const Signup = () => {
                 confirmButtonTextColor: "#ffffff",
               });
             }
-            setLoader(false)
+            setLoader(false);
             navigate("/");
             reset();
           })
@@ -82,7 +81,6 @@ const Signup = () => {
   const handleGoogle = () => {
     signInWithGoogle()
       .then(async (res) => {
-        console.log(res.user);
         const userInfo = {
           name: res.user.displayName,
           photoURL: res.user.photoURL,
@@ -93,7 +91,6 @@ const Signup = () => {
           `/users?email=${res.user.email}`,
           userInfo
         );
-        console.log(userRes.data);
         if (userRes.data.insertedId > "0") {
           Swal.fire({
             title: `${res.user.name} Welcome Back!`,
@@ -110,7 +107,16 @@ const Signup = () => {
       })
       .catch((error) => {
         // TODO: Error alert
-        console.log(error);
+        Swal.fire({
+          title: `${error.message}`,
+          icon: "error",
+          draggable: true,
+          background: "#dc3545",
+          color: "#ffffff",
+          confirmButtonColor: "#000000",
+          confirmButtonText: "Close",
+          confirmButtonTextColor: "#ffffff",
+        });
       });
   };
   return (
@@ -218,7 +224,11 @@ const Signup = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn bg-neutral-900 text-white hover:bg-neutral-700">
-          {loader ? <span className="loading loading-dots loading-xs"></span> : "Signup"}
+            {loader ? (
+              <span className="loading loading-dots loading-xs"></span>
+            ) : (
+              "Signup"
+            )}
           </button>
         </div>
         <p className="text-center pt-6 pb-3">or login with</p>

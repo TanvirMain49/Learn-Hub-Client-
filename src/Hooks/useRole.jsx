@@ -14,7 +14,6 @@ const useRole = () => {
         },
         enabled: !!user?.email, 
     });
-    console.log(data?.role);
     const isRole = data?.role;
     return { isRole, isLoading, isError };
 };

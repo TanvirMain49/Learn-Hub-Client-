@@ -16,7 +16,6 @@ const ReviewsSection = () => {
       return res.data;
     },
   });
-  console.log(reviews);
 
   return (
     <div>

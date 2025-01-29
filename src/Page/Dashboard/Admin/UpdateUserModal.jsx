@@ -31,7 +31,6 @@ const UpdateUserModal = ({ user, refetch }) => {
       .then(async (result) => {
         if (result.isConfirmed) {
           const res = await axiosSecure.patch(`users/${user._id}`, {role: role});
-          console.log(res.data);
           if (res.data.modifiedCount > 0) {
             swalWithBootstrapButtons.fire({
               title: "Updated!",

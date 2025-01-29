@@ -24,7 +24,6 @@ const StudentReview = () => {
     const reviews = { photo: user?.photoURL, ...data };
 
     axiosPublic.post("/reviews", reviews).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId > "0") {
         Swal.fire({
           icon: "success",
