@@ -13,8 +13,8 @@ const AllSession = () => {
     fetch("http://localhost:5000/sessionCount")
       .then((res) => res.json())
       .then((data) => setCount(data.count))
-      .catch((error) => console.error("Error fetching session count:", error));
   }, []);
+
 
   const numberOfPages = count ? Math.ceil(count / itemPerPage) : 0;
   const pages = [...Array(numberOfPages).keys()];
