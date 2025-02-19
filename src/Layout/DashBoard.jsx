@@ -12,11 +12,12 @@ import {
 import { FaBookOpen, FaListUl } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
 import Loader from "../Shared/Loader";
+import DashTopNav from "../Shared/DashTopNav";
 
 const DashBoard = () => {
+  const { isRole, isLoading } = useRole();
   const { user, signOutUser } = useAuth();
   const navigate = useNavigate();
-  const { isRole, isLoading } = useRole();
 
   const handleLogOut = () => {
     signOutUser().then((res) => {
@@ -101,8 +102,7 @@ const DashBoard = () => {
                         to="Admin/Users"
                         className="flex items-center gap-2 text-sm"
                       >
-                        <FaUsers className="text-base"></FaUsers> View all
-                        users
+                        <FaUsers className="text-base"></FaUsers> View all users
                       </NavLink>
                       <NavLink
                         to="Admin/AllSession"
@@ -153,10 +153,7 @@ const DashBoard = () => {
                     </>
                   )}
                   <div className="border-b border-white/40"></div>
-                  <NavLink
-                    to="/"
-                    className="flex items-center gap-2 text-sm"
-                  >
+                  <NavLink to="/" className="flex items-center gap-2 text-sm">
                     <MdHome className="text-base"></MdHome> Home
                   </NavLink>
                   <NavLink
@@ -234,6 +231,13 @@ const DashBoard = () => {
             {isRole === "Admin" && (
               <>
                 <NavLink
+                  to="/dashboard/Das"
+                  className="flex items-center gap-2 text-2xl"
+                >
+                <FaUsers className="text-xl"></FaUsers> Dashboard
+                </NavLink>
+
+                <NavLink
                   to="Admin/Users"
                   className="flex items-center gap-2 text-2xl"
                 >
@@ -308,8 +312,11 @@ const DashBoard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 py-10 md:pl-72 md:pr-0 pr-2 min-h-screen bg-gray-100">
-        <Outlet></Outlet>
+      <div className="flex-1 md:pl-72 md:pr-0 pr-2 min-h-screen bg-gray-100">
+        <DashTopNav />
+        <div className="px-6">
+          <Outlet></Outlet>
+        </div>
       </div>
     </div>
   );

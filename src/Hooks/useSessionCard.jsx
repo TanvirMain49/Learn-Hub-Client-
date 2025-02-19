@@ -6,7 +6,7 @@ const useSessionCard = (currentPage, itemPerPage) => {
     const {data: card=[], refetch} = useQuery({
         queryKey:['session-card', currentPage, itemPerPage],
         queryFn: async()=>{
-            const res = await axiosPublic.get(`/session?page=${currentPage}&limit=${itemPerPage}`)
+            const res = await axiosPublic.get(`/session?page=${currentPage}&limit=${itemPerPage}`);
             return res.data;
         }
     })

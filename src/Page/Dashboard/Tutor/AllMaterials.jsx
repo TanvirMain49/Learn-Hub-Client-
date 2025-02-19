@@ -10,7 +10,6 @@ const AllMaterials = () => {
   const axiosSecure = useAxiosSecure();
 
   const handleDelete = (id) => {
-    console.log(id);
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success ml-6 text-white",
@@ -31,7 +30,6 @@ const AllMaterials = () => {
       .then(async (result) => {
         if (result.isConfirmed) {
           const res = await axiosSecure.delete(`/materials/${id}`);
-          console.log(res.data);
           if (res.data.deletedCount > 0) {
             swalWithBootstrapButtons.fire({
               title: "Deleted!",

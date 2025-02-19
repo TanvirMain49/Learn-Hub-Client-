@@ -2,12 +2,13 @@ import React from "react";
 import useSessionCard from "../../../Hooks/useSessionCard";
 import RenderTable from "./RenderTable";
 import DasHeading from "../../../Shared/DashBoardHeading";
+import useSessionAdmin from "../../../Hooks/useSessionAdmin";
 
 const AllSessionAdmin = () => {
-  const { card, refetch } = useSessionCard();
-  const pendingCard = card.filter(item=>item.status === "pending")
-  const successCard = card.filter(item=>item.status === "success")
-  const rejectedCard = card.filter(item=>item.status === "rejected")
+  const { cardAdmin, refetch } = useSessionAdmin();
+  const pendingCard = cardAdmin.filter(item=>item.status === "pending")
+  const successCard = cardAdmin.filter(item=>item.status === "success")
+  const rejectedCard = cardAdmin.filter(item=>item.status === "rejected")
   return (
     <>
     <DasHeading Heading="Mange All Session" subHeading="pending success reject"></DasHeading>

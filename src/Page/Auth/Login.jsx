@@ -65,7 +65,7 @@ const Login = () => {
             required
           />
         </div>
-        <div className="form-control mb-4">
+        {/* <div className="form-control mb-4">
           <select
             {...register("role")}
             className="select select-none border border-black selected:text-gray-300 w-full"
@@ -77,7 +77,7 @@ const Login = () => {
             <option>Tutor</option>
             <option>Admin</option>
           </select>
-        </div>
+        </div> */}
         <div className="form-control mb-4">
           <input
             {...register("password", {

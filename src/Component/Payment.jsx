@@ -1,0 +1,63 @@
+import React, { useEffect, useState } from "react";
+import DataTable from "react-data-table-component";
+
+export default function Payment() {
+  const [payments, setPayments] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/payment")
+      .then((response) => response.json())
+      .then((data) => setPayments(data));
+  }, []);
+
+  const columns = [
+    { name: "ID", selector: (row) => row._id, sortable: true },
+    { name: "Name", selector: (row) => row?.name, sortable: true },
+    { name: "Amount", selector: (row) => `$${row.price}`, sortable: true },
+    { name: "Date", selector: (row) => new Date(row.date).toLocaleDateString(), sortable: true },
+  ];
+
+  const customStyles = {
+    table: {
+      style: {
+        borderRadius: "12px", // Rounded corners
+        overflow: "hidden", // Ensures rounding applies correctly
+      },
+    },
+    headCells: {
+      style: {
+        backgroundColor: "#000", 
+        color: "#fff",
+        fontWeight: "bold",
+        fontSize: "16px",
+        textAlign: "center",
+      },
+    },
+    rows: {
+      style: {
+        textAlign: "center",
+      },
+    },
+    cells: {
+      style: {
+        padding: "12px",
+      },
+    },
+  };
+  
+
+  return (
+    <div className="my-10 mx-auto max-w-8xl shadow-lg">
+        <h1 className="text-lg font-bold ml-4">Payment</h1>
+      <DataTable
+        columns={columns}
+        data={payments}
+        pagination
+        paginationPerPage={5} 
+        paginationRowsPerPageOptions={[5, 10]}
+        customStyles={customStyles}
+        className="p-6" 
+      />
+    </div>
+  );
+}

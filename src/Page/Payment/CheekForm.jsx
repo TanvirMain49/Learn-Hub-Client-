@@ -79,7 +79,6 @@ const CheckoutForm = () => {
         .then((res) => {
           setClientSecret(res.data.clientSecret);
         })
-        .catch((err) => console.error("Error creating payment intent:", err));
     }
   }, [axiosSecure, price]);
 
@@ -127,6 +126,8 @@ const CheckoutForm = () => {
     if (paymentIntent) {
       setTransactionId(paymentIntent.id);
       const payment = {
+        title: items.title,
+        name: user?.displayName,
         email: user?.email,
         price: price,
         date: new Date(),

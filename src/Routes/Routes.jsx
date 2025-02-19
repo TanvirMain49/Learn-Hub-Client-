@@ -26,6 +26,8 @@ import DashBoardBanner from "../Page/Dashboard/DashBoardBanner";
 import PrivateTutorRoutes from "./PrivateTutorRoutes";
 import PrivateAdminRoutes from "./PrivateAdminRoutes";
 
+// http://localhost:5000
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -49,7 +51,9 @@ const router = createBrowserRouter([
         },
         {
             path:'cardDetails/:id',
-            element: <CardDetails></CardDetails>,
+            element: <PrivateRoutes>
+              <CardDetails></CardDetails>
+            </PrivateRoutes>,
             loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
@@ -68,7 +72,7 @@ const router = createBrowserRouter([
       children:[
 
         {
-          path:'/dashboard',
+          path:'/dashboard/Das',
           element: <DashBoardBanner></DashBoardBanner>
         },
 

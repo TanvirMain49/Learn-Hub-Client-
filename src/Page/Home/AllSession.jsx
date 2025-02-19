@@ -42,7 +42,7 @@ const AllSession = () => {
             }  btn px-5 text-xl border border-black`}
             key={page}
           >
-            {page}
+            {page+1}
           </button>
         ))}
       </div>

@@ -191,13 +191,14 @@ const Signup = () => {
           <select
             {...register("role")}
             className="select select-none border border-black selected:text-gray-300 mb-2 w-full"
+            required
           >
             <option disabled selected className="text-gray-500">
               Role
             </option>
-            <option>Student</option>
-            <option>Tutor</option>
-            <option>Admin</option>
+            <option value="Student">Student</option>
+            <option value="Tutor">Tutor</option>
+            <option value="Admin">Admin</option>
           </select>
         </div>
         <div className="form-control">
