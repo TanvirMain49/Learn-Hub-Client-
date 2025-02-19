@@ -25,6 +25,7 @@ import ViewAllMaterial from "../Page/Dashboard/Admin/ViewAllMetarial";
 import DashBoardBanner from "../Page/Dashboard/DashBoardBanner";
 import PrivateTutorRoutes from "./PrivateTutorRoutes";
 import PrivateAdminRoutes from "./PrivateAdminRoutes";
+import Profile from "../Page/Dashboard/Profile";
 
 // http://localhost:5000
 
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
         {
           path:'/dashboard/Das',
           element: <DashBoardBanner></DashBoardBanner>
+        },
+        {
+          path:'/dashboard/profile',
+          element: <Profile></Profile>
         },
 
         // !student

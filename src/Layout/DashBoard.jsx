@@ -179,25 +179,13 @@ const DashBoard = () => {
       {/* Sidebar for Larger Devices */}
       <div className="hidden lg:block fixed top-0 left-0 w-72 p-3 h-screen bg-black text-white smooch-sans">
         {/* Profile */}
-        <div className="flex sticky items-center justify-between border-b-2 border-white/30 pb-4">
-          <p className="text-2xl text-white font-bold">LearnHub</p>
-          <div className="border-2 border-white rounded-full">
-            {user && (
-              <img
-                alt={user?.name}
-                src={user?.photoURL}
-                className="w-12 h-12 object-cover rounded-full"
-              />
-            )}
-          </div>
+        <div className="border-b-2 border-white/30">
+          <p className="text-4xl text-white text-center font-bold mt-3 mb-5">LearnHub</p>
         </div>
 
         {/* Navbar */}
         <div>
-          <p className="mb-4 mt-2 text-xl font-bold text-right">
-            You are {isRole}
-          </p>
-          <ul className="flex flex-col menu text-white font-semibold uppercase space-y-6">
+          <ul className="flex flex-col menu text-white font-semibold uppercase mt-4 space-y-6">
             {isRole === "Student" && (
               <>
                 <NavLink
@@ -313,7 +301,7 @@ const DashBoard = () => {
 
       {/* Main Content */}
       <div className="flex-1 md:pl-72 md:pr-0 pr-2 min-h-screen bg-gray-100">
-        <DashTopNav />
+        <DashTopNav/>
         <div className="px-6">
           <Outlet></Outlet>
         </div>

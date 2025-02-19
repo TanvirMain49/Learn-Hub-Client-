@@ -9,9 +9,10 @@ import Payment from "../../Component/Payment";
 import DashStudent from "../../Component/DashStudent";
 import DashTutor from "../../Component/DashTuitor";
 import useSessionAdmin from "../../Hooks/useSessionAdmin";
+import useRole from "../../Hooks/useRole";
 
 const DashBoardBanner = () => {
-  const { user } = useAuth();
+  const {isRole} = useRole();
   const { cardAdmin, refetch } = useSessionAdmin();
   const [totalStudent, setTotalStudent] = useState('');
   const [totalTutor, setTotalTutor] = useState('');
@@ -19,7 +20,7 @@ const DashBoardBanner = () => {
 
   return <div>
     <h1 className="text-3xl font-bold">Dashboard</h1>
-    <p className="text-gray-400">Welcome to Admin Dashboard</p>
+    <p className="text-gray-400">Welcome to <strong className="text-black">{isRole}</strong> Dashboard</p>
 
     <div className="flex items-center mt-6 gap-8">
       <TotalStudent totalStudent={totalStudent}/>

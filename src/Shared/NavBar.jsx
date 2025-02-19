@@ -40,7 +40,7 @@ const Navbar = () => {
             >
               <NavLink to='/' className='text-lg p-3'>Home</NavLink>
               <NavLink to="allSession" className='text-lg'>All Session</NavLink>
-              <NavLink to='/dashboard' className='text-lg'>Dashboard</NavLink>
+              <NavLink to='/dashboard/Das' className='text-lg'>Dashboard</NavLink>
             </ul>
           </div>
           <Link to="/"
@@ -51,7 +51,7 @@ const Navbar = () => {
           <ul className="my-6 px-1 space-x-3 mr-3 text-black font-bold">
               <NavLink to='/' className='text-lg p-3'>Home</NavLink>
               <NavLink to="allSession" className='text-lg'>All Session</NavLink>
-              <NavLink to='/dashboard' className='text-lg'>Dashboard</NavLink>
+              <NavLink to='/dashboard/Das' className='text-lg'>Dashboard</NavLink>
           </ul>
         </div>
         <div className="md:ml-0 ml-16">
