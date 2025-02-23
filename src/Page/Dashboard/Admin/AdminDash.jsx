@@ -13,25 +13,30 @@ export default function AdminDash() {
   const { cardAdmin, refetch } = useSessionAdmin();
   const [totalStudent, setTotalStudent] = useState("");
   const [totalTutor, setTotalTutor] = useState("");
+
   return (
     <>
       <h1 className="text-3xl font-bold">Dashboard</h1>
       <p className="text-gray-400">
         Welcome to <strong className="text-black">Admin</strong> Dashboard
       </p>
-      <div className="flex items-center mt-6 gap-8">
+
+      {/* Cards Section */}
+      <div className="flex md:flex-row flex-col md:justify-normal items-center gap-6 mt-6">
         <TotalStudent totalStudent={totalStudent} />
         <TotalTutor totalTutor={totalTutor} />
         <TotalCourse totalCourse={cardAdmin} />
         <TotalEarning />
       </div>
 
-      <div className="flex items-center justify-center gap-10 mt-4">
+      {/* Revenue and Payment Section */}
+      <div className="flex md:flex-row flex-col gap-6 mt-6">
         <TotalRevenue />
         <Payment />
       </div>
 
-      <div className="flex items-center justify-between ">
+      {/* Students and Tutors Section */}
+      <div className="flex flex-col lg:flex-row justify-between gap-6 mt-6">
         <DashStudent setTotalStudent={setTotalStudent} />
         <DashTutor setTotalTutor={setTotalTutor} />
       </div>

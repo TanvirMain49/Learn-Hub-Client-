@@ -18,14 +18,32 @@ const ReviewsSection = () => {
   });
 
   return (
-    <div>
-      <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-        {reviews.map((review) => (
-          <SwiperSlide key={review._id}> 
-            <ViewReview review={review} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="py-10">
+      {/* Container */}
+      <div className="container px-8">
+        {/* Heading */}
+        <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-2">
+          What Our Students Say
+        </h2>
+
+        {/* Subtitle */}
+        <p className="text-lg text-center text-gray-600 max-w-2xl mx-auto">
+          Hear from our students who have transformed their careers through Learnify.
+        </p>
+
+        {/* Swiper Carousel */}
+        <Swiper
+          pagination={true}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {reviews.map((review) => (
+            <SwiperSlide key={review._id}>
+              <ViewReview review={review} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

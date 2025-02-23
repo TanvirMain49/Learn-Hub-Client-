@@ -26,8 +26,9 @@ import DashBoardBanner from "../Page/Dashboard/DashBoardBanner";
 import PrivateTutorRoutes from "./PrivateTutorRoutes";
 import PrivateAdminRoutes from "./PrivateAdminRoutes";
 import Profile from "../Page/Dashboard/Profile";
+import AllTutor from "../Page/AllTutor/AllTutor";
 
-// http://localhost:5000
+// https://learn-hub2.vercel.app
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             element: <AllSession></AllSession>
         },
         {
+            path:'allTutor',
+            element: <AllTutor></AllTutor>
+        },
+        {
             path:'login',
             element: <Login></Login>
         },
@@ -55,7 +60,7 @@ const router = createBrowserRouter([
             element: <PrivateRoutes>
               <CardDetails></CardDetails>
             </PrivateRoutes>,
-            loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
+            loader: ({params})=> fetch(`https://learn-hub2.vercel.app/session/${params.id}`)
         },
         {
             path:'book/:id',
@@ -137,7 +142,7 @@ const router = createBrowserRouter([
             <AddMaterial></AddMaterial>
             </PrivateTutorRoutes>
           </PrivateRoutes>,
-          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
+          loader: ({params})=> fetch(`https://learn-hub2.vercel.app/session/${params.id}`)
         },
         {
           path:'updateMaterial/:id',
@@ -146,7 +151,7 @@ const router = createBrowserRouter([
             <UpdateMaterial></UpdateMaterial>
             </PrivateTutorRoutes>
           </PrivateRoutes>,
-          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
+          loader: ({params})=> fetch(`https://learn-hub2.vercel.app/session/${params.id}`)
         },
         {
           path:'materials',

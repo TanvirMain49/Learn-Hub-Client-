@@ -77,7 +77,7 @@ export default function DashStudent({ setTotalStudent }) {
   };
 
   return (
-    <div className="overflow-x-auto w-[47%] rounded-xl">
+    <div className="overflow-x-auto md:w-[54%] w-full rounded-xl">
       <h2 className="text-2xl font-bold text-center mb-5">🎓 Student</h2>
       <DataTable
         columns={columns}

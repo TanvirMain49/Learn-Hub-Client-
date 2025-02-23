@@ -6,9 +6,9 @@ import DashProfile from "../Component/DashProfile";
 
 export default function DashTopNav() {
   return (
-    <div className="px-6 py-4 shadow-xl bg-black text-white flex justify-between items-center mb-10">
-      <label className="input input-bordered flex items-center gap-2 text-black">
-        <input type="text" className="grow" placeholder="Search" />
+    <div className="px-4 py-3 shadow-xl bg-black text-white flex md:flex-row justify-between items-center gap-4 mb-10">
+      <label className="input input-bordered w-52 md:w-auto flex items-center gap-2 text-black">
+        <input type="text" className="grow px-2 py-1" placeholder="Search" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -23,7 +23,7 @@ export default function DashTopNav() {
         </svg>
       </label>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-center gap-4">
         <DashToggle />
         <DashNotification />
         <DashChart />

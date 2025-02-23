@@ -1,25 +1,23 @@
-import bannerImg from "../../assets/allSessionBanner.jpg";
 import SecondaryNav from '../../Shared/SecondaryNav';
 
-const AllSessionBanner = () => {
+const AllSessionBanner = ({title, description, img, link1, route1}) => {
   return (
     <div className="flex flex-col-reverse justify-center py-12 lg:flex-row-reverse gap-4 mb-16 bg-white px-4 lg:px-20">
       {/* Image Section */}
       <img
-        src={bannerImg}
+        src={img}
         alt="All Sessions Banner"
         className="h-[250px] w-full lg:h-[420px] lg:max-w-[572px] object-cover rounded-lg shadow-2xl boxFixed border-2 border-gray-300"
       />
 
       {/* Text Section */}
       <div className="w-full lg:max-w-3xl text-center lg:text-left">
-        <SecondaryNav link1="All Session" route1="allSession" />
+        <SecondaryNav link1={link1} route1={route1} />
         <h1 className="text-3xl lg:text-5xl font-extrabold mt-6 lg:mt-8">
-          Explore All Available Sessions
+          {title}
         </h1>
         <p className="text-base lg:text-lg mt-4 lg:mt-5 mx-auto lg:mx-0 max-w-lg">
-          Find the perfect session that matches your learning needs. Browse,
-          book, and start your journey today!
+          {description}
         </p>
 
         {/* Search Section */}

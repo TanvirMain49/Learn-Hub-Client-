@@ -30,9 +30,9 @@ const SessionCard = ({ item }) => {
         </div>
         <div>
           <h1 className="text-2xl font-bold">{item.title}</h1>
-          <p className="text-base mt-2">
+          {/* <p className="text-base mt-2">
             {item.description.substring(0, 50)}...see more
-          </p>
+          </p> */}
         </div>
         <div className="flex justify-between items-center my-4 flex-grow">
           <Link

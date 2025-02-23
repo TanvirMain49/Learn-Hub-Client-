@@ -16,7 +16,7 @@ export default function TotalRevenue() {
     const [revenueByMonth, setRevenueByMonth] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/total-revenue-by-month")
+        fetch("https://learn-hub2.vercel.app/total-revenue-by-month")
             .then((response) => response.json())
             .then((data) => setRevenueByMonth(data))
             .catch((error) => console.error("Error fetching revenue data:", error));
@@ -45,7 +45,7 @@ export default function TotalRevenue() {
     };
 
     return (
-        <div className="mt-4 w-[50%] shadow-xl pt-10 pb-14 px-5">
+        <div className="mt-4 md:w-[52%] w-full shadow-xl rounded-md pt-10 px-5">
             <h1 className="text-lg font-bold">Revenue</h1>
             {revenueByMonth.length > 0 ? (
                 <Bar data={chartData} options={options} />

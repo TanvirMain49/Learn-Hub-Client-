@@ -13,6 +13,7 @@ import { FaBookOpen, FaListUl } from "react-icons/fa";
 import useRole from "../Hooks/useRole";
 import Loader from "../Shared/Loader";
 import DashTopNav from "../Shared/DashTopNav";
+import { GrDashboard } from "react-icons/gr";
 
 const DashBoard = () => {
   const { isRole, isLoading } = useRole();
@@ -67,6 +68,13 @@ const DashBoard = () => {
                   {isRole === "Student" && (
                     <>
                       <NavLink
+                        to="/dashboard/Das"
+                        className="flex items-center gap-2 text-sm"
+                      >
+                        <GrDashboard className="text-xl"></GrDashboard>{" "}
+                        Dashboard
+                      </NavLink>
+                      <NavLink
                         to="bookedSession"
                         className="flex items-center gap-2 text-sm"
                       >
@@ -99,6 +107,13 @@ const DashBoard = () => {
                   {isRole === "Admin" && (
                     <>
                       <NavLink
+                        to="/dashboard/Das"
+                        className="flex items-center gap-2 text-sm"
+                      >
+                        <GrDashboard className="text-xl"></GrDashboard>{" "}
+                        Dashboard
+                      </NavLink>
+                      <NavLink
                         to="Admin/Users"
                         className="flex items-center gap-2 text-sm"
                       >
@@ -122,6 +137,13 @@ const DashBoard = () => {
                   )}
                   {isRole === "Tutor" && (
                     <>
+                      <NavLink
+                        to="/dashboard/Das"
+                        className="flex items-center gap-2 text-sm"
+                      >
+                        <GrDashboard className="text-xl"></GrDashboard>{" "}
+                        Dashboard
+                      </NavLink>
                       <NavLink
                         to="addSession"
                         className="flex items-center gap-2 text-sm"
@@ -180,7 +202,9 @@ const DashBoard = () => {
       <div className="hidden lg:block fixed top-0 left-0 w-72 p-3 h-screen bg-black text-white smooch-sans">
         {/* Profile */}
         <div className="border-b-2 border-white/30">
-          <p className="text-4xl text-white text-center font-bold mt-3 mb-5">LearnHub</p>
+          <p className="text-4xl text-white text-center font-bold mt-3 mb-5">
+            LearnHub
+          </p>
         </div>
 
         {/* Navbar */}
@@ -188,6 +212,12 @@ const DashBoard = () => {
           <ul className="flex flex-col menu text-white font-semibold uppercase mt-4 space-y-6">
             {isRole === "Student" && (
               <>
+                <NavLink
+                  to="/dashboard/Das"
+                  className="flex items-center gap-2 text-2xl"
+                >
+                  <GrDashboard className="text-xl"></GrDashboard> Dashboard
+                </NavLink>
                 <NavLink
                   to="bookedSession"
                   className="flex items-center gap-2 text-2xl"
@@ -222,7 +252,7 @@ const DashBoard = () => {
                   to="/dashboard/Das"
                   className="flex items-center gap-2 text-2xl"
                 >
-                <FaUsers className="text-xl"></FaUsers> Dashboard
+                  <GrDashboard className="text-xl"></GrDashboard> Dashboard
                 </NavLink>
 
                 <NavLink
@@ -249,6 +279,12 @@ const DashBoard = () => {
             )}
             {isRole === "Tutor" && (
               <>
+                <NavLink
+                  to="/dashboard/Das"
+                  className="flex items-center gap-2 text-2xl"
+                >
+                  <GrDashboard className="text-xl"></GrDashboard> Dashboard
+                </NavLink>
                 <NavLink
                   to="addSession"
                   className="flex items-center gap-2 text-2xl"
@@ -301,8 +337,8 @@ const DashBoard = () => {
 
       {/* Main Content */}
       <div className="flex-1 md:pl-72 md:pr-0 pr-2 min-h-screen bg-gray-100">
-        <DashTopNav/>
-        <div className="px-6">
+        <DashTopNav />
+        <div className="md:px-6 px-3">
           <Outlet></Outlet>
         </div>
       </div>

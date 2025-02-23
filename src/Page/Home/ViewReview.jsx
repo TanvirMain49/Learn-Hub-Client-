@@ -2,7 +2,7 @@ import image from "../../assets/review.jpg";
 
 const ViewReview = ({review}) => {
   return (
-    <div className="md:w-10/12 md:mx-auto mx-2 flex md:flex-row flex-col md:gap-20 gap-10 md:my-24 my-10">
+    <div className="md:w-11/12 md:mx-auto mx-2 flex md:flex-row flex-col md:gap-20 gap-10 md:my-24 my-10">
       <img
         src={image}
         alt=""

@@ -5,7 +5,7 @@ export default function Payment() {
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/payment")
+    fetch("https://learn-hub2.vercel.app/payment")
       .then((response) => response.json())
       .then((data) => setPayments(data));
   }, []);
@@ -47,7 +47,7 @@ export default function Payment() {
   
 
   return (
-    <div className="my-10 mx-auto max-w-8xl shadow-lg">
+    <div className="my-10 md:mx-auto md:max-w-8xl max-w-lg shadow-lg">
         <h1 className="text-lg font-bold ml-4">Payment</h1>
       <DataTable
         columns={columns}
