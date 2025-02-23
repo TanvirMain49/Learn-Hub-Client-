@@ -28,7 +28,7 @@ import PrivateAdminRoutes from "./PrivateAdminRoutes";
 import Profile from "../Page/Dashboard/Profile";
 import AllTutor from "../Page/AllTutor/AllTutor";
 
-// https://learn-hub2.vercel.app
+// http://localhost:5000
 
 const router = createBrowserRouter([
     {
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
             element: <PrivateRoutes>
               <CardDetails></CardDetails>
             </PrivateRoutes>,
-            loader: ({params})=> fetch(`https://learn-hub2.vercel.app/session/${params.id}`)
+            loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
             path:'book/:id',
@@ -142,7 +142,7 @@ const router = createBrowserRouter([
             <AddMaterial></AddMaterial>
             </PrivateTutorRoutes>
           </PrivateRoutes>,
-          loader: ({params})=> fetch(`https://learn-hub2.vercel.app/session/${params.id}`)
+          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
           path:'updateMaterial/:id',
@@ -151,7 +151,7 @@ const router = createBrowserRouter([
             <UpdateMaterial></UpdateMaterial>
             </PrivateTutorRoutes>
           </PrivateRoutes>,
-          loader: ({params})=> fetch(`https://learn-hub2.vercel.app/session/${params.id}`)
+          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
         },
         {
           path:'materials',

@@ -1,7 +1,10 @@
 import React from 'react'
 import AllSessionBanner from '../Home/AllSessionBanner'
+import useTutor from '../../Hooks/useTutor';
 
 export default function AllTutor() {
+    const { tutors, refetch } = useTutor();
+    console.log(card)
   return (
     <div>
       <AllSessionBanner

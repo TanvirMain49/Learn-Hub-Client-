@@ -22,7 +22,7 @@ const AllSession = () => {
 
   // Fetch session count for pagination
   useEffect(() => {
-    fetch("https://learn-hub2.vercel.app/sessionCount")
+    fetch("http://localhost:5000/sessionCount")
       .then((res) => res.json())
       .then((data) => setCount(data.count))
       .catch((error) => {

@@ -5,7 +5,7 @@ export default function Payment() {
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
-    fetch("https://learn-hub2.vercel.app/payment")
+    fetch("http://localhost:5000/payment")
       .then((response) => response.json())
       .then((data) => setPayments(data));
   }, []);
