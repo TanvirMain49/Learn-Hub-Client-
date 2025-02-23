@@ -7,7 +7,7 @@ const AllSessionBanner = ({title, description, img, link1, route1}) => {
       <img
         src={img}
         alt="All Sessions Banner"
-        className="h-[250px] w-full lg:h-[420px] lg:max-w-[572px] object-cover rounded-lg shadow-2xl boxFixed border-2 border-gray-300"
+        className="h-[280px] w-full lg:h-[420px] lg:max-w-[624px] object-cover rounded-lg shadow-2xl boxFixed border-2 border-gray-300"
       />
 
       {/* Text Section */}

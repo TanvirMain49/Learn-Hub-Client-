@@ -55,9 +55,8 @@ const AllSession = () => {
       {/* Banner */}
       <AllSessionBanner
         title="Explore All Available Sessions"
-        description="Find the perfect session that matches your learning needs. Browse,
-        book, and start your journey today!"
-        img={bannerImg}
+        description="Find the perfect session that matches your learning needs. Browse through a wide range of topics, book your preferred session, and start your learning journey today. Unlock new skills and knowledge with expert-led sessions tailored just for you!"
+        img="https://img.freepik.com/free-photo/international-day-education-cartoon-style_23-2151007407.jpg?t=st=1740338263~exp=1740341863~hmac=b4e2fa4bb42bc8866b658aa43137e0655294aee5ba8594a334f9fcf710ed2622&w=1380"
         link1="All Session"
         route1="/allSession"
       />
