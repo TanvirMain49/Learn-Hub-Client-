@@ -6,6 +6,7 @@ import Subscribe from '../../Shared/Subscribe';
 import ReviewsSection from './ReviewsSection';
 import AboutUsSection from './AboutUs';
 import SuccessStory from './SuccessStory';
+import HowItWorks from './HowItWorks';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <ReviewsSection></ReviewsSection>
             <ConnectUs></ConnectUs>
             <SuccessStory />
+            <HowItWorks />
             <Subscribe></Subscribe>
         </div>
     );

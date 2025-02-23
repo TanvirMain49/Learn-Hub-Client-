@@ -27,6 +27,7 @@ import PrivateTutorRoutes from "./PrivateTutorRoutes";
 import PrivateAdminRoutes from "./PrivateAdminRoutes";
 import Profile from "../Page/Dashboard/Profile";
 import AllTutor from "../Page/AllTutor/AllTutor";
+import SuccessStory from "../Page/SuccessStory/SuccessStory";
 
 // http://localhost:5000
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         {
             path:'allTutor',
             element: <AllTutor></AllTutor>
+        },
+        {
+            path:'allSuccess',
+            element: <SuccessStory></SuccessStory>
         },
         {
             path:'login',

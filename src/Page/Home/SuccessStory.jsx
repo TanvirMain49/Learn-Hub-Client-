@@ -1,5 +1,6 @@
 import React from "react";
 import { FaQuoteLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SuccessStory = () => {
   const successStories = [
@@ -39,7 +40,8 @@ const SuccessStory = () => {
 
         {/* Subtitle */}
         <p className="text-lg text-center text-gray-600 max-w-2xl mx-auto mb-10">
-          Hear from our students who have transformed their careers through Learnify.
+          Hear from our students who have transformed their careers through
+          Learnify.
         </p>
 
         {/* Testimonials Grid */}
@@ -69,6 +71,13 @@ const SuccessStory = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center items-center mt-4">
+          <Link to="allSuccess">
+            <button className="btn border-2 text-white-500 border-black hover:bg-black hover:text-white font-bold transition-all ease-in-out duration-300 mt-4">
+              See More
+            </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -40,6 +40,8 @@ const Navbar = () => {
             >
               <NavLink to='/' className='text-lg p-3'>Home</NavLink>
               <NavLink to="allSession" className='text-lg'>All Session</NavLink>
+              <NavLink to="allTutor" className='text-lg'>All Tutor</NavLink>
+              <NavLink to="allTutor" className='text-lg'>All Success</NavLink>
               <NavLink to='/dashboard/Das' className='text-lg'>Dashboard</NavLink>
             </ul>
           </div>
@@ -50,9 +52,10 @@ const Navbar = () => {
         <div className={`navbar-end hidden lg:flex`}>
           <ul className="my-6 px-1 space-x-3 mr-3 text-black font-bold">
               <NavLink to='/' className='text-lg p-3'>Home</NavLink>
-              <NavLink to="allSession" className='text-lg'>All Session</NavLink>
-              <NavLink to="allTutor" className='text-lg'>All Tutor</NavLink>
-              <NavLink to='/dashboard/Das' className='text-lg'>Dashboard</NavLink>
+              <NavLink to="allSession" className='text-lg'>Sessions</NavLink>
+              {user && <NavLink to="allTutor" className='text-lg'>Tutors</NavLink>}
+              <NavLink to="allSuccess" className='text-lg'>Success Story</NavLink>
+              {user && <NavLink to='/dashboard/Das' className='text-lg'>Dashboard</NavLink>}
           </ul>
         </div>
         <div className="md:ml-0 ml-16">
