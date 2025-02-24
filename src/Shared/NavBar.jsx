@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import DashProfile from "../Component/DashProfile";
+import DashToggle from "../Component/DashToggle"
 
 const Navbar = () => {
   const location = useLocation();
@@ -95,6 +96,7 @@ const Navbar = () => {
                 Dashboard
               </NavLink>
             )}
+          <DashToggle />
           </ul>
         </div>
         <div className="md:ml-0 ml-16">
@@ -104,13 +106,13 @@ const Navbar = () => {
             <div className="md:flex md:gap-2 md:items-center">
               <Link
                 to="/login"
-                className="hover:bg-neutral-900 text-xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent md:flex hidden"
+                className="hover:bg-neutral-900 bg-white text-xl text-black btn hover:text-white border font-bold border-black rounded-xl transition-all ease-in-out duration-300 bg-transparent md:flex hidden"
               >
                 Log in
               </Link>
               <Link
                 to="/signup"
-                className="hover:bg-neutral-900 btn border border-black  hover:text-white md:text-xl ml-10 md:ml-0 rounded-xl font-bold text-black transition-all ease-in-out duration-300 bg-transparent"
+                className="hover:bg-neutral-900 btn border border-black bg-white  hover:text-white md:text-xl ml-10 md:ml-0 rounded-xl font-bold text-black transition-all ease-in-out duration-300 bg-transparent"
               >
                 Sign in
               </Link>

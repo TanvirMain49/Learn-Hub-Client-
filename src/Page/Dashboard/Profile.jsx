@@ -10,7 +10,7 @@ export default function Profile() {
   const { user } = useAuth();
   return (
     <div className="px-4">
-      <h1 className="text-3xl font-bold">Profile</h1>
+      <h1 className="text-3xl font-bold dark:text-white/80">Profile</h1>
       <p className="text-gray-400">Welcome, {user?.displayName}</p>
 
       <div className="flex flex-col lg:flex-row items-start gap-6 mt-6">

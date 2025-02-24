@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const MaterialCard = ({ item }) => {
   return (
-    <div className="card bg-white border hover:border hover:border-gray-950 box transition-all duration-300 ease-out mb-8 grow flex flex-col">
+    <div className="card bg-white dark:bg-neutral-700 border hover:border hover:border-gray-950 dark:text-white/80 box transition-all duration-300 ease-out mb-8 grow flex flex-col">
       <img
         src={item.imageUrl}
         className="w-full h-54 object-cover rounded-t-lg"
@@ -32,7 +32,7 @@ const MaterialCard = ({ item }) => {
          className="flex justify-center items-center mt-7 mb-4 flex-grow">
           <button
           disabled={item.status !== 'success'}
-            className="flex items-center btn font-bold text-base border border-black hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+            className="flex items-center btn font-bold text-base border border-black hover:bg-black dark:bg-neutral-700 dark:text-white/80 hover:text-white transition-all ease-in-out duration-300"
           >
             Add Material
           </button>

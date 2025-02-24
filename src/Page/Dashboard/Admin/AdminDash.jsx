@@ -16,9 +16,9 @@ export default function AdminDash() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold">Dashboard</h1>
+      <h1 className="text-3xl font-bold dark:text-white/80">Dashboard</h1>
       <p className="text-gray-400">
-        Welcome to <strong className="text-black">Admin</strong> Dashboard
+        Welcome to <strong className="text-black dark:text-white">Admin</strong> Dashboard
       </p>
 
       {/* Cards Section */}

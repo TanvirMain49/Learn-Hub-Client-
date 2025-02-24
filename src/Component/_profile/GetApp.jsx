@@ -1,9 +1,9 @@
 export default function GetApp() {
     return (
-      <div className="max-w-md bg-white shadow-md rounded-lg p-6 w-96 border-black border py-8">
+      <div className="max-w-md bg-white dark:bg-neutral-700 shadow-md rounded-lg p-6 w-96 border-black border py-8">
         {/* Title & Description */}
-        <h2 className="text-xl font-semibold text-gray-900">Get Verified On Our Mobile App</h2>
-        <p className="text-gray-500 text-sm mt-2">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white/80">Get Verified On Our Mobile App</h2>
+        <p className="text-gray-500 text-sm mt-2 dark:text-white/60">
           Verifying your identity on our mobile app makes it more secure, faster, and reliable.
         </p>
   

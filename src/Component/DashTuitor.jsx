@@ -77,7 +77,7 @@ export default function DashTutor({ setTotalTutor }) {
 
   return (
     <div className="overflow-x-auto md:w-[47%] w-full rounded-xl">
-      <h2 className="text-2xl font-bold text-center mb-5">🎓Tutor</h2>
+      <h2 className="text-2xl font-bold text-center mb-5 dark:text-white/80">🎓Tutor</h2>
       <DataTable
         columns={columns}
         data={Tutors}

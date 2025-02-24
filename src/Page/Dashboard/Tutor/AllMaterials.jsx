@@ -59,14 +59,14 @@ const AllMaterials = () => {
       <div className={`md:w-11/12 md:mx-auto grid md:grid-cols-3 grid-cols-1 gap-8`}>
         {items.map((item) => (
           <div key={item._id}
-           className="card bg-white border border-gray-950 transition-all duration-300 ease-out mb-8 box grow flex flex-col">
+           className="card bg-white dark:bg-neutral-700 border border-gray-950 transition-all duration-300 ease-out mb-8 box grow flex flex-col">
             <img
               src={item.imageUrl}
               className="w-full h-56 object-cover rounded-t-lg"
             />
             <div className="p-6 flex flex-col flex-grow">
               <div className="flex justify-between ">
-                <h1 className="text-2xl font-bold">{item.title}</h1>
+                <h1 className="text-2xl font-bold dark:text-white/80">{item.title}</h1>
                 <div className="flex justify-between items-center mb-2">
                   {item.status == "pending" && (
                     <h2 className="border border-black px-1 rounded font-semibold text-white bg-yellow-500 smooch-sans">
@@ -85,16 +85,16 @@ const AllMaterials = () => {
                   )}
                 </div>
               </div>
-              <div className="flex justify-between items-center my-4 flex-grow">
+              <div className="flex justify-between items-center my-4 space-x-4 flex-grow">
                 <Link
                   to={`/dashboard/updateMaterial/${item._id}`}
-                  className="flex items-center btn font-bold text-base bg-white border border-black  text-black hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300"
+                  className="flex items-center btn font-bold text-base bg-white border border-black dark:bg-neutral-400 dark:text-white/80 text-black hover:bg-green-600 hover:text-white transition-all ease-in-out duration-300"
                 >
                   Update Material
                 </Link>
                 <button
                   onClick={() => handleDelete(item._id)}
-                  className="flex items-center btn font-bold text-base bg-black text-white hover:bg-red-600 hover:text-white transition-all ease-in-out duration-300"
+                  className="flex items-center btn font-bold text-base bg-black dark:bg-neutral-700 text-white hover:bg-red-600 hover:text-white transition-all ease-in-out duration-300"
                 >
                   Delete material
                 </button>

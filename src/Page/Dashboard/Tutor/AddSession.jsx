@@ -102,13 +102,13 @@ const AddSession = () => {
       ></DasHeading>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body bg-white border border-black rounded-lg md:grid flex flex-col md:grid-cols-2  p-4 md:max-w-4xl md:mx-auto md:p-12"
+        className="card-body bg-white dark:bg-neutral-700 border border-black rounded-lg md:grid flex flex-col md:grid-cols-2  p-4 md:max-w-4xl md:mx-auto md:p-12"
       >
         {/* Session Details Section */}
         <div className="form-control">
           <label
             htmlFor="title"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Session Title
           </label>
@@ -117,55 +117,55 @@ const AddSession = () => {
             type="text"
             id="title"
             placeholder="Session Title"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black w-full dark:bg-neutral-400 placeholder:dark:text-black/80"
             required
           />
         </div>
         <div className="form-control">
           <label
             htmlFor="image"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Session Image
           </label>
           <input
             {...register("image")}
             type="file"
-            className="file-input file-input-bordered border-black w-full"
+            className="file-input file-input-bordered border-black dark:bg-neutral-400 w-full"
           />
         </div>
         <div className="form-control">
           <label
             htmlFor="registerStart"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Registration Start
           </label>
           <DatePicker
             selected={resStart}
             onChange={(date) => setResStart(date)}
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 w-full"
             required
           />
         </div>
         <div className="form-control">
           <label
             htmlFor="registerEnd"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Registration End
           </label>
           <DatePicker
             selected={resEnd}
             onChange={(date) => setResEnd(date)}
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black w-full dark:bg-neutral-400"
             required
           />
         </div>
         <div className="form-control">
           <label
             htmlFor="classStart"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Class Start Time
           </label>
@@ -174,14 +174,14 @@ const AddSession = () => {
             type="time"
             id="classStart"
             placeholder="Class Start Time"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 w-full"
             required
           />
         </div>
         <div className="form-control">
           <label
             htmlFor="classEnd"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Class End Time
           </label>
@@ -190,14 +190,14 @@ const AddSession = () => {
             type="time"
             id="classEnd"
             placeholder="Class End Time"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 w-full"
             required
           />
         </div>
         <div className="form-control col-span-2">
           <label
             htmlFor="description"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Session Description
           </label>
@@ -206,19 +206,19 @@ const AddSession = () => {
             cols="20"
             rows="5"
             placeholder="Session Description...."
-            className="textarea textarea-bordered border border-black w-full"
+            className="textarea textarea-bordered border border-black dark:bg-neutral-400 placeholder:dark:text-black/80 w-full"
             required
           />
         </div>
 
         {/* Tutor Information Section */}
         <div className="divider col-span-2 text-base md:text-lg">
-          Tutor Information
+          <h1 className="dark:text-white/80">Tutor Information</h1>
         </div>
         <div className="form-control">
           <label
             htmlFor="tutorName"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Tutor Name
           </label>
@@ -228,7 +228,7 @@ const AddSession = () => {
             id="tutorName"
             defaultValue={user?.displayName}
             placeholder="Tutor Name"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 w-full"
             required
             readOnly
           />
@@ -236,7 +236,7 @@ const AddSession = () => {
         <div className="form-control">
           <label
             htmlFor="tutorEmail"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Tutor Email
           </label>
@@ -246,7 +246,7 @@ const AddSession = () => {
             id="tutorEmail"
             defaultValue={user?.email}
             placeholder="Tutor Email"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 w-full"
             required
             readOnly
           />
@@ -254,7 +254,7 @@ const AddSession = () => {
         <div className="form-control">
           <label
             htmlFor="tutorImage"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Tutor Image
           </label>
@@ -263,7 +263,7 @@ const AddSession = () => {
             type="text"
             defaultValue={user?.photoURL}
             placeholder="Tutor Image"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 w-full"
             required
             readOnly
           />
@@ -271,7 +271,7 @@ const AddSession = () => {
         <div className="form-control">
           <label
             htmlFor="tutorPro"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Tutor Profession
           </label>
@@ -280,14 +280,14 @@ const AddSession = () => {
             type="text"
             id="tutorPro"
             placeholder="Tutor Profession"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 placeholder:dark:text-black/80 w-full"
             required
           />
         </div>
         <div className="form-control col-span-2">
           <label
             htmlFor="tutorDescription"
-            className="label font-semibold text-base md:text-lg"
+            className="label font-semibold text-base md:text-lg dark:text-white/80"
           >
             Tutor Description
           </label>
@@ -297,14 +297,14 @@ const AddSession = () => {
             cols="20"
             rows="5"
             placeholder="Tutor Description...."
-            className="textarea textarea-bordered border border-black w-full"
+            className="textarea textarea-bordered border border-black dark:bg-neutral-400 placeholder:dark:text-black/80 w-full"
             required
           />
         </div>
 
         {/* Submit Button */}
         <div className="form-control col-span-2 mt-6">
-          <button className="btn bg-neutral-900 text-white hover:bg-neutral-700 w-full md:w-auto">
+          <button className="btn bg-neutral-900 dark:bg-neutral-700 text-white hover:bg-neutral-700 w-full md:w-auto">
             Add Session
           </button>
         </div>

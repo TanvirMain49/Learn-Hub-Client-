@@ -48,7 +48,7 @@ export default function Payment() {
 
   return (
     <div className="my-10 md:mx-auto md:max-w-8xl max-w-lg shadow-lg">
-        <h1 className="text-lg font-bold ml-4">Payment</h1>
+        <h1 className="text-lg font-bold ml-4 dark:text-white/80">Payment</h1>
       <DataTable
         columns={columns}
         data={payments}
@@ -56,7 +56,7 @@ export default function Payment() {
         paginationPerPage={5} 
         paginationRowsPerPageOptions={[5, 10]}
         customStyles={customStyles}
-        className="p-6" 
+        className="p-6 dark:bg-neutral-700" 
       />
     </div>
   );

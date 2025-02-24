@@ -36,7 +36,7 @@ export default function Assignment() {
 
   return (
     <div className="shadow-lg rounded-xl p-4 mt-8 max-w-full">
-      <h2 className="text-lg font-semibold mb-4 text-center">
+      <h2 className="text-lg font-semibold mb-4 text-center dark:text-white/80">
         Assignment Tasks
       </h2>
       <div className="grid grid-cols-1 gap-4">

@@ -120,11 +120,11 @@ const Signup = () => {
       });
   };
   return (
-    <div className="pb-20 pt-8">
-      <h1 className="md:text-5xl text-3xl font-bold text-center">
+    <div className="pb-20 pt-32">
+      <h1 className="md:text-5xl text-3xl font-bold text-center dark:text-white/80">
         Create an account
       </h1>
-      <p className="text-base text-center font-normal mt-2 mb-8">
+      <p className="text-base text-center font-normal mt-2 mb-8 dark:text-white/80">
         if you have account,{" "}
         <Link to="/login" className="text-blue-500">
           login Here
@@ -132,7 +132,7 @@ const Signup = () => {
       </p>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body border border-black md:max-w-lg max-w-sm mx-3  md:mx-auto md:p-12 p-6 md:boxFixed rounded-lg"
+        className="card-body border border-black md:max-w-lg max-w-sm mx-3  md:mx-auto md:p-12 p-6 md:boxFixed rounded-lg dark:text-white/80 dark:bg-neutral-700"
       >
         <div className="form-control">
           <input
@@ -145,7 +145,7 @@ const Signup = () => {
             })}
             type="text"
             placeholder="Name"
-            className="input input-bordered border border-black mb-3"
+            className="input input-bordered border border-black mb-3 placeholder:dark:text-white/80 dark:bg-neutral-400"
           />
           {errors.name && (
             <span className="text-red-500 text-sm">{errors.name.message}</span>
@@ -163,7 +163,7 @@ const Signup = () => {
             })}
             type="email"
             placeholder="Email"
-            className="input input-bordered border border-black mb-3"
+            className="input input-bordered border border-black mb-3 placeholder:dark:text-white/80 dark:bg-neutral-400"
             required
           />
           {errors.email && (
@@ -178,7 +178,7 @@ const Signup = () => {
             })}
             type="text"
             placeholder="PhotoURL"
-            className="input input-bordered border border-black mb-3"
+            className="input input-bordered border border-black mb-3 placeholder:dark:text-white/80 dark:bg-neutral-400"
             required
           />
           {errors.photoURL && (
@@ -190,7 +190,7 @@ const Signup = () => {
         <div className="form-control rounded-xl">
           <select
             {...register("role")}
-            className="select select-none border border-black selected:text-gray-300 mb-2 w-full"
+            className="select select-none border border-black selected:text-gray-300 mb-2 w-full placeholder:dark:text-white/80 dark:bg-neutral-400"
             required
           >
             <option disabled selected className="text-gray-500">
@@ -214,7 +214,7 @@ const Signup = () => {
             })}
             type="password"
             placeholder="**********"
-            className="input input-bordered border border-black"
+            className="input input-bordered border border-black placeholder:dark:text-white/80 dark:bg-neutral-400"
             required
           />
           {errors.password && (

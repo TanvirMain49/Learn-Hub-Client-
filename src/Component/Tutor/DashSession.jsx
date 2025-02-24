@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function DashSession({items}) {
   return (
-    <div className="overflow-x-auto w-full mt-10">
+    <div className="overflow-x-auto dark:bg-neutral-700 w-full mt-10">
     <table className="table smooch-sans">
       {/* head */}
       <thead className="text-center  text-2xl bg-black text-white">
@@ -12,7 +12,7 @@ export default function DashSession({items}) {
           <th>Price</th>
         </tr>
       </thead>
-      <tbody className="text-center text-sm border border-black bg-white">
+      <tbody className="text-center text-sm border dark:bg-neutral-700 dark:text-white/80 border-black bg-white">
         {items.slice(0,5).map((item, idx) => (
           <tr key={item._id}>
             <td>

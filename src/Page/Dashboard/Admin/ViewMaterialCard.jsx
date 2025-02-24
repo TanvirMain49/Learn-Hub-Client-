@@ -50,7 +50,7 @@ const ViewMaterialCard = ({ material, refetch}) => {
       });
   };
   return (
-    <div className="card bg-white shadow-lg rounded-lg border border-gray-200 transition-transform transform hover:scale-105 duration-300 ease-out mb-8 flex flex-col overflow-hidden">
+    <div className="card bg-white dark:bg-neutral-700 shadow-lg rounded-lg border border-gray-200 transition-transform transform hover:scale-105 duration-300 ease-out mb-8 flex flex-col overflow-hidden">
       <img
         src={material.imageUrl}
         alt={material.title}
@@ -58,11 +58,11 @@ const ViewMaterialCard = ({ material, refetch}) => {
       />
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex flex-col justify-between flex-grow">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white/80 mb-2">
             {material.title}
           </h1>
           <div className="my-4">
-            <h2 className="text-lg font-semibold text-gray-700 mb-2">
+            <h2 className="text-lg font-semibold text-gray-700 dark:text-white/80 mb-2">
               Material Details:
             </h2>
             <a
@@ -78,9 +78,9 @@ const ViewMaterialCard = ({ material, refetch}) => {
               href={material.image}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-gray-800 font-medium hover:underline"
+              className="flex items-center text-gray-800 dark:text-white/80 font-medium hover:underline"
             >
-              <MdOutlineFileDownload className="mr-2 text-green-500 text-xl" />
+              <MdOutlineFileDownload className="mr-2 text-green-500 dark:text-white/80 text-xl" />
               Download Image
             </a>
           </div>
@@ -88,7 +88,7 @@ const ViewMaterialCard = ({ material, refetch}) => {
         <div className="flex justify-between items-center mt-6">
           <button
             onClick={() => handleDelete(material._id)}
-            className="w-full flex items-center btn font-bold text-base bg-black text-white hover:bg-red-600 hover:text-white transition-all ease-in-out duration-300"
+            className="w-full flex items-center btn font-bold text-base bg-black dark:bg-neutral-700 text-white hover:bg-red-600 hover:text-white transition-all ease-in-out duration-300"
           >
             <FaTrash></FaTrash>
             Delete Material

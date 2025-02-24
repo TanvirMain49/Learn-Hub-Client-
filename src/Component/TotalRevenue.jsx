@@ -46,7 +46,7 @@ export default function TotalRevenue() {
 
     return (
         <div className="mt-4 md:w-[52%] w-full shadow-xl rounded-md pt-10 px-5">
-            <h1 className="text-lg font-bold">Revenue</h1>
+            <h1 className="text-lg font-bold dark:text-white/80">Revenue</h1>
             {revenueByMonth.length > 0 ? (
                 <Bar data={chartData} options={options} />
             ) : (

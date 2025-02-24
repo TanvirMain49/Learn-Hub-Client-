@@ -34,7 +34,7 @@ const PersonalSession = () => {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody className="text-center text-xl bg-gray-100">
+          <tbody className="text-center text-xl bg-gray-100 dark:bg-neutral-700 dark:text-white/80">
             {items.map((item, idx) => (
               <tr key={item._id}>
                 <th>{idx+1}</th>

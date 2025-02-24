@@ -35,7 +35,7 @@ export default function TutorDash() {
 
         {/* Right Section (Calendar) */}
         <div className="w-[30%] p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Select a Date</h2>
+          <h2 className="text-xl font-semibold mb-4 dark:text-white/80">Select a Date</h2>
           <Calendar onChange={setDate} value={date} />
           <p className="mt-2 text-center">Selected Date: {date.toDateString()}</p>
         </div>

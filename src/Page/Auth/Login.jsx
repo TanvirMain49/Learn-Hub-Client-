@@ -47,23 +47,23 @@ const Login = () => {
       });
   };
   return (
-    <div className="pb-20 pt-8">
-      <h1 className="md:text-5xl text-3xl font-bold text-center">
+    <div className="pb-20 pt-24">
+      <h1 className="md:text-5xl text-3xl font-bold text-center dark:text-white/80">
         Account Login
       </h1>
-      <p className="text-sm sm:text-base text-center font-normal mt-2 mb-8">
+      <p className="text-sm sm:text-base text-center dark:text-white/60 font-normal mt-2 mb-8">
         Please enter your User/Email & Password
       </p>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body border border-black max-w-sm md:mx-auto mx-4 p-8 sm:p-12 md:boxFixed rounded-lg"
+        className="card-body border border-black dark:bg-neutral-700 max-w-sm md:mx-auto mx-4 p-8 sm:p-12 md:boxFixed rounded-lg"
       >
         <div className="form-control mb-4">
           <input
             {...register("email")}
             type="email"
             placeholder="Username or Email"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black dark:bg-neutral-400 w-full placeholder:dark:text-white/60"
             required
           />
         </div>
@@ -93,7 +93,7 @@ const Login = () => {
             })}
             type="password"
             placeholder="**********"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border border-black w-full dark:bg-neutral-400 placeholder:dark:text-white/80"
             required
           />
           {errors.password && (
@@ -122,7 +122,7 @@ const Login = () => {
             )}
           </button>
         </div>
-        <p className="mt-6 text-center">
+        <p className="mt-6 text-center dark:text-white/80">
           Don't have an account?{" "}
           <Link to="/signup" className="text-blue-500">
             Register Here
