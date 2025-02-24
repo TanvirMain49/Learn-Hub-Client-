@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -8,6 +8,8 @@ const Login = () => {
   const { logIn } = useAuth();
   const navigate = useNavigate();
   const [loader, setLoader] = useState();
+  const location = useLocation();
+  const from = (location?.state?.from?.pathname || "/")
 
   const {
     register,
@@ -28,7 +30,7 @@ const Login = () => {
           confirmButtonText: "Continue",
           confirmButtonTextColor: "#ffffff",
         });
-        navigate("/");
+        navigate(from);
       })
       .catch((error) => {
         Swal.fire({

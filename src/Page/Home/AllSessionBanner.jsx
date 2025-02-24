@@ -2,7 +2,7 @@ import SecondaryNav from '../../Shared/SecondaryNav';
 
 const AllSessionBanner = ({title, description, img, link1, route1}) => {
   return (
-    <div className="flex flex-col-reverse justify-center py-12 lg:flex-row-reverse gap-4 mb-16 bg-white px-4 lg:px-20">
+    <div className="flex flex-col-reverse justify-center pb-12 pt-32 lg:flex-row-reverse gap-4 mb-16 bg-white px-4 lg:px-20">
       {/* Image Section */}
       <img
         src={img}
