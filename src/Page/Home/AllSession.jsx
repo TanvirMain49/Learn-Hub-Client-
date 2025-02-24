@@ -67,7 +67,7 @@ const AllSession = () => {
         <div>
           <label
             htmlFor="sort"
-            className="mr-2 text-gray-700 font-bold text-2xl"
+            className="mr-2 text-gray-700 font-bold text-2xl dark:text-white/80"
           >
             Sort By:
           </label>
@@ -75,7 +75,7 @@ const AllSession = () => {
             id="sort"
             value={sortBy}
             onChange={handleSortChange}
-            className="px-3 py-3 border border-black bg-black text-white rounded-md focus:outline-none focus:border-black"
+            className="px-3 py-3 border border-black bg-black dark:bg-neutral-700 text-white rounded-md focus:outline-none focus:border-black"
             aria-label="Sort sessions"
           >
             <option value="default">Default</option>
@@ -110,8 +110,8 @@ const AllSession = () => {
               refetch(sortBy, dateFilter, page, itemPerPage);
             }}
             className={`${
-              currentPage === page && "bg-black text-white"
-            } btn px-5 text-xl border border-black`}
+              currentPage === page && "bg-black dark:bg-neutral-900 text-white"
+            } btn px-5 text-xl dark:bg-neutral-400 border border-black`}
             key={page}
           >
             {page + 1}

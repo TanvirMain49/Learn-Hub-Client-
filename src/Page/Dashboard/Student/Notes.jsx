@@ -61,7 +61,7 @@ const Notes = () => {
       />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body bg-white border border-black max-w-md sm:max-w-xl lg:max-w-3xl mx-auto p-6 sm:p-12 rounded-lg"
+        className="card-body bg-white dark:bg-neutral-700 dark:text-white/80 border border-black max-w-md sm:max-w-xl lg:max-w-3xl mx-auto p-6 sm:p-12 rounded-lg"
       >
         <div className="form-control mb-4">
           <label htmlFor="email" className="text-base font-medium mb-1">
@@ -73,7 +73,7 @@ const Notes = () => {
             id="email"
             defaultValue={user?.email}
             placeholder="Email"
-            className="input input-bordered placeholder:text-black placeholder:text-xl border border-black"
+            className="input input-bordered dark:bg-neutral-500 dark:text-white/80 placeholder:text-black placeholder:text-xl border border-black"
             readOnly
           />
         </div>
@@ -86,7 +86,7 @@ const Notes = () => {
             type="text"
             id="title"
             placeholder="Title"
-            className={`input input-bordered placeholder:text-black placeholder:opacity-40 border ${
+            className={`input input-bordered placeholder:text-black placeholder:opacity-40 border dark:bg-neutral-500 dark:text-white/80 ${
               errors.title ? "border-red-500" : "border-black"
             }`}
           />
@@ -103,7 +103,7 @@ const Notes = () => {
             id="note"
             rows="8"
             placeholder="Note Description..."
-            className={`textarea textarea-bordered placeholder:text-black placeholder:opacity-40 border ${
+            className={`textarea textarea-bordered placeholder:text-black placeholder:opacity-40 border dark:bg-neutral-500 dark:text-white/80 ${
               errors.note ? "border-red-500" : "border-black"
             }`}
           />

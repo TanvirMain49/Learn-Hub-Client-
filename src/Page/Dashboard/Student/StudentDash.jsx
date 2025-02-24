@@ -26,8 +26,8 @@ export default function StudentDash() {
 
         <div className="w-full md:w-[30%] flex flex-col gap-6 md:mt-8 mt-0">
           <div className="md:p-4 px-7 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">Select a Date</h2>
-            <Calendar onChange={setDate} value={date} />
+            <h2 className="text-xl font-semibold mb-4 dark:text-white/80">Select a Date</h2>
+            <Calendar onChange={setDate} value={date} className="dark:bg-neutral-600" />
           </div>
           <Assignment />
         </div>

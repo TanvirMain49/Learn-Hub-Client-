@@ -8,7 +8,7 @@ export default function DashTopNav() {
   return (
     <div className="px-4 py-3 md:pt-3 pt-7 shadow-xl bg-black text-white flex md:flex-row justify-between items-center gap-4 mb-10">
       <label className="input input-bordered w-52 md:w-auto flex items-center gap-2 text-black ml-2">
-        <input type="text" className="grow px-2 py-1" placeholder="Search" />
+        <input type="text"  className="grow px-2 py-1 dark:bg-neutral-400 placeholder:dark:text-black" placeholder="Search" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"

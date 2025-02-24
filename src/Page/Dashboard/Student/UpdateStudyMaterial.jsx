@@ -79,10 +79,10 @@ const UpdateStudyMaterial = () => {
       <DasHeading Heading="Update Your Notes" subHeading="Update what need to be"/>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body bg-white border border-black max-w-md sm:max-w-xl lg:max-w-3xl mx-auto p-6 sm:p-12 rounded-lg"
+        className="card-body bg-white border border-black dark:bg-neutral-700 max-w-md sm:max-w-xl lg:max-w-3xl mx-auto p-6 sm:p-12 rounded-lg"
       >
         <div className="form-control mb-4">
-          <label htmlFor="title" className="text-base font-medium mb-1">
+          <label htmlFor="title" className="text-base font-medium mb-1 dark:text-white/80">
             Title
           </label>
           <input
@@ -90,7 +90,7 @@ const UpdateStudyMaterial = () => {
             type="text"
             id="title"
             placeholder="Title"
-            className={`input input-bordered placeholder:text-black placeholder:opacity-40 border ${
+            className={`input input-bordered placeholder:text-black placeholder:opacity-40 border dark:bg-neutral-600 placeholder:dark:text-white/80 dark:text-white/80 ${
               errors.title ? "border-red-500" : "border-black"
             }`}
           />
@@ -99,7 +99,7 @@ const UpdateStudyMaterial = () => {
           )}
         </div>
         <div className="form-control mb-4">
-          <label htmlFor="note" className="text-base font-medium mb-1">
+          <label htmlFor="note" className="text-base font-medium mb-1 dark:text-white/80">
             Note Description
           </label>
           <textarea
@@ -107,7 +107,7 @@ const UpdateStudyMaterial = () => {
             id="note"
             rows="8"
             placeholder="Note Description..."
-            className={`textarea textarea-bordered placeholder:text-black placeholder:opacity-40 border ${
+            className={`textarea textarea-bordered placeholder:text-black placeholder:opacity-40 border  dark:bg-neutral-600 placeholder:dark:text-white/80 dark:text-white/80 ${
               errors.note ? "border-red-500" : "border-black"
             }`}
           />
@@ -118,7 +118,7 @@ const UpdateStudyMaterial = () => {
         <div className="form-control mt-6">
           <button
             type="submit"
-            className={`btn bg-neutral-900 text-white hover:bg-neutral-700 ${
+            className={`btn bg-neutral-900 text-white dark:bg-neutral-900 border-none hover:bg-neutral-700 ${
               isSubmitting ? "loading" : ""
             }`}
             disabled={isSubmitting}

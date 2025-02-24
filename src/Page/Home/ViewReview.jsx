@@ -15,15 +15,15 @@ const ViewReview = ({review}) => {
           alt=""
           className="md:h-24 h-16"
         />
-        <h2 className="md:text-2xl text-lg md:mt-12 mt-6">
+        <h2 className="md:text-2xl text-lg md:mt-12 mt-6 dark:text-white/80">
           {review.review
           }
         </h2>
           <div className="flex items-center gap-3 mt-5">
             <img src={review.photo} className="w-20 rounded-2xl"/>
             <div className="flex flex-col">
-            <h4 className="text-2xl font-bold">{review.name}</h4>
-            <p className="text-base">{review.email}</p>
+            <h4 className="text-2xl font-bold dark:text-white/60">{review.name}</h4>
+            <p className="text-base dark:text-white/60">{review.email}</p>
             </div>
           </div>
       </div>

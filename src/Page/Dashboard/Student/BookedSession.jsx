@@ -26,7 +26,7 @@ const BookedSession = () => {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody className="text-center text-sm sm:text-lg bg-white">
+            <tbody className="text-center text-sm sm:text-lg bg-white dark:bg-neutral-700 dark:text-white/80">
               {bookedSessions.map((booked, idx) => (
                 <tr key={booked.sessionId} className="border border-black">
                   <th>{idx + 1}</th>
@@ -44,7 +44,7 @@ const BookedSession = () => {
                   <th>
                     <Link
                       to={`/cardDetails/${booked.sessionId}`}
-                      className="flex items-center justify-center btn bg-white text-xs sm:text-base border border-black font-bold hover:bg-black hover:text-white transition-all ease-in-out duration-300 px-2 py-1 sm:px-4 sm:py-2"
+                      className="flex items-center justify-center btn bg-white dark:bg-neutral-600 dark:text-white/80 text-xs sm:text-base border border-black font-bold hover:bg-black hover:text-white transition-all ease-in-out duration-300 px-2 py-1 sm:px-4 sm:py-2"
                     >
                       <FaList className="mr-1 hidden lg:block" /> View Details
                     </Link>

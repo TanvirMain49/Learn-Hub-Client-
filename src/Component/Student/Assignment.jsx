@@ -43,10 +43,10 @@ export default function Assignment() {
         {assignments.slice(0, 4).map((assignment) => (
           <div
             key={assignment.id}
-            className="p-4 border rounded-lg bg-gray-50 hover:shadow-md transition-shadow duration-300"
+            className="p-4 border rounded-lg bg-white dark:bg-neutral-700 hover:shadow-md transition-shadow duration-300"
           >
-            <h3 className="text-base font-bold">{assignment.title}</h3>
-            <p className="text-gray-600 mt-1 text-sm">
+            <h3 className="text-base font-bold dark:text-white/80">{assignment.title}</h3>
+            <p className="text-gray-600 mt-1 text-sm dark:text-white/60">
               {assignment.description}
             </p>
             <button className="mt-2 text-blue-500 hover:text-blue-700 underline">

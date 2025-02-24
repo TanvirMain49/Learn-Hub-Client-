@@ -25,14 +25,14 @@ const StudyMaterialCard = ({ session }) => {
         );
       }
   return (
-    <div className="card bg-white text-black border border-black hover:scale-105 transition-all ease-in-out duration-300">
+    <div className="card bg-white dark:bg-neutral-700 text-black border border-black hover:scale-105 transition-all ease-in-out duration-300">
       <img src={session.imageUrl} alt="" className="h-56 rounded-xl" />
       <div className="card-body">
-        <h2 className="card-title text-3xl">{session.title}</h2>
+        <h2 className="card-title text-3xl dark:text-white/80">{session.title}</h2>
       </div>
       <div className="flex justify-center items-center ">
         <button
-          className="btn mb-6 bg-white border hover:bg-black hover:text-white  border-black transition-all ease-in-out duration-300 text-xl font-bold"
+          className="btn mb-6 bg-white dark:bg-neutral-500 dark:text-white/80 border hover:bg-black hover:text-white  border-black transition-all ease-in-out duration-300 text-xl font-bold"
           onClick={() =>
             document.getElementById(`my_modal_${session._id}`).showModal()
           }

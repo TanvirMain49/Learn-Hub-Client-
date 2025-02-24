@@ -6,9 +6,9 @@ export default function AllCourse({ bookedSessions }) {
     console.log(bookedSessions)
   return (
     <div className="md:w-full mt-8">
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="bg-white dark:bg-neutral-700 shadow-md rounded-lg overflow-hidden">
         <div className="">
-          <table className="w-full border-collapse">
+          <table className="w-full border-collapse dark:text-white/80">
             <thead className="bg-black text-white sticky top-0">
               <tr>
                 <th className="p-2 border">Course Image</th>
@@ -35,7 +35,7 @@ export default function AllCourse({ bookedSessions }) {
             </tbody>
           </table>
         </div>
-        <div className="text-center p-4">
+        <div className="text-center p-4 dark:bg-neutral-700">
           <button
             onClick={() => navigate("/dashboard/bookedSession")}
             className="bg-black text-white px-4 py-2 rounded-lg"

@@ -2,7 +2,7 @@ import SecondaryNav from '../../Shared/SecondaryNav';
 
 const AllSessionBanner = ({title, description, img, link1, route1}) => {
   return (
-    <div className="flex flex-col-reverse justify-center pb-12 md:pt-32 pt-20 lg:flex-row-reverse gap-4 mb-16 bg-white px-4 lg:px-20">
+    <div className="flex flex-col-reverse justify-center pb-12 md:pt-32 pt-20 lg:flex-row-reverse gap-4 mb-16 bg-white dark:bg-neutral-700 px-4 lg:px-20">
       {/* Image Section */}
       <img
         src={img}
@@ -13,10 +13,10 @@ const AllSessionBanner = ({title, description, img, link1, route1}) => {
       {/* Text Section */}
       <div className="w-full lg:max-w-3xl text-center lg:text-left">
         <SecondaryNav link1={link1} route1={route1} />
-        <h1 className="text-3xl lg:text-5xl font-extrabold mt-6 lg:mt-8">
+        <h1 className="text-3xl lg:text-5xl font-extrabold mt-6 lg:mt-8 dark:text-white/80">
           {title}
         </h1>
-        <p className="text-base lg:text-lg mt-4 lg:mt-5 mx-auto lg:mx-0 max-w-lg">
+        <p className="text-base lg:text-lg mt-4 lg:mt-5 mx-auto lg:mx-0 max-w-lg dark:text-white/60">
           {description}
         </p>
 
@@ -26,9 +26,9 @@ const AllSessionBanner = ({title, description, img, link1, route1}) => {
             type="text"
             name="search"
             placeholder="Search here"
-            className="input border border-black w-full max-w-xs rounded-r-none"
+            className="input border border-black dark:bg-neutral-400 placeholder:dark:text-white/80 w-full max-w-xs rounded-r-none"
           />
-          <button className="btn bg-black text-white rounded-l-none border border-black hover:bg-black hover:text-white transition-all duration-300">
+          <button className="btn bg-black text-white rounded-l-none border border-black hover:bg-black dark:bg-neutral-700 hover:text-white transition-all duration-300">
             Search
           </button>
         </div>

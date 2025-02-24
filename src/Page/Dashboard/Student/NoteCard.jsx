@@ -50,10 +50,10 @@ const NoteCard = ({ note, refetch }) => {
     });
   }
   return (
-    <div className="card bg-white text-black border border-black box transition-all duration-300 ease-in-out hover:border-none">
+    <div className="card bg-white dark:bg-neutral-700 text-black border border-black box transition-all duration-300 ease-in-out hover:border-none">
       <div className="card-body">
-        <h2 className="card-title text-3xl mb-2">{note?.title}</h2>
-        <p className="text-black">
+        <h2 className="card-title text-3xl mb-2 dark:text-white/80">{note?.title}</h2>
+        <p className="text-black dark:text-white/60">
           {note?.note.substring(0, 60)}
           <button
             onClick={() =>
@@ -67,7 +67,7 @@ const NoteCard = ({ note, refetch }) => {
       </div>
       <div className="flex items-center gap-3 justify-center mb-6">
         <button
-          className="btn text-base font-bold hover:bg-black bg-white border border-black hover:text-white transition-all ease-in-out duration-300 hover:scale-105"
+          className="btn text-base font-bold hover:bg-black dark:bg-neutral-700 dark:text-white/80 bg-white border border-black hover:text-white transition-all ease-in-out duration-300 hover:scale-105"
           onClick={() =>
             document.getElementById(`my_modal_${note._id}`).showModal()
           }
@@ -77,14 +77,14 @@ const NoteCard = ({ note, refetch }) => {
         </button>
         <Link
           to={`/dashboard/updateNotes/${note._id}`}
-          className="btn text-base bg-white border-black border font-bold hover:bg-green-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-105"
+          className="btn text-base bg-white border-black border font-bold hover:bg-green-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-105 dark:bg-neutral-700 dark:text-white/80"
         > 
         <GrUpdate className="font-extrabold"></GrUpdate>
           Update
         </Link>
         <button 
         onClick={()=>handleDelete(note._id)}
-        className="btn text-base font-bold bg-white border border-black hover:bg-red-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-105">
+        className="btn text-base font-bold bg-white border border-black hover:bg-red-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-105 dark:bg-neutral-700 dark:text-white/80">
           <FaTrashAlt></FaTrashAlt>
           Delete
         </button>

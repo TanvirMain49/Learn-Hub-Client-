@@ -22,12 +22,12 @@ const ReviewsSection = () => {
       {/* Container */}
       <div className="container md:px-8 px-2">
         {/* Heading */}
-        <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-2">
+        <h2 className="text-4xl font-extrabold text-center text-gray-800 dark:text-white/80 mb-2">
           What Our Students Say
         </h2>
 
         {/* Subtitle */}
-        <p className="text-lg text-center text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-center text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
           Hear from our students who have transformed their careers through Learnify.
         </p>
 

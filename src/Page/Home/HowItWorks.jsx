@@ -30,16 +30,16 @@ const steps = [
 const HowItWorks = () => {
   return (
     <div className="w-11/12 mx-auto mt-16">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">How It Works</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white/80">How It Works</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {steps.map((step) => (
           <div
             key={step.id}
-            className="bg-white shadow-xl rounded-lg p-6 text-center hover:shadow-2xl transform transition-all duration-300 ease-in-out"
+            className="bg-white dark:bg-neutral-700 shadow-xl rounded-lg p-6 text-center hover:shadow-2xl transform transition-all duration-300 ease-in-out"
           >
             <div className="text-6xl text-blue-500 mb-4">{step.icon}</div>
-            <h3 className="text-xl font-semibold mb-3 text-gray-900">{step.title}</h3>
-            <p className="text-gray-600">{step.description}</p>
+            <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white/80">{step.title}</h3>
+            <p className="text-gray-600 dark:text-white/60">{step.description}</p>
           </div>
         ))}
       </div>

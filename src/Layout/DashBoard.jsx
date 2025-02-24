@@ -336,7 +336,7 @@ const DashBoard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 md:pl-72 md:pr-0 pr-2 min-h-screen bg-gray-100">
+      <div className="flex-1 md:pl-72 md:pr-0 pr-2 min-h-screen bg-base-200 dark:bg-neutral-800">
         <DashTopNav />
         <div className="md:px-6 px-3">
           <Outlet></Outlet>

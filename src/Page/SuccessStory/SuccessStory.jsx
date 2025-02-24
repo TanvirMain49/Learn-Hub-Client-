@@ -59,7 +59,7 @@ export default function SuccessStory() {
       />
       <div className="md:w-10/12 md:mx-auto mx-8 grid grid-cols-1 md:grid-cols-3 justify-center">
         {successStories.map((story) => (
-          <div key={story.id} className="md:w-1/3 p-4">
+          <div key={story.id} className="p-4">
             <SuccessStoryCard story={story} />
           </div>
         ))}

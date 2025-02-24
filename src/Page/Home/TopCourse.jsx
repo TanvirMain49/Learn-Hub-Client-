@@ -18,7 +18,7 @@ const TopCourse = () => {
       }
       </div>
       <div className="flex justify-center items-center">
-        <Link to='allSession'><button className="btn border-2 text-white-500 border-black hover:bg-black hover:text-white font-bold transition-all ease-in-out duration-300 mt-4">Explore More</button></Link>
+        <Link to='allSession'><button className="btn border-2 text-white-500 border-black hover:bg-black dark:bg-neutral-700 dark:text-white/80 hover:text-white font-bold transition-all ease-in-out duration-300 mt-4">Explore More</button></Link>
       </div>
     </div>
   );
