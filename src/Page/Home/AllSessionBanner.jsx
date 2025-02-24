@@ -2,12 +2,12 @@ import SecondaryNav from '../../Shared/SecondaryNav';
 
 const AllSessionBanner = ({title, description, img, link1, route1}) => {
   return (
-    <div className="flex flex-col-reverse justify-center pb-12 pt-32 lg:flex-row-reverse gap-4 mb-16 bg-white px-4 lg:px-20">
+    <div className="flex flex-col-reverse justify-center pb-12 md:pt-32 pt-20 lg:flex-row-reverse gap-4 mb-16 bg-white px-4 lg:px-20">
       {/* Image Section */}
       <img
         src={img}
         alt="All Sessions Banner"
-        className="h-[280px] w-full lg:h-[420px] lg:max-w-[624px] object-cover rounded-lg shadow-2xl boxFixed border-2 border-gray-300"
+        className="h-[280px] w-full lg:h-[420px] lg:max-w-[624px] object-cover rounded-lg shadow-2xl md:boxFixed border-2 border-gray-300"
       />
 
       {/* Text Section */}

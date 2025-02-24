@@ -20,17 +20,19 @@ const CardDetails = () => {
         {/* Image */}
         <img
           src={card.imageUrl}
-          className="w-full lg:w-1/2 h-[460px] object-cover rounded-lg shadow-2xl boxSecondary border-2 border-gray-300"
+          className="w-full lg:w-1/2 h-[460px] object-cover rounded-lg shadow-2xl md:boxSecondary border-2 border-gray-300"
           alt={card.title}
         />
 
         {/* Content */}
-        <div className="w-full lg:w-1/2 lg:pr-8 md:block hidden">
+        <div className="w-full lg:w-1/2 lg:pr-8">
+          <div className="md:block hidden">
           <SecondaryNav
             link1="All Session"
             link2="Course Details"
             route1="/allSession"
           />
+          </div>
           <h1 className="text-4xl lg:text-7xl font-extrabold mt-8">
             {card.title}
           </h1>
@@ -124,7 +126,7 @@ const CardDetails = () => {
         <img
           src={card.tutorImageUrl}
           alt={card.tutorName}
-          className="w-full lg:w-1/3 h-[540px] boxFixed border-2 border-gray-300 object-cover"
+          className="w-full lg:w-1/3 h-[540px] md:boxFixed border-2 border-gray-300 object-cover"
         />
 
         <div className="w-full lg:w-2/3 lg:ml-[7%] mt-10">

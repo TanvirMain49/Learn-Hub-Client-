@@ -5,7 +5,6 @@ import AllTutorCard from "./AllTutorCard";
 
 export default function AllTutor() {
   const { tutors, refetch } = useTutor();
-  console.log(tutors);
   return (
     <div>
       <AllSessionBanner

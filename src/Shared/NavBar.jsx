@@ -46,7 +46,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 text-black shadow"
             >
               <NavLink to="/" className="text-lg p-3">
                 Home
@@ -57,7 +57,7 @@ const Navbar = () => {
               <NavLink to="allTutor" className="text-lg">
                 All Tutor
               </NavLink>
-              <NavLink to="allTutor" className="text-lg">
+              <NavLink to="allSuccess" className="text-lg">
                 All Success
               </NavLink>
               <NavLink to="/dashboard/Das" className="text-lg">
@@ -67,7 +67,7 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="md:btn md:btn-ghost md:text-2xl text-xl text-black font-bold mr-0"
+            className="md:btn md:btn-ghost md:text-2xl text-xl text-white font-bold mr-0"
           >
             LearnHub
           </Link>

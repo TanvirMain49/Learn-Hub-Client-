@@ -39,7 +39,7 @@ export default function Assignment() {
       <h2 className="text-lg font-semibold mb-4 text-center">
         Assignment Tasks
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4">
         {assignments.slice(0, 4).map((assignment) => (
           <div
             key={assignment.id}
