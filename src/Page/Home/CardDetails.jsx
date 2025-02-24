@@ -14,7 +14,7 @@ const CardDetails = () => {
   const { items: card } = useCardDetails(id);
 
   return (
-    <div className="my-20 w-11/12 mx-auto">
+    <div className="mb-20 pt-32 w-11/12 mx-auto">
       {/* Banner section */}
       <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-0">
         {/* Image */}

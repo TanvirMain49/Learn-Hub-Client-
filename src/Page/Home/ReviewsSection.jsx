@@ -18,9 +18,9 @@ const ReviewsSection = () => {
   });
 
   return (
-    <div className="py-10">
+    <div className="md:py-10 py-5">
       {/* Container */}
-      <div className="container px-8">
+      <div className="container md:px-8 px-2">
         {/* Heading */}
         <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-2">
           What Our Students Say
