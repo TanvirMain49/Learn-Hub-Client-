@@ -35,9 +35,9 @@ const DashBoard = () => {
       <div className="lg:hidden relative z-10 -mr-5">
         <div className="drawer">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content pt-2 pl-2 bg-gray-100">
+          <div className="drawer-content pt-2 pl-2">
             <label htmlFor="my-drawer" className="drawer-button">
-              <FaListUl className="text-base"></FaListUl>
+              <FaListUl className="text-xl text-white font-bold"></FaListUl>
             </label>
           </div>
           <div className="drawer-side">

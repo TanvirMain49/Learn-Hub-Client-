@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import DashProfile from "../Component/DashProfile";
 
 const Navbar = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const Navbar = () => {
           navHome && !isScrolled
             ? "absolute bg-transparent text-white"
             : "fixed bg-black shadow-lg text-white"
-        } py-1 rounded-b-lg`}
+        } py-1 rounded-b-lg px-16`}
       >
         <div className="navbar-start">
           <div className="dropdown">
@@ -98,25 +99,7 @@ const Navbar = () => {
         </div>
         <div className="md:ml-0 ml-16">
           {user ? (
-            <div className="dropdown md:dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn ml-20 md:ml-0 btn-ghost btn-circle avatar"
-              >
-                <div className="md:w-20 w-16 rounded-full">
-                  {user && <img alt="user" src={user.photoURL} />}
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-              >
-                <button onClick={signOutUser}>
-                  <li className="text-lg">Logout</li>
-                </button>
-              </ul>
-            </div>
+            <DashProfile />
           ) : (
             <div className="md:flex md:gap-2 md:items-center">
               <Link

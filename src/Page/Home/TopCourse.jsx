@@ -6,9 +6,8 @@ import { Link } from "react-router-dom";
 
 const TopCourse = () => {
   const {card} = useSessionCard();
-  console.log(card)
   return (
-    <div className="my-24">
+    <div className="mt-12">
       <SectionHeading
         heading="Top-Rated Resources and Tutors"
         paragraph="Explore the best-rated study materials and connect with highly recommended tutors, handpicked by our community to ensure quality and success in your learning journey."

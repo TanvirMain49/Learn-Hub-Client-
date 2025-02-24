@@ -2,6 +2,8 @@ import React from "react";
 import useAuth from "../Hooks/useAuth";
 import { Link, Navigate } from "react-router-dom";
 import { IoLogOut } from "react-icons/io5";
+import { FaPersonRifle } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
 
 export default function DashProfile() {
   const { user, signOutUser } = useAuth();
@@ -26,7 +28,8 @@ export default function DashProfile() {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
       >
         <li>
-          <Link to="/dashboard/profile" className="justify-between">
+          <Link to="/dashboard/profile" className="flex items-center gap-2">
+            <FaUser />
             Profile
           </Link>
         </li>

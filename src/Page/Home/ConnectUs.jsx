@@ -3,7 +3,7 @@ import connect from '../../assets/Consultation.json';
 
 const ConnectUs = () => {
   return (
-    <section className="bg-black text-white md:pt-16 mt-24 flex justify-center items-center md:min-h-[580px] relative">
+    <section className="bg-black text-white md:pt-16 mt-12 flex justify-center items-center md:min-h-[580px] relative">
       <div className="hidden md:block absolute top-0 left-[38%]">
         <Lottie animationData={connect} loop={true} className="max-w-52" />
       </div>

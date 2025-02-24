@@ -18,7 +18,7 @@ const ReviewsSection = () => {
   });
 
   return (
-    <div className="md:py-10 py-5">
+    <div className="md:pt-12 py-5">
       {/* Container */}
       <div className="container md:px-8 px-2">
         {/* Heading */}
