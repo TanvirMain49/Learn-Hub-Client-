@@ -15,7 +15,7 @@ export default function AdminDash() {
   const [totalTutor, setTotalTutor] = useState("");
 
   return (
-    <>
+    <div className="md:w-full w-[424px]">
       <h1 className="text-3xl font-bold dark:text-white/80">Dashboard</h1>
       <p className="text-gray-400">
         Welcome to <strong className="text-black dark:text-white">Admin</strong> Dashboard
@@ -40,6 +40,6 @@ export default function AdminDash() {
         <DashStudent setTotalStudent={setTotalStudent} />
         <DashTutor setTotalTutor={setTotalTutor} />
       </div>
-    </>
+    </div>
   );
 }

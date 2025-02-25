@@ -29,178 +29,218 @@ import Profile from "../Page/Dashboard/Profile";
 import AllTutor from "../Page/AllTutor/AllTutor";
 import SuccessStory from "../Page/SuccessStory/SuccessStory";
 
-// http://localhost:5000
+// https://learn-hub2.vercel.app
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayOut></MainLayOut>,
-      children:[
-        {
-            path:'/',
-            element: <Home></Home>
-        },
-        {
-            path:'allSession',
-            element: <AllSession></AllSession>
-        },
-        {
-            path:'allTutor',
-            element: <AllTutor></AllTutor>
-        },
-        {
-            path:'allSuccess',
-            element: <SuccessStory></SuccessStory>
-        },
-        {
-            path:'login',
-            element: <Login></Login>
-        },
-        {
-            path:'signup',
-            element: <Signin></Signin>
-        },
-        {
-            path:'cardDetails/:id',
-            element: <PrivateRoutes>
-              <CardDetails></CardDetails>
-            </PrivateRoutes>,
-            loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
-        },
-        {
-            path:'book/:id',
-            element: <PrivateRoutes>
-              <Payment></Payment>
-            </PrivateRoutes>,
-        }
-      ]
-    },
-    {
-      path:"dashboard",
-      element: <PrivateRoutes>
+  {
+    path: "/",
+    element: <MainLayOut></MainLayOut>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "allSession",
+        element: <AllSession></AllSession>,
+      },
+      {
+        path: "allTutor",
+        element: (
+          <PrivateRoutes>
+            <AllTutor></AllTutor>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "allSuccess",
+        element: <SuccessStory></SuccessStory>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "signup",
+        element: <Signin></Signin>,
+      },
+      {
+        path: "cardDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <CardDetails></CardDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://learn-hub2.vercel.app/session/${params.id}`),
+      },
+      {
+        path: "book/:id",
+        element: (
+          <PrivateRoutes>
+            <Payment></Payment>
+          </PrivateRoutes>
+        ),
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoutes>
         <DashBoard></DashBoard>
-      </PrivateRoutes> ,
-      children:[
+      </PrivateRoutes>
+    ),
+    children: [
+      {
+        path: "/dashboard/Das",
+        element: <DashBoardBanner></DashBoardBanner>,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile></Profile>,
+      },
 
-        {
-          path:'/dashboard/Das',
-          element: <DashBoardBanner></DashBoardBanner>
-        },
-        {
-          path:'/dashboard/profile',
-          element: <Profile></Profile>
-        },
-
-        // !student
-        {
-          path:'bookedSession',
-          element:<PrivateRoutes>
+      // !student
+      {
+        path: "bookedSession",
+        element: (
+          <PrivateRoutes>
             <BookedSession></BookedSession>
           </PrivateRoutes>
-        },
-        {
-          path:'notes',
-          element:<PrivateRoutes>
+        ),
+      },
+      {
+        path: "notes",
+        element: (
+          <PrivateRoutes>
             <Notes></Notes>
           </PrivateRoutes>
-        },
-        {
-          path:'mangeNotes',
-          element:<PrivateRoutes>
+        ),
+      },
+      {
+        path: "mangeNotes",
+        element: (
+          <PrivateRoutes>
             <MangeNote></MangeNote>
           </PrivateRoutes>
-        },
-        {
-          path:'updateNotes/:id',
-          element:<PrivateRoutes>
+        ),
+      },
+      {
+        path: "updateNotes/:id",
+        element: (
+          <PrivateRoutes>
             <UpdateStudyMaterial></UpdateStudyMaterial>
           </PrivateRoutes>
-        },
-        {
-          path:'studyMaterial',
-          element: <PrivateRoutes>
+        ),
+      },
+      {
+        path: "studyMaterial",
+        element: (
+          <PrivateRoutes>
             <StudyMaterial></StudyMaterial>
           </PrivateRoutes>
-        },
+        ),
+      },
 
-        // !Tutor
-        {
-          path:'addSession',
-          element:<PrivateRoutes>
+      // !Tutor
+      {
+        path: "addSession",
+        element: (
+          <PrivateRoutes>
             <PrivateTutorRoutes>
-            <AddSession></AddSession>
+              <AddSession></AddSession>
             </PrivateTutorRoutes>
           </PrivateRoutes>
-        },
-        {
-          path:'personalSession',
-          element:<PrivateRoutes>
+        ),
+      },
+      {
+        path: "personalSession",
+        element: (
+          <PrivateRoutes>
             <PrivateTutorRoutes>
-            <PersonalSession></PersonalSession>
+              <PersonalSession></PersonalSession>
             </PrivateTutorRoutes>
           </PrivateRoutes>
-        },
-        {
-          path:'addMaterial/:id',
-          element:<PrivateRoutes>
+        ),
+      },
+      {
+        path: "addMaterial/:id",
+        element: (
+          <PrivateRoutes>
             <PrivateTutorRoutes>
-            <AddMaterial></AddMaterial>
-            </PrivateTutorRoutes>
-          </PrivateRoutes>,
-          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
-        },
-        {
-          path:'updateMaterial/:id',
-          element:<PrivateRoutes>
-            <PrivateTutorRoutes>
-            <UpdateMaterial></UpdateMaterial>
-            </PrivateTutorRoutes>
-          </PrivateRoutes>,
-          loader: ({params})=> fetch(`http://localhost:5000/session/${params.id}`)
-        },
-        {
-          path:'materials',
-          element:<PrivateRoutes>
-            <PrivateTutorRoutes>
-            <Materials></Materials>
+              <AddMaterial></AddMaterial>
             </PrivateTutorRoutes>
           </PrivateRoutes>
-        },
-        {
-          path:'allMaterials',
-          element:<PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://learn-hub2.vercel.app/session/${params.id}`),
+      },
+      {
+        path: "updateMaterial/:id",
+        element: (
+          <PrivateRoutes>
             <PrivateTutorRoutes>
-            <AllMaterials></AllMaterials>
+              <UpdateMaterial></UpdateMaterial>
             </PrivateTutorRoutes>
           </PrivateRoutes>
-        },
+        ),
+        loader: ({ params }) =>
+          fetch(`https://learn-hub2.vercel.app/session/${params.id}`),
+      },
+      {
+        path: "materials",
+        element: (
+          <PrivateRoutes>
+            <PrivateTutorRoutes>
+              <Materials></Materials>
+            </PrivateTutorRoutes>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "allMaterials",
+        element: (
+          <PrivateRoutes>
+            <PrivateTutorRoutes>
+              <AllMaterials></AllMaterials>
+            </PrivateTutorRoutes>
+          </PrivateRoutes>
+        ),
+      },
 
-        // !{Admin}
-        {
-          path:'Admin/Users',
-          element:<PrivateRoutes>
+      // !{Admin}
+      {
+        path: "Admin/Users",
+        element: (
+          <PrivateRoutes>
             <PrivateAdminRoutes>
-            <Users></Users>
+              <Users></Users>
             </PrivateAdminRoutes>
           </PrivateRoutes>
-        },
-        {
-          path:'Admin/AllSession',
-          element:<PrivateRoutes>
+        ),
+      },
+      {
+        path: "Admin/AllSession",
+        element: (
+          <PrivateRoutes>
             <PrivateAdminRoutes>
-            <AllSessionAdmin></AllSessionAdmin>
+              <AllSessionAdmin></AllSessionAdmin>
             </PrivateAdminRoutes>
           </PrivateRoutes>
-        },
-        {
-          path:'Admin/AllMaterials',
-          element:<PrivateRoutes>
+        ),
+      },
+      {
+        path: "Admin/AllMaterials",
+        element: (
+          <PrivateRoutes>
             <PrivateAdminRoutes>
-            <ViewAllMaterial></ViewAllMaterial>
+              <ViewAllMaterial></ViewAllMaterial>
             </PrivateAdminRoutes>
           </PrivateRoutes>
-        }
-      ]
-    }
-  ]);
+        ),
+      },
+    ],
+  },
+]);
 export default router;

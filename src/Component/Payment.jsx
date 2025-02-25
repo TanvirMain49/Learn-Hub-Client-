@@ -5,7 +5,7 @@ export default function Payment() {
   const [payments, setPayments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/payment")
+    fetch("https://learn-hub2.vercel.app/payment")
       .then((response) => response.json())
       .then((data) => setPayments(data));
   }, []);
@@ -56,7 +56,7 @@ export default function Payment() {
         paginationPerPage={5} 
         paginationRowsPerPageOptions={[5, 10]}
         customStyles={customStyles}
-        className="p-6 dark:bg-neutral-700" 
+        className="md:p-6 dark:bg-neutral-700" 
       />
     </div>
   );

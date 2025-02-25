@@ -1,3 +1,4 @@
+import { FaQuoteLeft } from "react-icons/fa";
 import image from "../../assets/review.jpg";
 
 const ViewReview = ({review}) => {
@@ -10,11 +11,7 @@ const ViewReview = ({review}) => {
       />
 
       <div className="md:mt-0">
-        <img
-          src="https://www.pngkey.com/png/detail/84-844027_double-quotation-marks-beg-double-inverted-commas-png.png"
-          alt=""
-          className="md:h-24 h-16"
-        />
+        <FaQuoteLeft className="text-8xl dark:text-white/80" />
         <h2 className="md:text-2xl text-lg md:mt-12 mt-6 dark:text-white/80">
           {review.review
           }

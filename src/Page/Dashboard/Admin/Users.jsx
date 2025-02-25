@@ -128,7 +128,7 @@ const Users = () => {
   ];
 
   return (
-    <div>
+    <div className="md:w-full w-[426px]">
       <DasHeading
         Heading="All Users"
         subHeading="Manage User Roles and Permissions"

@@ -73,7 +73,7 @@ const RenderTable = ({ cards, status, refetch }) => {
           >
             {row.status}
           </button>
-          <UpdateRole item={row} refetch={refetch} />
+          <UpdateRole item={row} refetch={refetch}/>
         </div>
       ),
       sortable: true,
