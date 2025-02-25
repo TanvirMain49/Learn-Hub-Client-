@@ -39,10 +39,10 @@ const StudentReview = () => {
 
   return (
     <div className="my-20 md:my-44 px-4">
-      <h1 className="text-3xl md:text-5xl font-bold text-center">
+      <h1 className="text-3xl md:text-5xl font-bold text-center dark:text-white/80">
         Please Provide Your Review and Rating
       </h1>
-      <p className="text-sm md:text-base text-center max-w-3xl mx-auto font-normal mt-3 mb-8">
+      <p className="text-sm md:text-base text-center max-w-3xl mx-auto font-normal mt-3 mb-8 dark:text-white/60">
         We value your feedback! Share your thoughts and experiences with us by
         leaving a review. Your input helps us improve and ensures we continue to
         provide the best service possible. Don’t forget to rate us on a scale of
@@ -51,7 +51,7 @@ const StudentReview = () => {
       </p>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card-body border border-black max-w-3xl mx-auto p-6 md:p-12 rounded-lg"
+        className="card-body border border-black max-w-3xl mx-auto p-6 md:p-12 rounded-lg dark:bg-neutral-700"
       >
         <div className="form-control">
           <input
@@ -60,7 +60,7 @@ const StudentReview = () => {
             defaultValue={user?.displayName}
             placeholder="Student Name"
             readOnly
-            className="input input-bordered border border-black mb-3 w-full"
+            className="input input-bordered border dark:bg-neutral-500 border-black mb-3 w-full"
             required
           />
         </div>
@@ -71,7 +71,7 @@ const StudentReview = () => {
             defaultValue={user?.email}
             placeholder="Student Username or Email"
             readOnly
-            className="input input-bordered border border-black mb-3 w-full"
+            className="input dark:bg-neutral-500 input-bordered border border-black mb-3 w-full"
             required
           />
         </div>
@@ -80,7 +80,7 @@ const StudentReview = () => {
             rows="6"
             {...register("review")}
             placeholder="Your Review...."
-            className="border border-black p-2 w-full rounded-md"
+            className="border dark:bg-neutral-500 placeholder:dark:text-white/60 border-black p-2 w-full rounded-md"
             required
           ></textarea>
         </div>
@@ -99,7 +99,7 @@ const StudentReview = () => {
             })}
             type="number"
             placeholder="Your Rating (out of 5)"
-            className="input input-bordered border border-black w-full"
+            className="input input-bordered border dark:bg-neutral-500 placeholder:dark:text-white/60 border-black w-full"
           />
           {errors.rating && (
             <span className="text-red-500 text-sm">
@@ -111,7 +111,7 @@ const StudentReview = () => {
           <input
             type="submit"
             disabled={isRole !== "Student"}
-            className="btn bg-neutral-900 text-white hover:bg-neutral-700 w-full"
+            className="btn bg-neutral-900 dark:bg-neutral-700 text-white hover:bg-neutral-700 w-full"
             value="Send Review & Rating"
           />
         </div>

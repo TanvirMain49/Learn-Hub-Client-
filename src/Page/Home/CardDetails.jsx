@@ -33,19 +33,19 @@ const CardDetails = () => {
             route1="/allSession"
           />
           </div>
-          <h1 className="text-4xl lg:text-7xl font-extrabold mt-8">
+          <h1 className="text-4xl lg:text-7xl font-extrabold mt-8 dark:text-white/80">
             {card.title}
           </h1>
 
           {/* Session little information */}
           <div className="flex flex-wrap gap-4 my-8 font-semibold">
-            <h1 className="flex items-center gap-1 whitespace-nowrap">
+            <h1 className="flex items-center gap-1 whitespace-nowrap dark:text-white/80">
               <FaBookmark /> {card.registerStart} - {card.registerEnd}
             </h1>
-            <h1 className="flex items-center gap-1 whitespace-nowrap">
+            <h1 className="flex items-center gap-1 whitespace-nowrap dark:text-white/80">
               <FaClock /> {card.classStart} - {card.classEnd}
             </h1>
-            <h1 className="flex items-center gap-1 whitespace-nowrap">
+            <h1 className="flex items-center gap-1 whitespace-nowrap dark:text-white/80">
               <FaStar /> 3.5(3k review)
             </h1>
           </div>
@@ -53,22 +53,22 @@ const CardDetails = () => {
           {/* Purchase section */}
           <div className="flex items-center gap-4">
             {card.price === "0" ? (
-              <h2 className="text-3xl font-bold">$Free</h2>
+              <h2 className="text-3xl font-bold dark:text-white/80">$Free</h2>
             ) : (
-              <h2 className="text-4xl font-bold">${card.price}</h2>
+              <h2 className="text-4xl font-bold dark:text-white/80">${card.price}</h2>
             )}
             {new Date(card.registerStart) <= new Date() &&
             new Date(card.registerEnd) >= new Date() ? (
               <Link to={`/book/${card._id}`}>
                 <button
                 disabled={isRole !== "Student"}
-                  className="btn font-bold border-2 border-black text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300"
+                  className="btn font-bold border-2 border-black dark:bg-neutral-700 dark:text-white/80 text-base hover:bg-black hover:text-white transition-all ease-in-out duration-300"
                 >
                   Book Now
                 </button>
               </Link>
             ) : (
-              <button className="btn font-bold border-2 border-red-500 text-base bg-red-500 hover:text-white text-white transition-all ease-in-out duration-300">
+              <button className="btn dark:text-white/80 font-bold border-2 border-red-500 text-base bg-red-500 hover:text-white text-white transition-all ease-in-out duration-300">
                 Not Available Now
               </button>
             )}
@@ -79,15 +79,15 @@ const CardDetails = () => {
       {/* What you learn from this course section */}
       <div className="mb-36 mt-28 flex flex-col lg:flex-row justify-center gap-10">
         <div className="w-full lg:w-1/2">
-          <h2 className="text-4xl lg:text-5xl font-extrabold mb-4">
+          <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 dark:text-white/80">
             What You Will Learn
           </h2>
-          <p className="text-lg">{card.description}</p>
+          <p className="text-lg dark:text-white/60">{card.description}</p>
         </div>
 
         {/* Session format */}
         <div className="w-full lg:w-1/2 flex flex-col lg:flex-row gap-4">
-          <div className="border border-black p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex flex-col items-center justify-center hover:-translate-y-3">
+          <div className="border border-black dark:text-white/80 dark:bg-neutral-600 p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex flex-col items-center justify-center hover:-translate-y-3">
             <FaComputer className="text-6xl mb-3" />
             <h2 className="text-3xl font-semibold mb-3">Course Format</h2>
             <ul className="space-y-3">
@@ -103,7 +103,7 @@ const CardDetails = () => {
             </ul>
           </div>
 
-          <div className="border border-black p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex flex-col items-center justify-center hover:-translate-y-3">
+          <div className="border dark:text-white/80 dark:bg-neutral-600 border-black p-6 hover:bg-black hover:text-white rounded-xl transition-all ease-in-out duration-300 flex flex-col items-center justify-center hover:-translate-y-3">
             <FaClock className="text-6xl mb-3" />
             <h2 className="text-3xl font-semibold mb-3">Duration Course</h2>
             <ul className="space-y-3">
@@ -130,22 +130,22 @@ const CardDetails = () => {
         />
 
         <div className="w-full lg:w-2/3 lg:ml-[7%] mt-10">
-          <h1 className="text-4xl lg:text-6xl font-extrabold mb-4">
+          <h1 className="text-4xl lg:text-6xl font-extrabold mb-4 dark:text-white/80">
             Session Instructors
           </h1>
-          <p className="text-3xl lg:text-4xl font-bold mb-2">
+          <p className="text-3xl lg:text-4xl font-bold mb-2 dark:text-white/80">
             {card.tutorName}.
           </p>
-          <p className="text-xl mb-2">{card.tutorPro}</p>
+          <p className="text-xl mb-2 dark:text-white/80">{card.tutorPro}</p>
           <div className="flex flex-wrap gap-6 mb-4">
-            <p className="text-lg flex items-center gap-1">
+            <p className="text-lg flex items-center gap-1 dark:text-white/80">
               <FaClock /> 120 Hours
             </p>
-            <p className="text-lg flex items-center gap-1">
+            <p className="text-lg flex items-center gap-1 dark:text-white/80">
               <FaStar /> 4.2(22 review)
             </p>
           </div>
-          <p className="text-lg max-w-4xl">{card.tutorDescription}</p>
+          <p className="text-lg max-w-4xl dark:text-white/80">{card.tutorDescription}</p>
         </div>
       </div>
 
