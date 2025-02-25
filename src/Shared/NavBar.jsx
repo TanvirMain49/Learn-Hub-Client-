@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import DashProfile from "../Component/DashProfile";
-import DashToggle from "../Component/DashToggle"
+import DashToggle from "../Component/DashToggle";
 
 const Navbar = () => {
   const location = useLocation();
@@ -56,15 +56,20 @@ const Navbar = () => {
               <NavLink to="allSession" className="text-lg">
                 All Session
               </NavLink>
-              <NavLink to="allTutor" className="text-lg">
-                All Tutor
-              </NavLink>
+              {user && (
+                <NavLink to="allTutor" className="text-lg">
+                  All Tutor
+                </NavLink>
+              )}
               <NavLink to="allSuccess" className="text-lg">
                 All Success
               </NavLink>
-              <NavLink to="/dashboard/Das" className="text-lg">
-                Dashboard
-              </NavLink>
+              {user && (
+                <NavLink to="/dashboard/Das" className="text-lg">
+                  {" "}
+                  Dashboard
+                </NavLink>
+              )}
             </ul>
           </div>
           <Link
@@ -96,7 +101,7 @@ const Navbar = () => {
                 Dashboard
               </NavLink>
             )}
-          <DashToggle />
+            <DashToggle />
           </ul>
         </div>
         <div className="md:ml-0 ml-16">
