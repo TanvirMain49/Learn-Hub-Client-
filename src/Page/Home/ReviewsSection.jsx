@@ -3,9 +3,10 @@ import React from "react";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react"; // ✅ Correct Import
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import ViewReview from "./ViewReview";
+import { motion } from "framer-motion"; // ✅ Import motion
 
 const ReviewsSection = () => {
   const axiosPublic = useAxiosPublic();
@@ -22,24 +23,36 @@ const ReviewsSection = () => {
       {/* Container */}
       <div className="container md:px-8 px-2">
         {/* Heading */}
-        <h2 className="text-4xl font-extrabold text-center text-gray-800 dark:text-white/80 mb-2">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-extrabold text-center text-gray-800 dark:text-white/80 mb-2"
+        >
           What Our Students Say
-        </h2>
+        </motion.h2>
 
         {/* Subtitle */}
-        <p className="text-lg text-center text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg text-center text-gray-600 dark:text-white/60 max-w-2xl mx-auto"
+        >
           Hear from our students who have transformed their careers through Learnify.
-        </p>
+        </motion.p>
 
         {/* Swiper Carousel */}
-        <Swiper
-          pagination={true}
-          modules={[Pagination]}
-          className="mySwiper"
-        >
-          {reviews.map((review) => (
+        <Swiper pagination={true} modules={[Pagination]} className="mySwiper mt-8">
+          {reviews.map((review, index) => (
             <SwiperSlide key={review._id}>
-              <ViewReview review={review} />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ViewReview review={review} />
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
